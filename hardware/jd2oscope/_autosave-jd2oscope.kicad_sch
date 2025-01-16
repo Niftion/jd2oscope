@@ -1,0 +1,89 @@
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "edc486fe-1e42-492d-8b72-1ef6d1a77d24")
+	(paper "A4")
+	(lib_symbols)
+	(sheet
+		(at 175.26 97.79)
+		(size 24.13 17.78)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "1ae9ab63-07f7-4582-92de-a1d2cbcbe852")
+		(property "Sheetname" "InterfacePanel"
+			(at 175.26 97.0784 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "interfacePanel.kicad_sch"
+			(at 175.26 116.1546 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "jd2oscope"
+				(path "/edc486fe-1e42-492d-8b72-1ef6d1a77d24"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 111.76 86.36)
+		(size 25.4 19.05)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "4c16f695-eee7-429c-a04c-a2e6d9809b13")
+		(property "Sheetname" "Linear Regulator"
+			(at 111.76 85.6484 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "LinearRegulator.kicad_sch"
+			(at 111.76 105.9946 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "jd2oscope"
+				(path "/edc486fe-1e42-492d-8b72-1ef6d1a77d24"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+)
