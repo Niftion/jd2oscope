@@ -827,31 +827,9 @@
 			)
 		)
 	)
-	(rectangle
-		(start 132.08 50.8)
-		(end 204.47 57.15)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid de4186ba-becd-4d59-8a23-f6091ce38270)
-	)
-	(text "Onboard ADC is good enough so long as you disable the onboard wifi"
-		(exclude_from_sim no)
-		(at 168.148 54.356 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "539edffc-3a7f-493b-890f-4a7ec5c3de59")
-	)
 	(symbol
 		(lib_id "RF_Module:ESP32-S3-WROOM-2")
-		(at 92.71 67.31 0)
+		(at 92.71 83.82 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -860,7 +838,7 @@
 		(fields_autoplaced yes)
 		(uuid "e83a6826-7196-432f-97d6-d2765daa85dc")
 		(property "Reference" "U2"
-			(at 94.9041 16.51 0)
+			(at 94.9041 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -869,7 +847,7 @@
 			)
 		)
 		(property "Value" "ESP32-S3-WROOM-2"
-			(at 94.9041 19.05 0)
+			(at 94.9041 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -878,7 +856,7 @@
 			)
 		)
 		(property "Footprint" "RF_Module:ESP32-S3-WROOM-2"
-			(at 92.71 128.27 0)
+			(at 92.71 144.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -887,7 +865,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.espressif.com/sites/default/files/documentation/esp32-s3-wroom-2_datasheet_en.pdf"
-			(at 92.71 130.81 0)
+			(at 92.71 147.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -896,7 +874,7 @@
 			)
 		)
 		(property "Description" "RF Module, 2.4 GHz, Wi­-Fi, Bluetooth, BLE, ESP32­-S3R8V"
-			(at 92.71 67.31 0)
+			(at 92.71 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)

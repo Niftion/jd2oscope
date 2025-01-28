@@ -5,9 +5,109 @@
 	(uuid "eb18a3da-9fbf-4329-a814-1afab785c817")
 	(paper "A4")
 	(lib_symbols)
+	(text "(any; GPIO 27)"
+		(exclude_from_sim no)
+		(at 37.084 120.904 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "38a84a75-9566-43cf-9420-9d78ee69d8d0")
+	)
+	(text "(GPIO 23)"
+		(exclude_from_sim no)
+		(at 33.274 91.44 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "4dad5525-6e48-4f3a-bd82-57fa73f641be")
+	)
+	(text "(any; GPIO 5)"
+		(exclude_from_sim no)
+		(at 40.132 84.074 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "7723f226-b65e-40e2-9b1c-54d734b6d4bd")
+	)
+	(text "(GPIO 18)"
+		(exclude_from_sim no)
+		(at 38.608 105.664 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "9bdc79ec-939a-4cef-8ba4-24fdc35a791e")
+	)
+	(text "(any; GPIO 15)"
+		(exclude_from_sim no)
+		(at 37.592 109.474 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "b303d6f2-15a7-4403-9556-c235062e4132")
+	)
+	(text "(GPIO 23)"
+		(exclude_from_sim no)
+		(at 39.116 113.284 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "b995a1cc-3c7f-43e6-ae68-1aee081f0e73")
+	)
+	(text "(GPIO 18)"
+		(exclude_from_sim no)
+		(at 40.132 95.504 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "bb855a78-80b8-46ed-ac7c-1e95ac8c8348")
+	)
+	(text "(any; GPIO 2)"
+		(exclude_from_sim no)
+		(at 38.608 87.884 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "c8d4558f-2692-425d-a2ee-bcd6638989d2")
+	)
+	(text "(GPIO 19)"
+		(exclude_from_sim no)
+		(at 32.766 99.314 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "d27ccb80-d9e4-4bb3-b33a-b6283e2495da")
+	)
+	(text "(GPIO 19)"
+		(exclude_from_sim no)
+		(at 39.624 117.094 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "e810f45e-21c8-46a0-8533-c6efb9428f47")
+	)
 	(sheet
-		(at 38.1 125.73)
-		(size 22.86 16.51)
+		(at 115.57 33.02)
+		(size 17.78 16.51)
 		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
@@ -16,9 +116,9 @@
 		(fill
 			(color 0 0 0 0.0000)
 		)
-		(uuid "67632014-9533-4d19-bf73-9999e4378812")
-		(property "Sheetname" "Touchscreen"
-			(at 38.1 125.0184 0)
+		(uuid "53a41818-3f0f-42a5-bb8b-35a22bb57817")
+		(property "Sheetname" "buttonModule"
+			(at 115.57 32.3084 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -26,8 +126,8 @@
 				(justify left bottom)
 			)
 		)
-		(property "Sheetfile" "touchscreen.kicad_sch"
-			(at 38.1 142.8246 0)
+		(property "Sheetfile" "buttonModule.kicad_sch"
+			(at 115.57 50.1146 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -38,7 +138,288 @@
 		(instances
 			(project "jd2oscope"
 				(path "/eb18a3da-9fbf-4329-a814-1afab785c817"
-					(page "2")
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 27.94 80.01)
+		(size 22.86 46.99)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "90e44cf6-9696-4eec-a87b-3c33baa89c99")
+		(property "Sheetname" "Touchscreen_LCD_Display"
+			(at 27.94 79.2984 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Touchscreen_LCD_Display.kicad_sch"
+			(at 13.208 75.946 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "D{slash}C" input
+			(at 50.8 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "f544c4da-f27d-48ae-a729-e3f6a864c536")
+		)
+		(pin "SCK" input
+			(at 50.8 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "cdd8c760-9220-4787-b885-6a3e2ae90f52")
+		)
+		(pin "CS" input
+			(at 50.8 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "81640332-7712-477a-a239-591f2bc213cb")
+		)
+		(pin "3.3V" input
+			(at 33.02 127 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "d94919af-c73d-43cf-9a0f-6574768d6184")
+		)
+		(pin "SDI<MOSI>" input
+			(at 50.8 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "66d4b9ef-f9a3-4316-a57b-cca6f54b881b")
+		)
+		(pin "SDO<MISO>" output
+			(at 50.8 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "1618ff58-b2f4-4ae7-9b77-027d2662e5e0")
+		)
+		(pin "5V" input
+			(at 30.48 127 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "91474894-8044-4dbf-a750-264d1889931d")
+		)
+		(pin "T_CLK" input
+			(at 50.8 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "72fc3141-f46d-4549-9f71-7572509df8ec")
+		)
+		(pin "T_CS" input
+			(at 50.8 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "a969e237-aad2-4f3a-91a0-e26ef8e2ffb9")
+		)
+		(pin "T_DIN" input
+			(at 50.8 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "16ede6ea-0bb5-445f-a426-8d4a512ce38a")
+		)
+		(pin "T_DO" output
+			(at 50.8 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "03d22066-3a84-4cc7-b15a-2156cce0e1c9")
+		)
+		(pin "T_IRQ" output
+			(at 50.8 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "1487929a-c818-4b8e-b625-d7cf58f2f4f6")
+		)
+		(pin "GND" passive
+			(at 50.8 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "43b04e07-0248-4a91-9737-99f17a8b6a6c")
+		)
+		(instances
+			(project "jd2oscope"
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 157.48 54.61)
+		(size 22.86 21.59)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "a55cf82a-acda-4de6-8ce7-2cf91fdca590")
+		(property "Sheetname" "ADCModule"
+			(at 157.48 53.8984 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "ADCModule.kicad_sch"
+			(at 157.48 76.7846 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "jd2oscope"
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817"
+					(page "7")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 88.9 60.96)
+		(size 17.78 16.51)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "d33bb5de-5b68-4631-bc98-39ec5e0468c4")
+		(property "Sheetname" "switchModule"
+			(at 88.9 60.2484 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "switchModule.kicad_sch"
+			(at 88.9 78.0546 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "jd2oscope"
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 73.66 33.02)
+		(size 17.78 16.51)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "dff6ec06-2d4b-4768-9220-df3b02ec1774")
+		(property "Sheetname" "potentiometerModule"
+			(at 73.66 32.3084 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "PotentiometerModule.kicad_sch"
+			(at 73.66 50.1146 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "jd2oscope"
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817"
+					(page "5")
 				)
 			)
 		)
@@ -77,44 +458,6 @@
 			(project "jd2oscope"
 				(path "/eb18a3da-9fbf-4329-a814-1afab785c817"
 					(page "3")
-				)
-			)
-		)
-	)
-	(sheet
-		(at 62.23 76.2)
-		(size 16.51 13.97)
-		(fields_autoplaced yes)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0.0000)
-		)
-		(uuid "f294aeb4-74cb-4e6d-9359-f488ce20d6b7")
-		(property "Sheetname" "UserInteractionInterface"
-			(at 62.23 75.4884 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "UserInteractionInterface.kicad_sch"
-			(at 62.23 90.7546 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(instances
-			(project "jd2oscope"
-				(path "/eb18a3da-9fbf-4329-a814-1afab785c817"
-					(page "5")
 				)
 			)
 		)
