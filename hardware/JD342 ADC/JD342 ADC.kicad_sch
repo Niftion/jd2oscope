@@ -1329,6 +1329,12 @@
 		(uuid "676b71dd-28c7-4b0e-9327-b0d702aa5d58")
 	)
 	(junction
+		(at 55.88 114.3)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6a065323-7125-4806-b3d2-64bd7aed9171")
+	)
+	(junction
 		(at 55.88 91.44)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1400,12 +1406,6 @@
 		(color 0 0 0 0)
 		(uuid "e31b619f-25ab-4666-a0d7-54750bfc7563")
 	)
-	(junction
-		(at 55.88 113.03)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "e84a1484-e92c-4c31-8f57-af488e7f4540")
-	)
 	(wire
 		(pts
 			(xy 124.46 86.36) (xy 135.89 86.36)
@@ -1428,7 +1428,7 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 110.49) (xy 69.85 113.03)
+			(xy 69.85 110.49) (xy 69.85 114.3)
 		)
 		(stroke
 			(width 0)
@@ -1458,7 +1458,7 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 113.03) (xy 58.42 113.03)
+			(xy 55.88 114.3) (xy 58.42 114.3)
 		)
 		(stroke
 			(width 0)
@@ -1598,7 +1598,7 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 113.03) (xy 68.58 113.03)
+			(xy 69.85 114.3) (xy 68.58 114.3)
 		)
 		(stroke
 			(width 0)
@@ -1968,6 +1968,16 @@
 	)
 	(wire
 		(pts
+			(xy 55.88 91.44) (xy 55.88 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d601d6f8-5939-49ea-960a-6e757f696ec4")
+	)
+	(wire
+		(pts
 			(xy 127 68.58) (xy 127 81.28)
 		)
 		(stroke
@@ -1988,26 +1998,6 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 91.44) (xy 55.88 113.03)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e8719f8e-546a-4b87-a831-0a0849b44811")
-	)
-	(wire
-		(pts
-			(xy 55.88 113.03) (xy 55.88 124.46)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ecebf69d-1b5f-448e-9145-8284401241b1")
-	)
-	(wire
-		(pts
 			(xy 132.08 106.68) (xy 132.08 124.46)
 		)
 		(stroke
@@ -2015,6 +2005,16 @@
 			(type default)
 		)
 		(uuid "f2d06114-4831-4149-9dc8-0f0d1fe23a17")
+	)
+	(wire
+		(pts
+			(xy 55.88 114.3) (xy 55.88 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f6c17df6-103d-437f-9396-391e39d68791")
 	)
 	(wire
 		(pts
@@ -2872,7 +2872,7 @@
 	)
 	(symbol
 		(lib_id "Simulation_SPICE:VSIN")
-		(at 63.5 113.03 270)
+		(at 63.5 114.3 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2880,7 +2880,7 @@
 		(dnp no)
 		(uuid "f31a15f4-29e7-4a4c-a7b4-d1280c6ac4eb")
 		(property "Reference" "V2"
-			(at 62.23 118.872 90)
+			(at 62.23 120.142 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2889,7 +2889,7 @@
 			)
 		)
 		(property "Value" "VSIN"
-			(at 62.23 121.412 90)
+			(at 62.23 122.682 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2898,7 +2898,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 63.5 113.03 0)
+			(at 63.5 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2907,7 +2907,7 @@
 			)
 		)
 		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#sec_Independent_Sources_for"
-			(at 63.5 113.03 0)
+			(at 63.5 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2916,7 +2916,7 @@
 			)
 		)
 		(property "Description" "Voltage source, sinusoidal"
-			(at 63.5 113.03 0)
+			(at 63.5 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2925,7 +2925,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=+ 2=-"
-			(at 63.5 113.03 0)
+			(at 63.5 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2934,7 +2934,7 @@
 			)
 		)
 		(property "Sim.Params" "dc=0 ampl=5 f=1k ac=1"
-			(at 56.134 116.84 90)
+			(at 56.134 118.11 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2943,7 +2943,7 @@
 			)
 		)
 		(property "Sim.Type" "SIN"
-			(at 63.5 113.03 0)
+			(at 63.5 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2952,7 +2952,7 @@
 			)
 		)
 		(property "Sim.Device" "V"
-			(at 63.5 113.03 0)
+			(at 63.5 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
