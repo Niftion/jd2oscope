@@ -4,4 +4,5 @@
   (lib (name "bttn")(type "KiCad")(uri "${KIPRJMOD}/../symbols/KMR731NGLFS.kicad_sym")(options "")(descr ""))
   (lib (name "switch")(type "KiCad")(uri "${KIPRJMOD}/../symbols/JS202011SCQN.kicad_sym")(options "")(descr ""))
   (lib (name "BNCFemaleConn")(type "KiCad")(uri "${KIPRJMOD}/../symbols/5227161-2.kicad_sym")(options "")(descr ""))
+  (lib (name "opAmp")(type "KiCad")(uri "${KIPRJMOD}/../symbols/OPA192IDBVT.kicad_sym")(options "")(descr ""))
 )

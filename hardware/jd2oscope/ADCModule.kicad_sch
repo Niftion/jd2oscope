@@ -363,15 +363,15 @@
 				)
 			)
 		)
-		(symbol "BNCFemaleConn:5227161-2"
+		(symbol "opAmp:OPA192IDBVT"
 			(pin_names
 				(offset 1.016)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "J"
-				(at -5.08 6.35 0)
+			(property "Reference" "U"
+				(at -12.7 11.16 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -379,16 +379,16 @@
 					(justify left bottom)
 				)
 			)
-			(property "Value" "5227161-2"
-				(at -5.08 -6.35 0)
+			(property "Value" "OPA192IDBVT"
+				(at -12.7 -14.16 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left top)
+					(justify left bottom)
 				)
 			)
-			(property "Footprint" "5227161-2:TE_5227161-2"
+			(property "Footprint" "OPA192IDBVT:SOT95P280X145-5N"
 				(at 0 0 0)
 				(effects
 					(font
@@ -416,7 +416,7 @@
 					(hide yes)
 				)
 			)
-			(property "Comment" "5227161-2"
+			(property "MF" "Texas Instruments"
 				(at 0 0 0)
 				(effects
 					(font
@@ -426,7 +426,7 @@
 					(hide yes)
 				)
 			)
-			(property "MF" "TE Connectivity"
+			(property "Description_1" "\n                        \n                            High-Voltage, Rail-to-Rail Input/Output, 5µV, 0.2µV/˚C, Precision Operational Amplifier\n                        \n"
 				(at 0 0 0)
 				(effects
 					(font
@@ -436,17 +436,7 @@
 					(hide yes)
 				)
 			)
-			(property "MAXIMUM_PACKAGE_HEIGHT" "16.13 mm"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(property "Package" "None"
+			(property "Package" "SOT-23-5 Texas Instruments"
 				(at 0 0 0)
 				(effects
 					(font
@@ -466,7 +456,7 @@
 					(hide yes)
 				)
 			)
-			(property "Check_prices" "https://www.snapeda.com/parts/5227161-2/TE+Connectivity/view-part/?ref=eda"
+			(property "SnapEDA_Link" "https://www.snapeda.com/parts/OPA192IDBVT/Texas+Instruments/view-part/?ref=snap"
 				(at 0 0 0)
 				(effects
 					(font
@@ -476,67 +466,7 @@
 					(hide yes)
 				)
 			)
-			(property "STANDARD" "Manufacturer Recommendations"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(property "PARTREV" "B3"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(property "SnapEDA_Link" "https://www.snapeda.com/parts/5227161-2/TE+Connectivity/view-part/?ref=snap"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(property "MP" "5227161-2"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(property "EU_RoHS_Compliance" "Compliant with Exemptions"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(property "Description_1" "\n                        \n                            CONNECTOR, RF, BNC, JACK, PCB, RIGHT ANGLE, WITH PINS | TE Connectivity 5227161-2\n                        \n"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(property "Number_of_Positions" "1"
+			(property "MP" "OPA192IDBVT"
 				(at 0 0 0)
 				(effects
 					(font
@@ -556,7 +486,7 @@
 					(hide yes)
 				)
 			)
-			(property "MANUFACTURER" "TE Connectivity"
+			(property "Check_prices" "https://www.snapeda.com/parts/OPA192IDBVT/Texas+Instruments/view-part/?ref=eda"
 				(at 0 0 0)
 				(effects
 					(font
@@ -566,29 +496,29 @@
 					(hide yes)
 				)
 			)
-			(symbol "5227161-2_0_0"
+			(symbol "OPA192IDBVT_0_0"
 				(rectangle
-					(start -5.08 -5.08)
-					(end 5.08 5.08)
+					(start -12.7 -10.16)
+					(end 12.7 10.16)
 					(stroke
-						(width 0.254)
+						(width 0.41)
 						(type default)
 					)
 					(fill
 						(type background)
 					)
 				)
-				(pin power_in line
-					(at -10.16 -2.54 0)
+				(pin output line
+					(at 17.78 2.54 180)
 					(length 5.08)
-					(name "GND"
+					(name "OUT"
 						(effects
 							(font
 								(size 1.016 1.016)
 							)
 						)
 					)
-					(number "G"
+					(number "1"
 						(effects
 							(font
 								(size 1.016 1.016)
@@ -596,17 +526,71 @@
 						)
 					)
 				)
-				(pin passive line
-					(at -10.16 2.54 0)
+				(pin power_in line
+					(at 17.78 -7.62 180)
 					(length 5.08)
-					(name "S"
+					(name "V-"
 						(effects
 							(font
 								(size 1.016 1.016)
 							)
 						)
 					)
-					(number "S"
+					(number "2"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -17.78 2.54 0)
+					(length 5.08)
+					(name "+IN"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -17.78 0 0)
+					(length 5.08)
+					(name "-IN"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 17.78 7.62 180)
+					(length 5.08)
+					(name "V+"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "5"
 						(effects
 							(font
 								(size 1.016 1.016)
@@ -728,35 +712,33 @@
 		)
 	)
 	(symbol
-		(lib_id "BNCFemaleConn:5227161-2")
-		(at 158.75 59.69 0)
+		(lib_id "opAmp:OPA192IDBVT")
+		(at 78.74 92.71 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "c6834d2c-44bc-402c-b6dd-48c44a46b5a9")
-		(property "Reference" "J1"
-			(at 165.1 58.4199 0)
+		(uuid "8852e380-2aa4-44ce-8c4b-71f2c12cd6bf")
+		(property "Reference" "U3"
+			(at 78.74 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "5227161-2"
-			(at 165.1 60.9599 0)
+		(property "Value" "OPA192IDBVT"
+			(at 78.74 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Footprint" "5227161-2:TE_5227161-2"
-			(at 158.75 59.69 0)
+		(property "Footprint" "OPA192IDBVT:SOT95P280X145-5N"
+			(at 78.74 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -766,7 +748,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 158.75 59.69 0)
+			(at 78.74 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -775,7 +757,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 158.75 59.69 0)
+			(at 78.74 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -783,18 +765,8 @@
 				(hide yes)
 			)
 		)
-		(property "Comment" "5227161-2"
-			(at 158.75 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "MF" "TE Connectivity"
-			(at 158.75 59.69 0)
+		(property "MF" "Texas Instruments"
+			(at 78.74 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -803,8 +775,8 @@
 				(hide yes)
 			)
 		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" "16.13 mm"
-			(at 158.75 59.69 0)
+		(property "Description_1" "\n                        \n                            High-Voltage, Rail-to-Rail Input/Output, 5µV, 0.2µV/˚C, Precision Operational Amplifier\n                        \n"
+			(at 78.74 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -813,8 +785,8 @@
 				(hide yes)
 			)
 		)
-		(property "Package" "None"
-			(at 158.75 59.69 0)
+		(property "Package" "SOT-23-5 Texas Instruments"
+			(at 78.74 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -824,7 +796,7 @@
 			)
 		)
 		(property "Price" "None"
-			(at 158.75 59.69 0)
+			(at 78.74 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -833,8 +805,8 @@
 				(hide yes)
 			)
 		)
-		(property "Check_prices" "https://www.snapeda.com/parts/5227161-2/TE+Connectivity/view-part/?ref=eda"
-			(at 158.75 59.69 0)
+		(property "SnapEDA_Link" "https://www.snapeda.com/parts/OPA192IDBVT/Texas+Instruments/view-part/?ref=snap"
+			(at 78.74 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -843,68 +815,8 @@
 				(hide yes)
 			)
 		)
-		(property "STANDARD" "Manufacturer Recommendations"
-			(at 158.75 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "PARTREV" "B3"
-			(at 158.75 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" "https://www.snapeda.com/parts/5227161-2/TE+Connectivity/view-part/?ref=snap"
-			(at 158.75 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "MP" "5227161-2"
-			(at 158.75 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "EU_RoHS_Compliance" "Compliant with Exemptions"
-			(at 158.75 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Description_1" "\n                        \n                            CONNECTOR, RF, BNC, JACK, PCB, RIGHT ANGLE, WITH PINS | TE Connectivity 5227161-2\n                        \n"
-			(at 158.75 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Number_of_Positions" "1"
-			(at 158.75 59.69 0)
+		(property "MP" "OPA192IDBVT"
+			(at 78.74 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -914,7 +826,7 @@
 			)
 		)
 		(property "Availability" "In Stock"
-			(at 158.75 59.69 0)
+			(at 78.74 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -923,8 +835,8 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" "TE Connectivity"
-			(at 158.75 59.69 0)
+		(property "Check_prices" "https://www.snapeda.com/parts/OPA192IDBVT/Texas+Instruments/view-part/?ref=eda"
+			(at 78.74 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -933,17 +845,84 @@
 				(hide yes)
 			)
 		)
-		(pin "S"
-			(uuid "88d0da1e-9242-4643-98b5-8ac66d7206ab")
+		(pin "4"
+			(uuid "0a824924-4119-49c6-b00f-426c21dc915b")
 		)
-		(pin "G"
-			(uuid "d4324b49-7c2d-46c7-8683-3127dba9a3ed")
+		(pin "5"
+			(uuid "7980d791-4bfa-4cb4-bf19-baf6579bf5ec")
+		)
+		(pin "3"
+			(uuid "d177aaa4-683d-40c6-8bd7-ffef8b407c7f")
+		)
+		(pin "2"
+			(uuid "48c2e077-e9e8-48c1-a9e4-225c737fa95d")
+		)
+		(pin "1"
+			(uuid "86fc757d-1b4b-4a86-b206-fe105f1a0b5d")
+		)
+		(instances
+			(project ""
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/a55cf82a-acda-4de6-8ce7-2cf91fdca590"
+					(reference "U3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(sheet
+		(at 38.1 129.54)
+		(size 20.32 12.7)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "af1f5afc-7fab-4ef1-ac38-c907d42ba649")
+		(property "Sheetname" "oscopeBNCProbeModule"
+			(at 38.1 128.8284 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "oscopeBNCProbeModule.kicad_sch"
+			(at 38.1 142.8246 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "GND" passive
+			(at 58.42 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "80fd7aa9-83d8-417a-810f-69b4dbf0d4b2")
+		)
+		(pin "conditionedSignal" output
+			(at 58.42 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "c9e4b03c-574b-4c13-8cb2-c85336af28b4")
 		)
 		(instances
 			(project "jd2oscope"
 				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/a55cf82a-acda-4de6-8ce7-2cf91fdca590"
-					(reference "J1")
-					(unit 1)
+					(page "2")
 				)
 			)
 		)

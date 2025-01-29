@@ -592,6 +592,10 @@
       "Root"
     ],
     [
+      "af1f5afc-7fab-4ef1-ac38-c907d42ba649",
+      "oscopeBNCProbeModule"
+    ],
+    [
       "e414f658-4339-4fb7-8e2d-b0ad6b8f4867",
       "ESP32"
     ],
