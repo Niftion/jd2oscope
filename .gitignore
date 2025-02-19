@@ -1,0 +1,44 @@
+/home/niftion/Documents/GitHub/ESP-v3locirap2rs/hardware/ESP-v3locirap2rs_hardware/
+hardware/ESP-v3locirap2rs_hardware/~ESP-v3locirap2rs_hardware.kicad_sch.lck
+
+# KiCad
+*.bak
+*.kicad_pcb-bak
+*.kicad_prl
+*.net
+*.tmp
+*.pyc
+*.bck
+*.swp
+*.swo
+_fpcache*
+.cache/
+fp-info-cache
+sym-lib-table.backup
+fp-lib-table.backup
+*.sch-bak
+*.pcb-bak
+
+
+# PlatformIO
+.pio/
+*.elf
+*.bin
+*.hex
+.vscode/
+.clangd/
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+env/
