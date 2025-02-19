@@ -19,6 +19,10 @@ fp-lib-table.backup
 *.sch-bak
 *.pcb-bak
 
+# KiCad backup files
+hardware/JD342 ADC/JD342 ADC-backups/
+hardware/jd2oscope/jd2oscope-backups/
+
 
 # PlatformIO
 .pio/
