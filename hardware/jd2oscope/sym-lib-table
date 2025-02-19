@@ -5,4 +5,6 @@
   (lib (name "switch")(type "KiCad")(uri "${KIPRJMOD}/../symbols/JS202011SCQN.kicad_sym")(options "")(descr ""))
   (lib (name "BNCFemaleConn")(type "KiCad")(uri "${KIPRJMOD}/../symbols/5227161-2.kicad_sym")(options "")(descr ""))
   (lib (name "opAmp")(type "KiCad")(uri "${KIPRJMOD}/../symbols/OPA192IDBVT.kicad_sym")(options "")(descr ""))
+  (lib (name "9v_batt")(type "KiCad")(uri "${KIPRJMOD}/../symbols/9v_batt.kicad_sym")(options "")(descr ""))
+  (lib (name "conn_pp3_1")(type "KiCad")(uri "${KIPRJMOD}/../symbols/conn_pp3_1.kicad_sym")(options "")(descr ""))
 )

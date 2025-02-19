@@ -1,0 +1,252 @@
+(kicad_symbol_lib
+	(version 20231120)
+	(generator "kicad_symbol_editor")
+	(generator_version "8.0")
+	(symbol "Conn_PP3_1"
+		(pin_names
+			(offset 1.016) hide)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Reference" "J4"
+			(at 4.318 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "9V_CONN"
+			(at 7.366 1.016 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at -1.27 0 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 0 -19.304 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "PP3 connector for 9V batteries, single row, 01x02"
+			(at 0 -16.764 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ki_keywords" "connector pp3 9V Batt terminal"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ki_fp_filters" "Connector*:*_1x??_*"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(symbol "Conn_PP3_1_0_1"
+			(circle
+				(center -1.27 0)
+				(radius 0.4303)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.2431 -0.7334) (xy -1.7351 -0.7334)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 1.7465 -0.7248) (xy 2.2545 -0.7248)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 2.0005 -0.9788) (xy 2.0005 -0.4708)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 0.762 -0.254) (xy 0.762 0.254) (xy 1.016 0.508) (xy 1.524 0.508) (xy 1.778 0.254) (xy 1.778 -0.254)
+					(xy 1.524 -0.508) (xy 1.016 -0.508) (xy 0.762 -0.254)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "Conn_PP3_1_1_1"
+			(polyline private
+				(pts
+					(xy -1.27 2.794) (xy -1.27 6.604) (xy -3.81 9.398)
+				)
+				(stroke
+					(width 0)
+					(type dash_dot)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(rectangle
+				(start -2.54 1.27)
+				(end 2.54 -1.27)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type background)
+				)
+			)
+			(rectangle
+				(start -1.397 -1.27)
+				(end -1.143 0)
+				(stroke
+					(width 0.1524)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline private
+				(pts
+					(xy 1.27 2.794) (xy 1.27 6.604) (xy 3.81 9.398)
+				)
+				(stroke
+					(width 0)
+					(type dash_dot)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(rectangle
+				(start 1.143 0)
+				(end 1.397 -1.27)
+				(stroke
+					(width 0.1524)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(text private "{terminal for 9V's GND}\n"
+				(at -6.096 10.414 0)
+				(effects
+					(font
+						(face "FreeMono")
+						(size 0.4064 0.4064)
+						(thickness 0.0813)
+						(bold yes)
+					)
+				)
+			)
+			(text private "{terminal for 9V's PWR}\n"
+				(at 5.842 10.414 0)
+				(effects
+					(font
+						(face "FreeMono")
+						(size 0.4064 0.4064)
+						(thickness 0.0813)
+						(bold yes)
+					)
+				)
+			)
+			(pin power_in line
+				(at -1.27 -5.08 90)
+				(length 3.81)
+				(name "Pin_1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_in line
+				(at 1.27 -5.08 90)
+				(length 3.81)
+				(name "Pin_2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+)

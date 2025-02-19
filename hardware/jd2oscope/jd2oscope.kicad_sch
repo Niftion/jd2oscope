@@ -102,6 +102,91 @@
 			)
 		)
 	)
+	(wire
+		(pts
+			(xy 50.8 120.65) (xy 53.34 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "39384950-9ade-4f7f-be8e-71464f244477")
+	)
+	(wire
+		(pts
+			(xy 53.34 87.63) (xy 50.8 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "66591cf2-4b3b-416f-8e30-8122e2db0036")
+	)
+	(wire
+		(pts
+			(xy 50.8 109.22) (xy 53.34 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "67fd98d4-e35b-4a77-80b0-91a0334b9588")
+	)
+	(wire
+		(pts
+			(xy 53.34 83.82) (xy 50.8 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "858e8110-24ac-4c7f-b02a-293a76f2a7ff")
+	)
+	(rectangle
+		(start 153.67 24.13)
+		(end 220.98 76.2)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 5fe167da-b3a1-4d20-829e-2b004df68b33)
+	)
+	(text "- GPIO Labels for Code Implementation -\n\nESP32:\n1. SPI\n    MOSI = GPIO 23\n    MISO = GPIO 19\n    SCK = GPIO 18\n\nPeripherals:\n1. Screen\n    CS = anyUniqueGPIO(TODO)\n    D/C = anyUniqueGPIO(TODO)\n\n2. Screen(TouchPart)\n    CS = anyUniqueGPIO(TODO)\n    IRQ = anyUniqueGPIO(TODO)"
+		(exclude_from_sim no)
+		(at 16.256 177.292 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "0ff8a85d-8aa7-4cd1-98c6-1ec26f7313de")
+	)
+	(text "ToDo:\nassign unique GPIOs for touchscreen device\n(do this after all req. GPIOs are assigned;\ndo last b/c they can be any GPIOs; are\nassigned in the coding IDE for specifying\ntypes and whatnot)"
+		(exclude_from_sim no)
+		(at 26.162 142.24 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "10975115-b97f-443f-830b-463ddd4a7901")
+	)
+	(text "Idea:\nmodule for signalInterpreter + all req. buttons\nto operate it; would make more modular & easier\nto work w/ in terms of scaling up or down"
+		(exclude_from_sim no)
+		(at 224.282 39.116 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "33afbb0e-970d-4848-bd7e-4b69d9da4a17")
+	)
 	(text "(any; GPIO 27)"
 		(exclude_from_sim no)
 		(at 37.084 120.904 0)
@@ -122,6 +207,17 @@
 		)
 		(uuid "4dad5525-6e48-4f3a-bd82-57fa73f641be")
 	)
+	(text "SignalInterpreterModule = the thing we use\nto measure the input signal to the Oscope\n\nToDo:\n- SPI implementation w/ esp32 for digital\ndata transmission capability"
+		(exclude_from_sim no)
+		(at 30.734 24.13 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "7277a085-7f3b-4d4b-8e1b-81a7f2291826")
+	)
 	(text "(any; GPIO 5)"
 		(exclude_from_sim no)
 		(at 40.132 84.074 0)
@@ -132,6 +228,17 @@
 		)
 		(uuid "7723f226-b65e-40e2-9b1c-54d734b6d4bd")
 	)
+	(text "reg.5V ToDo:\nRef JD1 project for powering esp32 w/\nexternal 5V supply; wire up to esp32 accordingly\n(everything else for this should be good to go)"
+		(exclude_from_sim no)
+		(at 83.058 65.024 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "8f1aa4e2-7265-4578-af1d-abe0631635d6")
+	)
 	(text "(GPIO 18)"
 		(exclude_from_sim no)
 		(at 38.608 105.664 0)
@@ -141,6 +248,17 @@
 			)
 		)
 		(uuid "9bdc79ec-939a-4cef-8ba4-24fdc35a791e")
+	)
+	(text "\"Interactables\" ToDo:\nessentially carbon copy of photoT.probe from PLproj.1;\nassign these GPIOs at the end tho b/c other ICs may\nneed specific ones"
+		(exclude_from_sim no)
+		(at 191.262 18.034 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "a801bda6-0d3b-4c7d-9b93-16df4ace3ad3")
 	)
 	(text "(any; GPIO 15)"
 		(exclude_from_sim no)
@@ -172,6 +290,28 @@
 		)
 		(uuid "bb855a78-80b8-46ed-ac7c-1e95ac8c8348")
 	)
+	(text "(3.3V from esp32)"
+		(exclude_from_sim no)
+		(at 33.274 134.62 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c15090b1-c749-49ac-a62e-8d84c757d72b")
+	)
+	(text "ESP32 ToDo:\n- [*] implement touchscreen wiring\n- [*] implement external 5V supply wiring\n- [ ] implement GPIO transistor-gate wiring for buttons/pots/switches\n- [ ] implement ADC signal interpreter (to read from probes)\n  - [ ] SPI comms. for it as well\n  - [ ] New BNC footprint as well (?)\n- [ ] PowerSwitch module implemented (for turning on/off 5V supply)"
+		(exclude_from_sim no)
+		(at 82.296 133.858 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c2de720d-9bd6-4b69-9bea-8eea97d39d28")
+	)
 	(text "(any; GPIO 2)"
 		(exclude_from_sim no)
 		(at 38.608 87.884 0)
@@ -202,137 +342,281 @@
 		)
 		(uuid "e810f45e-21c8-46a0-8533-c6efb9428f47")
 	)
-	(hierarchical_label "screen_SDO"
-		(shape output)
-		(at 50.8 99.06 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "014fba60-7e6c-4c2a-9c9d-bdd200a15a89")
-	)
-	(hierarchical_label "5V"
-		(shape input)
-		(at 30.48 127 270)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "07937520-c38f-4743-9ba3-bb478a0fe877")
-	)
-	(hierarchical_label "screen_CS"
-		(shape input)
-		(at 50.8 83.82 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "18c4deb5-5bf0-4e61-85f0-45a221357100")
-	)
-	(hierarchical_label "3.3V"
-		(shape input)
-		(at 33.02 127 270)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "2993f85e-a62f-4dda-82cc-731c1a59a158")
-	)
-	(hierarchical_label "screen_SCK"
-		(shape input)
-		(at 50.8 95.25 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "53f2e16a-9b75-4947-9489-ac47e90d2a6b")
-	)
-	(hierarchical_label "screen_T_IRQ"
-		(shape output)
-		(at 50.8 120.65 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "575e7342-7016-4146-bf35-cf76c0b30ca5")
-	)
-	(hierarchical_label "screen_T_CS"
-		(shape input)
-		(at 50.8 109.22 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "75e07efb-f00a-41e6-9875-3ff248b08603")
-	)
-	(hierarchical_label "screen_T_DIN"
-		(shape input)
-		(at 50.8 113.03 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "8881c783-9349-4e9d-a445-b8ea4e013ab2")
-	)
-	(hierarchical_label "screen_T_DO"
-		(shape output)
-		(at 50.8 116.84 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "9c10435e-04d9-4c6e-a782-811d4379abd0")
-	)
-	(hierarchical_label "screen_T_CLK"
-		(shape input)
+	(label "SCK"
 		(at 50.8 105.41 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify left bottom)
 		)
-		(uuid "ca568746-38c3-4db7-92e1-fa969878769c")
+		(uuid "27821001-155c-45a4-a4b9-f2e05bb93a5a")
 	)
-	(hierarchical_label "screen_SDI"
-		(shape input)
+	(label "reg.3.3V"
+		(at 105.41 83.82 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "27b948dc-acfe-44f4-87dc-3a98ccc0eb18")
+	)
+	(label "SCK"
+		(at 50.8 95.25 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "411d0f61-758c-4127-a23a-f1928a9197e9")
+	)
+	(label "anyUniqueGPIO(TODO)"
+		(at 53.34 109.22 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "481c5eec-d0a4-42a1-85a7-f439b1688f13")
+	)
+	(label "reg.5V"
+		(at 83.82 83.82 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "4f5d270f-77c6-40eb-ad67-affd17911471")
+	)
+	(label "SDO"
+		(at 50.8 116.84 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "5eb01610-a0eb-460c-8c59-901e870fdeee")
+	)
+	(label "SDO"
+		(at 50.8 99.06 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "67ecaec3-63ee-4cdb-9615-9e68ddbe0e73")
+	)
+	(label "SDO"
+		(at 105.41 92.71 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6f219a77-db15-4b72-9c86-bdc32f0b038d")
+	)
+	(label "anyUniqueGPIO(TODO)"
+		(at 53.34 120.65 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "735f6cfd-aa07-44b2-832e-586a21d6c2e0")
+	)
+	(label "reg.3.3V"
+		(at 33.02 127 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "8ba24e39-c5f6-45c2-82ef-f5a4ca467aa5")
+	)
+	(label "SDI"
 		(at 50.8 91.44 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify left bottom)
 		)
-		(uuid "e34b4146-b2af-4b37-8c7e-655015de1c70")
+		(uuid "a29fdacc-fec4-4dfe-b39d-5672479429b1")
 	)
-	(hierarchical_label "screen_D{slash}C"
-		(shape input)
-		(at 50.8 87.63 0)
+	(label "SCK"
+		(at 105.41 87.63 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify left bottom)
 		)
-		(uuid "f6a65432-f0ea-4d5c-a308-2994d6503941")
+		(uuid "a410dab6-f47b-4905-97c2-2b9a8b47cf3c")
+	)
+	(label "SDI"
+		(at 105.41 90.17 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a60a7ebb-494e-4f34-bf5c-944d213eb4be")
+	)
+	(label "anyUniqueGPIO(TODO)"
+		(at 53.34 83.82 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a836952c-2168-499a-b448-ca2a9751833a")
+	)
+	(label "reg.5V"
+		(at 102.87 40.64 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "aaf816da-56ae-407e-9c7b-81f878844f78")
+	)
+	(label "anyUniqueGPIO(TODO)"
+		(at 53.34 87.63 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c1e6582e-787d-4d42-85a1-da8d8bb3dd7b")
+	)
+	(label "reg.5V"
+		(at 38.1 35.56 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "d01d6e2e-4f6d-4e28-b8b6-30f8f31999ed")
+	)
+	(label "reg.5V"
+		(at 30.48 127 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "ddd70b60-57c7-44a7-8e64-ba7f5d58cbbf")
+	)
+	(label "SDI"
+		(at 50.8 113.03 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "faf7ee19-0c71-42c4-84e5-5f52a32a4b17")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 60.96 52.07 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0faa9add-2c5b-4245-a646-7a1b99850d8c")
+		(property "Reference" "#PWR02"
+			(at 67.31 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 64.77 52.0699 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 60.96 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 60.96 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 60.96 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7cf74695-9afd-4067-ac93-25cc26810794")
+		)
+		(instances
+			(project ""
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817"
+					(reference "#PWR02")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -401,8 +685,142 @@
 			)
 		)
 	)
+	(symbol
+		(lib_id "power:GND")
+		(at 105.41 119.38 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "20bceb2b-c5c5-4b31-9cb2-e3e3892b2a20")
+		(property "Reference" "#PWR04"
+			(at 111.76 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 109.22 119.3799 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 105.41 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 105.41 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 105.41 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a30cbfd3-0d43-4d72-bcb6-19b3a696b831")
+		)
+		(instances
+			(project ""
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817"
+					(reference "#PWR04")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 102.87 57.15 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "71ea9617-5d6d-47c7-b081-587bad985575")
+		(property "Reference" "#PWR03"
+			(at 109.22 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 106.68 57.1499 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 102.87 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 102.87 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 102.87 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f4f770ad-7944-49c7-9a5d-0ff988553c3d")
+		)
+		(instances
+			(project ""
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817"
+					(reference "#PWR03")
+					(unit 1)
+				)
+			)
+		)
+	)
 	(sheet
-		(at 115.57 33.02)
+		(at 190.5 29.21)
 		(size 17.78 16.51)
 		(fields_autoplaced yes)
 		(stroke
@@ -414,7 +832,7 @@
 		)
 		(uuid "53a41818-3f0f-42a5-bb8b-35a22bb57817")
 		(property "Sheetname" "buttonModule"
-			(at 115.57 32.3084 0)
+			(at 190.5 28.4984 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -423,7 +841,7 @@
 			)
 		)
 		(property "Sheetfile" "buttonModule.kicad_sch"
-			(at 115.57 50.1146 0)
+			(at 190.5 46.3046 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -607,7 +1025,7 @@
 		)
 	)
 	(sheet
-		(at 157.48 54.61)
+		(at 38.1 33.02)
 		(size 22.86 21.59)
 		(fields_autoplaced yes)
 		(stroke
@@ -618,8 +1036,8 @@
 			(color 0 0 0 0.0000)
 		)
 		(uuid "a55cf82a-acda-4de6-8ce7-2cf91fdca590")
-		(property "Sheetname" "ADCModule"
-			(at 157.48 53.8984 0)
+		(property "Sheetname" "SignalInterpreterModule"
+			(at 38.1 32.3084 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -628,13 +1046,33 @@
 			)
 		)
 		(property "Sheetfile" "ADCModule.kicad_sch"
-			(at 157.48 76.7846 0)
+			(at 38.1 55.1946 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
 			)
+		)
+		(pin "GND" passive
+			(at 60.96 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "d11aa749-4e20-4d22-8b0c-bc9c19b0e374")
+		)
+		(pin "reg.5V" input
+			(at 38.1 35.56 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "b3ded6cb-137c-4626-86d3-7f6007d2f66d")
 		)
 		(instances
 			(project "jd2oscope"
@@ -645,7 +1083,65 @@
 		)
 	)
 	(sheet
-		(at 88.9 60.96)
+		(at 83.82 39.37)
+		(size 19.05 19.05)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "d124c55c-b59b-4d66-8527-4d5db5a79d29")
+		(property "Sheetname" "reg.5V"
+			(at 83.82 38.6584 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "reg5V.kicad_sch"
+			(at 83.82 59.0046 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "reg.5V" output
+			(at 102.87 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "6089d139-59ca-47b8-8968-d6e7fc8201a9")
+		)
+		(pin "GND" passive
+			(at 102.87 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "a664b7d7-acac-46ab-9268-91cadbed598b")
+		)
+		(instances
+			(project "jd2oscope"
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817"
+					(page "8")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 165.1 53.34)
 		(size 17.78 16.51)
 		(fields_autoplaced yes)
 		(stroke
@@ -657,7 +1153,7 @@
 		)
 		(uuid "d33bb5de-5b68-4631-bc98-39ec5e0468c4")
 		(property "Sheetname" "switchModule"
-			(at 88.9 60.2484 0)
+			(at 165.1 52.6284 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -666,7 +1162,7 @@
 			)
 		)
 		(property "Sheetfile" "switchModule.kicad_sch"
-			(at 88.9 78.0546 0)
+			(at 165.1 70.4346 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -683,7 +1179,7 @@
 		)
 	)
 	(sheet
-		(at 73.66 33.02)
+		(at 156.21 27.94)
 		(size 17.78 16.51)
 		(fields_autoplaced yes)
 		(stroke
@@ -695,7 +1191,7 @@
 		)
 		(uuid "dff6ec06-2d4b-4768-9220-df3b02ec1774")
 		(property "Sheetname" "potentiometerModule"
-			(at 73.66 32.3084 0)
+			(at 156.21 27.2284 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -704,7 +1200,7 @@
 			)
 		)
 		(property "Sheetfile" "PotentiometerModule.kicad_sch"
-			(at 73.66 50.1146 0)
+			(at 156.21 45.0346 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -721,8 +1217,8 @@
 		)
 	)
 	(sheet
-		(at 97.79 123.19)
-		(size 17.78 38.1)
+		(at 83.82 82.55)
+		(size 21.59 38.1)
 		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
@@ -733,7 +1229,7 @@
 		)
 		(uuid "e414f658-4339-4fb7-8e2d-b0ad6b8f4867")
 		(property "Sheetname" "ESP32"
-			(at 97.79 122.4784 0)
+			(at 83.82 81.8384 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -742,13 +1238,73 @@
 			)
 		)
 		(property "Sheetfile" "ESP32.kicad_sch"
-			(at 97.79 161.8746 0)
+			(at 83.82 121.2346 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
 			)
+		)
+		(pin "GND" passive
+			(at 105.41 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "b12ff9ea-5e23-4285-86a7-1e63734e6b25")
+		)
+		(pin "reg.5V" input
+			(at 83.82 83.82 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "b5b1a43d-be98-4179-a432-c4ebeebd14e3")
+		)
+		(pin "reg.3.3V" output
+			(at 105.41 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "03db34d7-2964-4b85-be81-e67d7deb12fa")
+		)
+		(pin "SPI_MISO(from SDO)" input
+			(at 105.41 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "23cfcee2-a970-40be-8585-33efdeeacb46")
+		)
+		(pin "SPI_MOSI(to SDI)" output
+			(at 105.41 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "16fcd860-febd-4c72-b061-f059bad6cf1f")
+		)
+		(pin "SPI_SCK(to perip.s)" output
+			(at 105.41 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "43bdcc53-379b-4c7a-a7dd-d1599332b41f")
 		)
 		(instances
 			(project "jd2oscope"
