@@ -363,30 +363,32 @@
 				)
 			)
 		)
-		(symbol "BNCFemaleConn:5227161-2"
+		(symbol "CONBNC001:CONBNC001"
 			(pin_names
 				(offset 1.016)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "J2"
-				(at 0 10.16 0)
+			(property "Reference" "J"
+				(at -3.81 1.524 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left bottom)
 				)
 			)
-			(property "Value" "5227161-2"
-				(at 0 7.62 0)
+			(property "Value" "CONBNC001"
+				(at -4.064 -6.858 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left bottom)
 				)
 			)
-			(property "Footprint" "5227161-2:TE_5227161-2"
+			(property "Footprint" "CONBNC001:LINX_CONBNC001"
 				(at 0 0 0)
 				(effects
 					(font
@@ -414,7 +416,7 @@
 					(hide yes)
 				)
 			)
-			(property "Comment" "5227161-2"
+			(property "SnapEDA_Link" "https://www.snapeda.com/parts/CONBNC001/TE+Connectivity/view-part/?ref=snap"
 				(at 0 0 0)
 				(effects
 					(font
@@ -424,17 +426,7 @@
 					(hide yes)
 				)
 			)
-			(property "MF" "TE Connectivity"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(property "MAXIMUM_PACKAGE_HEIGHT" "16.13 mm"
+			(property "Check_prices" "https://www.snapeda.com/parts/CONBNC001/TE+Connectivity/view-part/?ref=eda"
 				(at 0 0 0)
 				(effects
 					(font
@@ -464,7 +456,7 @@
 					(hide yes)
 				)
 			)
-			(property "Check_prices" "https://www.snapeda.com/parts/5227161-2/TE+Connectivity/view-part/?ref=eda"
+			(property "MF" "TE Connectivity"
 				(at 0 0 0)
 				(effects
 					(font
@@ -474,7 +466,7 @@
 					(hide yes)
 				)
 			)
-			(property "STANDARD" "Manufacturer Recommendations"
+			(property "MP" "CONBNC001"
 				(at 0 0 0)
 				(effects
 					(font
@@ -484,57 +476,7 @@
 					(hide yes)
 				)
 			)
-			(property "PARTREV" "B3"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(property "SnapEDA_Link" "https://www.snapeda.com/parts/5227161-2/TE+Connectivity/view-part/?ref=snap"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(property "MP" "5227161-2"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(property "EU_RoHS_Compliance" "Compliant with Exemptions"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(property "Description_1" "\n                        \n                            CONNECTOR, RF, BNC, JACK, PCB, RIGHT ANGLE, WITH PINS | TE Connectivity 5227161-2\n                        \n"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(property "Number_of_Positions" "1"
+			(property "Purchase-URL" "https://www.snapeda.com/api/url_track_click_mouser/?unipart_id=12122496&manufacturer=Linx Technologies Inc.&part_name=CONBNC001&search_term=None"
 				(at 0 0 0)
 				(effects
 					(font
@@ -554,7 +496,7 @@
 					(hide yes)
 				)
 			)
-			(property "MANUFACTURER" "TE Connectivity"
+			(property "Description_1" "\n                        \n                            BNC Jack 50 Ohm PCB Through Hole\n                        \n"
 				(at 0 0 0)
 				(effects
 					(font
@@ -564,29 +506,160 @@
 					(hide yes)
 				)
 			)
-			(symbol "5227161-2_0_0"
-				(rectangle
-					(start -5.08 -5.08)
-					(end 5.08 5.08)
+			(symbol "CONBNC001_0_0"
+				(arc
+					(start -3.175 -3.175)
+					(mid -2.5427 -2.54)
+					(end -3.175 -1.905)
 					(stroke
 						(width 0.254)
 						(type default)
 					)
 					(fill
-						(type background)
+						(type none)
 					)
 				)
-				(pin power_in line
-					(at -10.16 -2.54 0)
+				(arc
+					(start -3.175 -0.635)
+					(mid -2.5427 0)
+					(end -3.175 0.635)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 0 -2.54)
+					(radius 0.254)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.016 -1.016) (xy 0 -1.016)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.762 -3.302) (xy -1.27 -4.064)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -3.302) (xy -0.762 -3.302)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -3.302) (xy -0.508 -4.064)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -3.302) (xy 0.762 -3.302)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -1.016) (xy 0 -3.302)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -1.016) (xy 1.016 -1.016)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 -3.302) (xy 0.254 -4.064)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 0 0)
+					(radius 1.016)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at 2.54 0 180)
 					(length 5.08)
-					(name "GND"
+					(name "~"
 						(effects
 							(font
 								(size 1.016 1.016)
 							)
 						)
 					)
-					(number "G"
+					(number "1"
 						(effects
 							(font
 								(size 1.016 1.016)
@@ -594,19 +667,17 @@
 						)
 					)
 				)
-			)
-			(symbol "5227161-2_1_0"
-				(pin input line
-					(at -10.16 2.54 0)
+				(pin passive line
+					(at 2.54 -2.54 180)
 					(length 5.08)
-					(name "S"
+					(name "~"
 						(effects
 							(font
 								(size 1.016 1.016)
 							)
 						)
 					)
-					(number "S"
+					(number "S1"
 						(effects
 							(font
 								(size 1.016 1.016)
@@ -1238,6 +1309,12 @@
 		)
 	)
 	(junction
+		(at 203.2 46.99)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "06fa2760-0024-4e6f-a3b1-0005bb45f85b")
+	)
+	(junction
 		(at 115.57 66.04)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1248,6 +1325,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "48c87748-7ae4-4dc2-9773-c12ba84b090b")
+	)
+	(junction
+		(at 139.7 41.91)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4da0367b-0c5f-44c2-a76b-5d8d233abcde")
 	)
 	(junction
 		(at 45.72 38.1)
@@ -1262,10 +1345,28 @@
 		(uuid "657e286f-ffcd-42cc-87b1-1ead44a7a89d")
 	)
 	(junction
+		(at 215.9 44.45)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "77483efc-6dbc-4fd6-9daf-fc17a74f8cf5")
+	)
+	(junction
 		(at 62.23 83.82)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "890b2656-015e-4e56-a282-9cc983e51ed0")
+	)
+	(junction
+		(at 76.2 53.34)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b7e19b67-3d3c-4cb7-b0b6-88352fb582c0")
+	)
+	(junction
+		(at 189.23 49.53)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c38a1f3c-764f-4aba-8917-8385a13ae6e1")
 	)
 	(junction
 		(at 96.52 66.04)
@@ -1282,6 +1383,26 @@
 			(type default)
 		)
 		(uuid "035e3a13-c764-4551-affc-a8dde5540152")
+	)
+	(wire
+		(pts
+			(xy 204.47 46.99) (xy 203.2 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "11c1082f-fec5-4170-8330-2b4093b6e1a9")
+	)
+	(wire
+		(pts
+			(xy 138.43 41.91) (xy 139.7 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1414e9e5-1b6b-4b18-ae3f-564b2d87e7ed")
 	)
 	(wire
 		(pts
@@ -1325,6 +1446,16 @@
 	)
 	(wire
 		(pts
+			(xy 139.7 41.91) (xy 142.24 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "34ed7bad-3a16-4f0e-874f-eabdc18a4d37")
+	)
+	(wire
+		(pts
 			(xy 115.57 66.04) (xy 120.65 66.04)
 		)
 		(stroke
@@ -1345,13 +1476,73 @@
 	)
 	(wire
 		(pts
-			(xy 76.2 49.53) (xy 76.2 55.88)
+			(xy 76.2 49.53) (xy 76.2 53.34)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "491367c9-d550-43c0-934d-b280840bbcf3")
+	)
+	(wire
+		(pts
+			(xy 217.17 44.45) (xy 215.9 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4df713fe-46ed-43e7-be99-3800ede33805")
+	)
+	(wire
+		(pts
+			(xy 190.5 49.53) (xy 189.23 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5210dd60-d654-487e-a78d-e7e86caa5354")
+	)
+	(wire
+		(pts
+			(xy 203.2 46.99) (xy 176.53 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5b0ee5e1-fed7-4bf2-9e56-9453eccaaa01")
+	)
+	(wire
+		(pts
+			(xy 189.23 49.53) (xy 176.53 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5b83055b-1b5a-495b-8298-6058358b111d")
+	)
+	(wire
+		(pts
+			(xy 176.53 88.9) (xy 172.72 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5c0d25ca-7443-4928-a5ab-f432c0a5c2d3")
+	)
+	(wire
+		(pts
+			(xy 76.2 53.34) (xy 77.47 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "634ed3a3-f98a-4723-a881-03a639cce43b")
 	)
 	(wire
 		(pts
@@ -1425,6 +1616,16 @@
 	)
 	(wire
 		(pts
+			(xy 215.9 44.45) (xy 176.53 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8c92d4e6-2515-48f6-be9a-663ae61a5ceb")
+	)
+	(wire
+		(pts
 			(xy 41.91 63.5) (xy 45.72 63.5)
 		)
 		(stroke
@@ -1432,6 +1633,16 @@
 			(type default)
 		)
 		(uuid "9498037b-3f42-4b31-a906-8f0393e3ec0f")
+	)
+	(wire
+		(pts
+			(xy 76.2 53.34) (xy 76.2 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9760e930-f118-4a4e-b6a2-2454e17ec361")
 	)
 	(wire
 		(pts
@@ -1462,6 +1673,16 @@
 			(type default)
 		)
 		(uuid "a29f509c-4741-4089-ba04-f8b7b39f27ab")
+	)
+	(wire
+		(pts
+			(xy 176.53 91.44) (xy 172.72 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a6b7b3a8-fb6e-4963-8708-fb1b7fda63d1")
 	)
 	(wire
 		(pts
@@ -1534,8 +1755,8 @@
 		(uuid "fc2594f0-8b28-45b6-b5eb-fdcdbddfabf8")
 	)
 	(rectangle
-		(start 147.32 72.39)
-		(end 171.45 97.79)
+		(start 161.29 73.66)
+		(end 185.42 95.885)
 		(stroke
 			(width 0)
 			(type default)
@@ -1546,8 +1767,8 @@
 		(uuid 3ce4502e-b47f-4d52-bb77-1ee9d18946ea)
 	)
 	(rectangle
-		(start 152.654 73.152)
-		(end 165.354 78.232)
+		(start 166.624 74.422)
+		(end 179.324 79.502)
 		(stroke
 			(width 0)
 			(type default)
@@ -1580,20 +1801,42 @@
 		)
 		(uuid "12c7e7c2-5eb0-46a2-89e8-9fcdd117ff29")
 	)
-	(text "Maybe ToDo(?): update BNC probe footprint\nto account for part updates from group\n(ref text msgs for link to new one)"
+	(text "~59kHz lowpass\n(clarify that this is what we want(?))"
 		(exclude_from_sim no)
-		(at 147.32 102.362 0)
+		(at 119.634 80.01 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "43393edc-fa46-470b-9155-9f26a409f524")
+		(uuid "289432f2-d297-4a96-8110-85e64b70e87a")
+	)
+	(text "EOC/INT:\n\"End of Conversion/Interrupt\"; signals when the\nADC is done converting a signal (intended for use\nwith an interrupt GPIO pin)\n\nCONVST:\n\"Convert Start\"; used to trigger a new conversion;\nbest to drive this pin from a stable timer OR a \nPWM output from the ESP32 to achieve desired sampling\nrate (e.g., a sampling rate of 1 MSPS)"
+		(exclude_from_sim no)
+		(at 221.742 24.892 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "72a4460e-0d7e-4bf0-8d2c-795abc463cf4")
+	)
+	(text "Note:\n0.1uF = decoupling capacitors\n        (they increase reliability/stability\n         for power input pins; place as close\n         as possible to the pin recieving the power!!)"
+		(exclude_from_sim no)
+		(at 50.292 21.336 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "869cef97-d8a2-4f4a-b7a9-bdfd87364454")
 	)
 	(text "BNC Probe"
 		(exclude_from_sim no)
-		(at 153.67 76.2 0)
+		(at 167.64 77.47 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1602,20 +1845,19 @@
 		)
 		(uuid "e8aad4aa-7e7b-4567-af30-5ea8d80bd002")
 	)
-	(text "ToDo:\nImplement SPI(?)"
+	(text "Unique GPIO Pins to Consider/Implement:\n- ADC_EOC/INT (triggers when ADC finishes converting a signal)\n- ADC_CONVST (when triggered, starts converting a signal)\n- ADC_CS (\"label\" for the ADC for SPI; enables general SPI comm.s)\n"
 		(exclude_from_sim no)
-		(at 133.858 33.782 0)
+		(at 147.828 19.558 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "ff3262f4-27c5-4343-8cb1-f45d448d61d4")
+		(uuid "f459ae71-85c0-4951-bdb7-3cc209fe4cdf")
 	)
 	(label "Vsig"
-		(at 165.1 88.9 0)
-		(fields_autoplaced yes)
+		(at 176.53 88.9 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1626,7 +1868,6 @@
 	)
 	(label "Vsig"
 		(at 27.94 63.5 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1637,7 +1878,6 @@
 	)
 	(label "OpAmp_Out"
 		(at 120.65 66.04 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1648,7 +1888,6 @@
 	)
 	(label "OpAmp_Out"
 		(at 176.53 52.07 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1660,7 +1899,6 @@
 	(hierarchical_label "GND"
 		(shape passive)
 		(at 115.57 81.28 270)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1669,10 +1907,20 @@
 		)
 		(uuid "0042a83f-ad06-45b1-847b-92d95ec1dc1e")
 	)
+	(hierarchical_label "ADC_SCK"
+		(shape input)
+		(at 176.53 41.91 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "11170b2f-0e22-4bba-a8bb-216e497c5ed5")
+	)
 	(hierarchical_label "GND"
 		(shape passive)
 		(at 142.24 59.69 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1683,8 +1931,18 @@
 	)
 	(hierarchical_label "GND"
 		(shape passive)
+		(at 189.23 57.15 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "16209898-2404-4636-90a1-55aa57c348ac")
+	)
+	(hierarchical_label "GND"
+		(shape passive)
 		(at 176.53 54.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1693,10 +1951,31 @@
 		)
 		(uuid "1a71f115-699d-44dd-a7ad-ce8daf046803")
 	)
+	(hierarchical_label "GND"
+		(shape passive)
+		(at 85.09 53.34 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "3b5e9feb-0db2-431c-b307-17769077910d")
+	)
+	(hierarchical_label "ADC_CONVST"
+		(shape input)
+		(at 142.24 46.99 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "3fd77de7-3192-4b66-aa1d-3efa56b0da7f")
+	)
 	(hierarchical_label "reg.5V"
 		(shape input)
-		(at 142.24 41.91 180)
-		(fields_autoplaced yes)
+		(at 138.43 41.91 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1705,10 +1984,20 @@
 		)
 		(uuid "41955334-11b0-430c-9466-844bdb109727")
 	)
+	(hierarchical_label "ADC_SDO"
+		(shape output)
+		(at 142.24 57.15 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "497813d5-de10-4b42-b46c-c1a21b22fb3b")
+	)
 	(hierarchical_label "GND"
 		(shape passive)
-		(at 165.1 93.98 0)
-		(fields_autoplaced yes)
+		(at 176.53 91.44 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1717,10 +2006,31 @@
 		)
 		(uuid "53547985-37c4-4b14-aa94-7d8f64d7a812")
 	)
+	(hierarchical_label "ADC_CS"
+		(shape input)
+		(at 142.24 52.07 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "55aac8ff-7167-43b4-afb9-14621dd20526")
+	)
+	(hierarchical_label "GND"
+		(shape passive)
+		(at 203.2 54.61 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "57b2bfd0-67a1-418f-9a7c-f0740588b103")
+	)
 	(hierarchical_label "GND"
 		(shape passive)
 		(at 176.53 57.15 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1732,7 +2042,6 @@
 	(hierarchical_label "reg.5V"
 		(shape input)
 		(at 76.2 49.53 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1741,10 +2050,20 @@
 		)
 		(uuid "6099ff70-e008-4002-a14a-e7d50c9d4ce1")
 	)
+	(hierarchical_label "GND"
+		(shape passive)
+		(at 215.9 52.07 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "72276c1b-e68b-44b1-94d4-0457c8441f3d")
+	)
 	(hierarchical_label "reg.5V"
 		(shape input)
-		(at 176.53 46.99 0)
-		(fields_autoplaced yes)
+		(at 204.47 46.99 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1756,7 +2075,6 @@
 	(hierarchical_label "reg.5V"
 		(shape input)
 		(at 26.67 38.1 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1765,10 +2083,20 @@
 		)
 		(uuid "8b48b96e-f331-4d9d-af1e-8bd5366469a5")
 	)
+	(hierarchical_label "GND"
+		(shape passive)
+		(at 139.7 34.29 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "8ed672c0-4444-4d81-892e-71f35ba18513")
+	)
 	(hierarchical_label "reg.5V"
 		(shape input)
-		(at 176.53 44.45 0)
-		(fields_autoplaced yes)
+		(at 217.17 44.45 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1780,7 +2108,6 @@
 	(hierarchical_label "GND"
 		(shape passive)
 		(at 176.53 59.69 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1791,8 +2118,7 @@
 	)
 	(hierarchical_label "reg.5V"
 		(shape input)
-		(at 176.53 49.53 0)
-		(fields_autoplaced yes)
+		(at 190.5 49.53 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1801,10 +2127,20 @@
 		)
 		(uuid "9744c45e-cdc0-469d-ac5e-74439de39248")
 	)
+	(hierarchical_label "ADC_SDI"
+		(shape input)
+		(at 142.24 54.61 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "9efe1a18-ed56-4993-9ad5-16d8dbbc2c68")
+	)
 	(hierarchical_label "GND"
 		(shape passive)
 		(at 45.72 53.34 270)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1816,7 +2152,6 @@
 	(hierarchical_label "GND"
 		(shape passive)
 		(at 45.72 78.74 270)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1828,7 +2163,6 @@
 	(hierarchical_label "GND"
 		(shape passive)
 		(at 62.23 95.25 270)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1836,6 +2170,17 @@
 			(justify right)
 		)
 		(uuid "d1b119c7-afe1-4d05-9e4b-c8d384f38a29")
+	)
+	(hierarchical_label "ADC_EOC{slash}INT"
+		(shape output)
+		(at 142.24 49.53 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "f6084d0c-f8c2-4643-b1b2-0f0b52cd2266")
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -2154,44 +2499,35 @@
 		)
 	)
 	(symbol
-		(lib_id "BNCFemaleConn:5227161-2")
-		(at 154.94 91.44 0)
-		(mirror y)
+		(lib_id "Device:C")
+		(at 139.7 38.1 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "2d14b1a7-f1e4-427b-904e-bda8f0fa92af")
-		(property "Reference" "J2"
-			(at 154.94 81.28 0)
+		(uuid "2df2f5a3-08cb-4b8e-acb4-59f78a1df646")
+		(property "Reference" "C9"
+			(at 135.89 39.3701 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "5227161-2"
-			(at 154.94 83.82 0)
+		(property "Value" "0.1u"
+			(at 135.89 36.8301 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Footprint" "5227161-2:TE_5227161-2"
-			(at 154.94 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 154.94 91.44 0)
+		(property "Footprint" ""
+			(at 138.7348 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2199,8 +2535,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 154.94 91.44 0)
+		(property "Datasheet" "~"
+			(at 139.7 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2208,158 +2544,8 @@
 				(hide yes)
 			)
 		)
-		(property "Comment" "5227161-2"
-			(at 154.94 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "MF" "TE Connectivity"
-			(at 154.94 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" "16.13 mm"
-			(at 154.94 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Package" "None"
-			(at 154.94 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Price" "None"
-			(at 154.94 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Check_prices" "https://www.snapeda.com/parts/5227161-2/TE+Connectivity/view-part/?ref=eda"
-			(at 154.94 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "STANDARD" "Manufacturer Recommendations"
-			(at 154.94 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "PARTREV" "B3"
-			(at 154.94 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" "https://www.snapeda.com/parts/5227161-2/TE+Connectivity/view-part/?ref=snap"
-			(at 154.94 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "MP" "5227161-2"
-			(at 154.94 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "EU_RoHS_Compliance" "Compliant with Exemptions"
-			(at 154.94 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Description_1" "\n                        \n                            CONNECTOR, RF, BNC, JACK, PCB, RIGHT ANGLE, WITH PINS | TE Connectivity 5227161-2\n                        \n"
-			(at 154.94 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Number_of_Positions" "1"
-			(at 154.94 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Availability" "In Stock"
-			(at 154.94 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "MANUFACTURER" "TE Connectivity"
-			(at 154.94 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 154.94 91.44 0)
+		(property "Description" "Unpolarized capacitor"
+			(at 139.7 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2367,43 +2553,16 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" ""
-			(at 154.94 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
+		(pin "1"
+			(uuid "a1321203-7d16-4a14-b589-857391a9b51f")
 		)
-		(property "Sim.Pins" ""
-			(at 154.94 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" ""
-			(at 154.94 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "S"
-			(uuid "52ecfddf-c050-4ff0-8b6f-a1c126477cd3")
-		)
-		(pin "G"
-			(uuid "40f2fe72-8641-4852-b61f-eac236861f0a")
+		(pin "2"
+			(uuid "7d6e9243-5f7a-41c5-973f-70653fa51cc3")
 		)
 		(instances
 			(project "jd2oscope"
 				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/a55cf82a-acda-4de6-8ce7-2cf91fdca590"
-					(reference "J2")
+					(reference "C9")
 					(unit 1)
 				)
 			)
@@ -2516,6 +2675,76 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C")
+		(at 189.23 53.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "478a0a02-9ccb-452c-8fb6-594b06c6ab1f")
+		(property "Reference" "C6"
+			(at 193.04 52.0699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "0.1u"
+			(at 193.04 54.6099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 190.1952 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 189.23 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 189.23 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "937e51a7-ba5b-4f64-855d-60642cd1672c")
+		)
+		(pin "2"
+			(uuid "0c622369-3c6a-4225-ac57-232ca814c3be")
+		)
+		(instances
+			(project ""
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/a55cf82a-acda-4de6-8ce7-2cf91fdca590"
+					(reference "C6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 38.1 63.5 270)
 		(unit 1)
@@ -2620,6 +2849,75 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C")
+		(at 81.28 53.34 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5f0cf932-b414-4921-a7ea-f2c2ecc48da6")
+		(property "Reference" "C10"
+			(at 83.5025 48.5776 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "0.1u"
+			(at 83.5025 46.0376 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 85.09 52.3748 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 81.28 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 81.28 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a68b5970-45a6-409e-86e4-f4dabd35cf7f")
+		)
+		(pin "2"
+			(uuid "37ebee26-2e63-4594-b679-c2f36214963e")
+		)
+		(instances
+			(project "jd2oscope"
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/a55cf82a-acda-4de6-8ce7-2cf91fdca590"
+					(reference "C10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 36.83 38.1 270)
 		(unit 1)
@@ -2718,6 +3016,165 @@
 			(project "jd2oscope"
 				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/a55cf82a-acda-4de6-8ce7-2cf91fdca590"
 					(reference "R4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "CONBNC001:CONBNC001")
+		(at 170.18 88.9 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "678d3dee-268e-4287-89e8-319bd502c47c")
+		(property "Reference" "J2"
+			(at 169.1005 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "CONBNC001"
+			(at 169.1005 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CONBNC001:LINX_CONBNC001"
+			(at 170.18 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 170.18 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 170.18 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SnapEDA_Link" "https://www.snapeda.com/parts/CONBNC001/TE+Connectivity/view-part/?ref=snap"
+			(at 170.18 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Check_prices" "https://www.snapeda.com/parts/CONBNC001/TE+Connectivity/view-part/?ref=eda"
+			(at 170.18 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Package" "None"
+			(at 170.18 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Price" "None"
+			(at 170.18 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MF" "TE Connectivity"
+			(at 170.18 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MP" "CONBNC001"
+			(at 170.18 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Purchase-URL" "https://www.snapeda.com/api/url_track_click_mouser/?unipart_id=12122496&manufacturer=Linx Technologies Inc.&part_name=CONBNC001&search_term=None"
+			(at 170.18 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Availability" "In Stock"
+			(at 170.18 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Description_1" "\n                        \n                            BNC Jack 50 Ohm PCB Through Hole\n                        \n"
+			(at 170.18 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "59463e1e-2f2e-404e-b808-41cfc111b587")
+		)
+		(pin "S1"
+			(uuid "4608f365-8c42-4661-af5b-a0cc93762782")
+		)
+		(instances
+			(project ""
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/a55cf82a-acda-4de6-8ce7-2cf91fdca590"
+					(reference "J2")
 					(unit 1)
 				)
 			)
@@ -2968,6 +3425,76 @@
 			(project "jd2oscope"
 				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/a55cf82a-acda-4de6-8ce7-2cf91fdca590"
 					(reference "R10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 203.2 50.8 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "89749050-9925-4a19-a303-93ac9337a131")
+		(property "Reference" "C7"
+			(at 207.01 49.5299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "0.1u"
+			(at 207.01 52.0699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 204.1652 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 203.2 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 203.2 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "01c6ec5d-7fc3-4300-b63e-54b177828dbb")
+		)
+		(pin "2"
+			(uuid "b8b0b1eb-11c3-4fe1-a323-61210a4148c9")
+		)
+		(instances
+			(project "jd2oscope"
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/a55cf82a-acda-4de6-8ce7-2cf91fdca590"
+					(reference "C7")
 					(unit 1)
 				)
 			)
@@ -3256,6 +3783,76 @@
 			(project "jd2oscope"
 				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/a55cf82a-acda-4de6-8ce7-2cf91fdca590"
 					(reference "#PWR07")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 215.9 48.26 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e5c24c87-c964-47b2-afed-65e3d5b1d100")
+		(property "Reference" "C8"
+			(at 219.71 46.9899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "0.1u"
+			(at 219.71 49.5299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 216.8652 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 215.9 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 215.9 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4cb2b868-1bf9-4535-a3ef-7d830f06d45b")
+		)
+		(pin "2"
+			(uuid "e36fd587-7552-4632-89a3-0ec554a0f635")
+		)
+		(instances
+			(project "jd2oscope"
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/a55cf82a-acda-4de6-8ce7-2cf91fdca590"
+					(reference "C8")
 					(unit 1)
 				)
 			)

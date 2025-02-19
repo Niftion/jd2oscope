@@ -265,6 +265,51 @@
 			)
 		)
 	)
+	(rectangle
+		(start 119.38 75.692)
+		(end 189.865 86.487)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid c290bc52-03fd-44ae-8ec1-fd997aa3f7b4)
+	)
+	(text "How the button works w/ any given GPIO pin:\n(GPIO pin's initial state should be set as \"HIGH\" in the code)\nan interrupt should be set to trigger if GPIO drops below a certain V\n(i.e., 0V to represent GND; thus: whenever the button is pressed down,\nthe interrupt is triggered & allows us to execute code from it"
+		(exclude_from_sim no)
+		(at 120.015 81.28 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "e066d00c-613b-46db-a56a-b2cc636b9c2c")
+	)
+	(hierarchical_label "GPIOpin"
+		(shape passive)
+		(at 144.78 97.79 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "7494164d-ca32-47ae-b86f-02bade28e5c2")
+	)
+	(hierarchical_label "GND"
+		(shape passive)
+		(at 160.02 97.79 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c85eed39-6aa6-45a9-a0c1-8348b7e9c442")
+	)
 	(symbol
 		(lib_id "bttn:KMR731NGLFS")
 		(at 152.4 97.79 0)

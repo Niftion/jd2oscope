@@ -782,16 +782,12 @@
       "potentiometerModule"
     ],
     [
-      "d33bb5de-5b68-4631-bc98-39ec5e0468c4",
-      "switchModule"
-    ],
-    [
       "a55cf82a-acda-4de6-8ce7-2cf91fdca590",
       "SignalInterpreterModule"
     ],
     [
       "d124c55c-b59b-4d66-8527-4d5db5a79d29",
-      "reg.5V"
+      "5V_Regulator"
     ]
   ],
   "text_variables": {}
