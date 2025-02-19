@@ -1021,7 +1021,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Display:CR2013-MI2120"
 			(at 126.746 70.866 0)
 			(effects
 				(font
@@ -1076,6 +1076,33 @@
 			)
 		)
 		(property "Sim.Type" ""
+			(at 127 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Comment" ""
+			(at 127 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "EU_RoHS_Compliance" ""
+			(at 127 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Number_of_Positions" ""
 			(at 127 90.17 0)
 			(effects
 				(font
@@ -1227,6 +1254,33 @@
 			)
 		)
 		(property "Sim.Type" ""
+			(at 187.96 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Comment" ""
+			(at 187.96 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "EU_RoHS_Compliance" ""
+			(at 187.96 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Number_of_Positions" ""
 			(at 187.96 97.79 0)
 			(effects
 				(font
