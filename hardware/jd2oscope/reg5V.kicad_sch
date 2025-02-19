@@ -2331,9 +2331,9 @@
 		)
 		(uuid "720780d5-3c58-4d8e-801a-fe7d96aa2b99")
 	)
-	(text "Capacitor Information:\n0.1u = Ceramic\n10u = Electrolytic"
+	(text "Decoupling Capacitor Information:\n0.1u = Ceramic\n10u = Electrolytic"
 		(exclude_from_sim no)
-		(at 85.09 66.294 0)
+		(at 76.962 65.532 0)
 		(effects
 			(font
 				(size 1.27 1.27)

@@ -1,0 +1,563 @@
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "b0dbb727-27ac-4f1d-af4a-896439db7a9e")
+	(paper "A4")
+	(lib_symbols)
+	(polyline
+		(pts
+			(xy 115.57 47.625) (xy 234.315 47.625)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "48068211-5cc4-4c6a-bb04-4fa03c0579f6")
+	)
+	(rectangle
+		(start 115.57 43.18)
+		(end 234.315 123.825)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid ae5f3185-f0f5-4856-b8c8-15242dceb903)
+	)
+	(text "Global (to be used by all modules):\nButton(s):\n- Trigger toggle button (toggles the \"trigger\" functionality of our oscope)\n\nPot.(s):\n- amplitude scaling (y-axis scale of all signals)\n- time scaling (x-axis scale of all signals)\n\n---\n\nPer-Module:\nButton(s):\n- \"Signal input toggle button\"; toggles whether or not we're reading it\n\nPot.(s):\n- amplitude shift (how much the signal is shifted in relation to the y-axis)\n- time shift (how much the signal is shifted in relation to the x-axis)"
+		(exclude_from_sim no)
+		(at 30.48 82.296 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "1c0dc74b-e9f3-4216-8c4d-4b016604f54e")
+	)
+	(text "SignalInterpreterModule = the module we use\nto measure a BNC input signal to the Oscope"
+		(exclude_from_sim no)
+		(at 180.594 71.374 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "643fd7c7-c200-4616-981a-99c4dae3fa34")
+	)
+	(text "Per-Module"
+		(exclude_from_sim no)
+		(at 116.586 45.72 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "65aa3bda-cca9-4afa-a4cb-148519e843c6")
+	)
+	(hierarchical_label "GND"
+		(shape passive)
+		(at 217.17 99.06 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "0f7b4c2b-6c8a-48e8-88e2-f7dc674c4436")
+	)
+	(hierarchical_label "timeShift_wiper"
+		(shape passive)
+		(at 153.67 110.49 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "1bb0718b-0946-458e-826b-eac5f5ea6dc0")
+	)
+	(hierarchical_label "ADC_SDO"
+		(shape output)
+		(at 194.31 90.17 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "242ad99d-4eb0-487c-9c55-7d9acb432b4c")
+	)
+	(hierarchical_label "GND"
+		(shape passive)
+		(at 153.67 92.71 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "26126777-f6f6-4e24-95ee-8a9a2ebcfa9d")
+	)
+	(hierarchical_label "signalToggleBttn"
+		(shape passive)
+		(at 137.16 60.96 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "3598a345-c5fe-420a-9ab9-de7c5d67783b")
+	)
+	(hierarchical_label "ADC_CS"
+		(shape input)
+		(at 194.31 85.09 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "3ea81789-a7f6-4c43-9205-a850098659d5")
+	)
+	(hierarchical_label "ADC_SCK"
+		(shape input)
+		(at 194.31 92.71 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "4e01dce8-acce-4205-bf45-0a1ec26b5644")
+	)
+	(hierarchical_label "GND"
+		(shape passive)
+		(at 153.67 67.31 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "568d80fd-0fc1-475e-9781-c09679cf9750")
+	)
+	(hierarchical_label "GND"
+		(shape passive)
+		(at 153.67 116.84 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "66d680f7-8ef0-4927-bb57-ba3346b66647")
+	)
+	(hierarchical_label "ampShift_wiper"
+		(shape passive)
+		(at 153.67 86.36 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "6a4a9d95-c835-4040-92f8-cb3e672ac9ba")
+	)
+	(hierarchical_label "ADC_SDI"
+		(shape input)
+		(at 194.31 87.63 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "6da57cf3-6481-447d-b5a0-d74da5cd322c")
+	)
+	(hierarchical_label "reg.5V"
+		(shape input)
+		(at 194.31 80.01 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "a192bf41-d3ba-4db5-90bc-a1ea5f4a2a02")
+	)
+	(hierarchical_label "reg.3.3V"
+		(shape input)
+		(at 137.16 80.01 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "ace47a58-6d0d-48a3-9d21-f4d0dfd38379")
+	)
+	(hierarchical_label "ADC_EOC{slash}INT"
+		(shape output)
+		(at 194.31 99.06 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "edd158db-878a-4e70-818a-1737c8920b47")
+	)
+	(hierarchical_label "reg.3.3V"
+		(shape input)
+		(at 137.16 104.14 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "f07b6270-415d-4baf-8ab9-f4e77b6f7aa4")
+	)
+	(hierarchical_label "ADC_CONVST"
+		(shape input)
+		(at 194.31 96.52 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "f1c70665-0a3e-4c33-9889-93593381d215")
+	)
+	(sheet
+		(at 194.31 78.74)
+		(size 22.86 21.59)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "52258d0c-831e-400e-9ea9-cb0e0952ee2a")
+		(property "Sheetname" "SignalInterpreterModule"
+			(at 194.31 78.0284 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "ADCModule.kicad_sch"
+			(at 194.31 100.9146 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "GND" passive
+			(at 217.17 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "63dfc6ab-1c71-4c48-b812-db3390f88350")
+		)
+		(pin "reg.5V" input
+			(at 194.31 80.01 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "4e03cbc7-38f0-4641-8b68-4ec4486b711f")
+		)
+		(pin "ADC_SCK" input
+			(at 194.31 92.71 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "2a6009e8-1a1b-4f75-9e28-6d2fd96a4f7e")
+		)
+		(pin "ADC_CONVST" input
+			(at 194.31 96.52 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "b44e8dc6-3add-4add-a125-3f44296ed727")
+		)
+		(pin "ADC_CS" input
+			(at 194.31 85.09 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "473a5c19-8a1a-4615-b9a8-bbeea898ddd1")
+		)
+		(pin "ADC_EOC{slash}INT" output
+			(at 194.31 99.06 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "8cb4af03-6032-4701-bc98-c2587251a1f7")
+		)
+		(pin "ADC_SDO" output
+			(at 194.31 90.17 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "c460f439-d8b6-402d-9ba8-da8d3647ff05")
+		)
+		(pin "ADC_SDI" input
+			(at 194.31 87.63 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "654e6966-d46b-41d5-85aa-e3f5c702f38a")
+		)
+		(instances
+			(project "jd2oscope"
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/4f25ad0e-659b-4d0d-998d-272f66fe29fb"
+					(page "15")
+				)
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/9cf642e2-7276-4116-93a5-7485645ddebf"
+					(page "20")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 137.16 53.34)
+		(size 16.51 16.51)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "59e5b20f-a405-48c1-b2c2-d334523c9ae1")
+		(property "Sheetname" "signalInputToggleButton"
+			(at 137.16 52.6284 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "buttonModule.kicad_sch"
+			(at 137.16 70.4346 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "GND" passive
+			(at 153.67 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "b265abc8-fcd6-4559-a5f4-04dddf695526")
+		)
+		(pin "GPIOpin" passive
+			(at 137.16 60.96 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "b6fe91a2-934d-4fd1-bb9a-6275f0144662")
+		)
+		(instances
+			(project "jd2oscope"
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/4f25ad0e-659b-4d0d-998d-272f66fe29fb"
+					(page "14")
+				)
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/9cf642e2-7276-4116-93a5-7485645ddebf"
+					(page "19")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 137.16 102.235)
+		(size 16.51 16.51)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "a129be14-5636-4b2f-ac25-6f79cead8126")
+		(property "Sheetname" "timeShiftPot"
+			(at 137.16 101.5234 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "PotentiometerModule.kicad_sch"
+			(at 137.16 119.3296 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "POT_WIPER" passive
+			(at 153.67 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "bfe357a4-1cce-4dea-b4bd-a7e9a1500fd1")
+		)
+		(pin "GND" passive
+			(at 153.67 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "fba6fbcd-e528-435b-ac28-7182503eb313")
+		)
+		(pin "reg.3.3V" input
+			(at 137.16 104.14 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "edb0cdc3-8491-433c-8970-76dfd811f3bd")
+		)
+		(instances
+			(project "jd2oscope"
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/4f25ad0e-659b-4d0d-998d-272f66fe29fb"
+					(page "13")
+				)
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/9cf642e2-7276-4116-93a5-7485645ddebf"
+					(page "18")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 137.16 77.47)
+		(size 16.51 17.145)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "d0d3e5b7-5e05-4d56-af40-3a75a71576b8")
+		(property "Sheetname" "ampShiftPot"
+			(at 137.16 76.7584 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "PotentiometerModule.kicad_sch"
+			(at 137.16 95.1996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "POT_WIPER" passive
+			(at 153.67 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "bc467aa3-b50b-4319-b8f6-11ea69910c0c")
+		)
+		(pin "GND" passive
+			(at 153.67 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "56fb86a9-e398-4dfc-9a04-61c9de7fd9c3")
+		)
+		(pin "reg.3.3V" input
+			(at 137.16 80.01 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "004596f8-84b5-4280-a661-f2711eae368e")
+		)
+		(instances
+			(project "jd2oscope"
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/4f25ad0e-659b-4d0d-998d-272f66fe29fb"
+					(page "6")
+				)
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/9cf642e2-7276-4116-93a5-7485645ddebf"
+					(page "17")
+				)
+			)
+		)
+	)
+)

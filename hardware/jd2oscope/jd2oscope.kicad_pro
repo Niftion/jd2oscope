@@ -772,28 +772,68 @@
       "Root"
     ],
     [
-      "e414f658-4339-4fb7-8e2d-b0ad6b8f4867",
-      "ESP32"
+      "4f25ad0e-659b-4d0d-998d-272f66fe29fb",
+      "SignalInterfaceModule1"
     ],
     [
       "90e44cf6-9696-4eec-a87b-3c33baa89c99",
       "Touchscreen_LCD_Display"
     ],
     [
-      "53a41818-3f0f-42a5-bb8b-35a22bb57817",
-      "buttonModule"
-    ],
-    [
-      "dff6ec06-2d4b-4768-9220-df3b02ec1774",
-      "potentiometerModule"
-    ],
-    [
-      "a55cf82a-acda-4de6-8ce7-2cf91fdca590",
-      "SignalInterpreterModule"
+      "d0d3e5b7-5e05-4d56-af40-3a75a71576b8",
+      "ampShiftPot"
     ],
     [
       "d124c55c-b59b-4d66-8527-4d5db5a79d29",
       "5V_Regulator"
+    ],
+    [
+      "946e3097-58f0-4375-84c2-921a93494f1e",
+      "triggerToggleButton"
+    ],
+    [
+      "34809825-0d94-4631-a2d1-f31cc7a3b6ba",
+      "amplitudeScalingPot"
+    ],
+    [
+      "415ed027-7cd2-4459-ae99-e85a85aec1e2",
+      "SignalInterfaces"
+    ],
+    [
+      "0b10fb84-a9af-450b-b4ba-7677bde7a4aa",
+      "timeScalingPot"
+    ],
+    [
+      "a129be14-5636-4b2f-ac25-6f79cead8126",
+      "timeShiftPot"
+    ],
+    [
+      "59e5b20f-a405-48c1-b2c2-d334523c9ae1",
+      "signalInputToggleButton"
+    ],
+    [
+      "52258d0c-831e-400e-9ea9-cb0e0952ee2a",
+      "SignalInterpreterModule"
+    ],
+    [
+      "9cf642e2-7276-4116-93a5-7485645ddebf",
+      "SignalInterfaceModule2"
+    ],
+    [
+      "d0d3e5b7-5e05-4d56-af40-3a75a71576b8",
+      "ampShiftPot"
+    ],
+    [
+      "a129be14-5636-4b2f-ac25-6f79cead8126",
+      "timeShiftPot"
+    ],
+    [
+      "59e5b20f-a405-48c1-b2c2-d334523c9ae1",
+      "signalInputToggleButton"
+    ],
+    [
+      "52258d0c-831e-400e-9ea9-cb0e0952ee2a",
+      "SignalInterpreterModule"
     ]
   ],
   "text_variables": {}

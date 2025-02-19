@@ -320,7 +320,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a0ec65b7-b941-4ff0-ba2f-4f9a0ce4fc30")
-		(property "Reference" "S1"
+		(property "Reference" "S4"
 			(at 152.4 90.17 0)
 			(effects
 				(font
@@ -548,15 +548,23 @@
 			)
 		)
 		(pin "3"
-			(uuid "0e6cfbdc-a0a2-47eb-b0f8-593c4c443772")
+			(uuid "14e33df8-2def-45c5-aa2c-2837a777ea35")
 		)
 		(pin "1"
-			(uuid "2eb24f8e-253d-4c4a-b4a8-3ccd0d83882f")
+			(uuid "af9d206e-377a-401b-8a1c-e66c25e8b675")
 		)
 		(instances
-			(project ""
-				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/53a41818-3f0f-42a5-bb8b-35a22bb57817"
+			(project "jd2oscope"
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/946e3097-58f0-4375-84c2-921a93494f1e"
+					(reference "S4")
+					(unit 1)
+				)
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/4f25ad0e-659b-4d0d-998d-272f66fe29fb/59e5b20f-a405-48c1-b2c2-d334523c9ae1"
 					(reference "S1")
+					(unit 1)
+				)
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/9cf642e2-7276-4116-93a5-7485645ddebf/59e5b20f-a405-48c1-b2c2-d334523c9ae1"
+					(reference "S2")
 					(unit 1)
 				)
 			)
