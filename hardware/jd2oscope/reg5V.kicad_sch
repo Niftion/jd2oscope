@@ -2163,6 +2163,7 @@
 	)
 	(label "PwrSwitch_Schottky"
 		(at 97.79 87.63 90)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2170,9 +2171,21 @@
 			(justify left bottom)
 		)
 		(uuid "3721e2bf-457e-4dbc-afba-388cfb6fbcb1")
+		(property "Netclass" "PWR_9V"
+			(at 99.06 87.63 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "9V_PwrSwitch"
 		(at 82.55 100.33 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2180,9 +2193,21 @@
 			(justify right bottom)
 		)
 		(uuid "3bc061a4-4040-476c-92c3-53bfcd0ec793")
+		(property "Netclass" "PWR_9V"
+			(at 82.55 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "Schottky_LEDres-caps-5Vreg.In"
 		(at 111.76 85.09 90)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2190,9 +2215,21 @@
 			(justify left bottom)
 		)
 		(uuid "57ce1bcd-3089-453d-be31-f845465db420")
+		(property "Netclass" "PWR_9V"
+			(at 113.03 85.09 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "LEDres_LED"
 		(at 113.03 104.14 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2200,6 +2237,17 @@
 			(justify left bottom)
 		)
 		(uuid "b983ad3c-2ba2-47e5-971b-86b7f7a817ca")
+		(property "Netclass" "PWR_9V"
+			(at 113.03 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(hierarchical_label "GND"
 		(shape passive)
@@ -2215,6 +2263,7 @@
 	(hierarchical_label "reg.5V"
 		(shape output)
 		(at 177.8 85.09 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2222,6 +2271,17 @@
 			(justify left)
 		)
 		(uuid "7294cafa-57d1-4877-83c6-a29a2db0b3b0")
+		(property "Netclass" "PWR_5V"
+			(at 177.8 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(symbol
 		(lib_id "Device:C")

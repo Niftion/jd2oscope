@@ -2309,7 +2309,7 @@
 			(justify left bottom)
 		)
 		(uuid "481c5eec-d0a4-42a1-85a7-f439b1688f13")
-		(property "Netclass" "GPIO"
+		(property "Netclass" "SPI"
 			(at 58.42 142.24 0)
 			(effects
 				(font
@@ -2881,7 +2881,7 @@
 			(justify left bottom)
 		)
 		(uuid "a836952c-2168-499a-b448-ca2a9751833a")
-		(property "Netclass" "GPIO"
+		(property "Netclass" "SPI"
 			(at 58.42 116.84 0)
 			(effects
 				(font
