@@ -1883,6 +1883,7 @@
 	)
 	(label "GPIO:signal1_timeShiftWiper"
 		(at 86.36 44.45 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1890,9 +1891,21 @@
 			(justify right bottom)
 		)
 		(uuid "000d948c-4030-4e86-912d-625195d1becf")
+		(property "Netclass" "GPIO"
+			(at 86.36 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:ADC2_CONVST"
 		(at 99.06 149.86 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1900,9 +1913,21 @@
 			(justify right bottom)
 		)
 		(uuid "02b955ee-8542-457f-8f31-2e9fa6810f37")
+		(property "Netclass" "GPIO"
+			(at 99.06 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:ampScale_wiper"
 		(at 86.36 49.53 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1910,9 +1935,21 @@
 			(justify right bottom)
 		)
 		(uuid "03ba2a0c-b14d-47a2-b709-91cd2f670dbd")
+		(property "Netclass" "GPIO"
+			(at 86.36 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "reg.3.3V"
 		(at 99.06 115.57 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1920,9 +1957,21 @@
 			(justify right bottom)
 		)
 		(uuid "0ffc0df9-b6cf-42d3-9b80-e327caf88952")
+		(property "Netclass" "PWR_3V3"
+			(at 99.06 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:ADC1_CS"
 		(at 99.06 134.62 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1930,9 +1979,21 @@
 			(justify right bottom)
 		)
 		(uuid "13b5c896-c673-45c6-b46c-8e2d79f7651d")
+		(property "Netclass" "SPI"
+			(at 99.06 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "SDI"
 		(at 99.06 121.92 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1940,9 +2001,21 @@
 			(justify right bottom)
 		)
 		(uuid "191cd73d-fc54-4d38-8a90-61c97d376371")
+		(property "Netclass" "SPI"
+			(at 99.06 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:signal1_ampShiftWiper"
 		(at 147.32 137.16 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1950,9 +2023,21 @@
 			(justify left bottom)
 		)
 		(uuid "1bfecceb-1b94-4f6d-b97d-e116e763de73")
+		(property "Netclass" "GPIO"
+			(at 147.32 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:signal2_toggleBttn"
 		(at 147.32 147.32 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1960,9 +2045,21 @@
 			(justify left bottom)
 		)
 		(uuid "1dd5ca99-4e55-4291-aa85-ed6cb76d6ae7")
+		(property "Netclass" "GPIO"
+			(at 147.32 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:screen_CS"
 		(at 142.24 54.61 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1970,9 +2067,21 @@
 			(justify left bottom)
 		)
 		(uuid "1e4f50d4-9b9e-41b3-969e-6b590bb238b0")
+		(property "Netclass" "SPI"
+			(at 142.24 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:ADC1_CONVST"
 		(at 99.06 137.16 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1980,9 +2089,21 @@
 			(justify right bottom)
 		)
 		(uuid "2658fc3f-61cb-4808-b152-62d06eeb485c")
+		(property "Netclass" "GPIO"
+			(at 99.06 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "SCK"
 		(at 58.42 137.16 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1990,9 +2111,21 @@
 			(justify left bottom)
 		)
 		(uuid "27821001-155c-45a4-a4b9-f2e05bb93a5a")
+		(property "Netclass" "SPI"
+			(at 58.42 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "SDO"
 		(at 142.24 49.53 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2000,9 +2133,21 @@
 			(justify left bottom)
 		)
 		(uuid "2898aaf9-7be7-4fcc-888c-e75a5bf19815")
+		(property "Netclass" "SPI"
+			(at 142.24 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "SCK"
 		(at 99.06 127 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2010,9 +2155,21 @@
 			(justify right bottom)
 		)
 		(uuid "2a0ae9d7-233e-4c30-9aad-598ec31ad5e5")
+		(property "Netclass" "SPI"
+			(at 99.06 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "reg.5V"
 		(at 86.36 77.47 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2020,9 +2177,21 @@
 			(justify right bottom)
 		)
 		(uuid "3212c34e-596f-44ce-a0e0-d1506be6493b")
+		(property "Netclass" "PWR_5V"
+			(at 86.36 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:ampScale_wiper"
 		(at 147.32 124.46 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2030,9 +2199,21 @@
 			(justify left bottom)
 		)
 		(uuid "3633de53-f269-4015-a5ad-8b3061895184")
+		(property "Netclass" "GPIO"
+			(at 147.32 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:signal1_toggleBttn"
 		(at 147.32 134.62 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2040,9 +2221,21 @@
 			(justify left bottom)
 		)
 		(uuid "36576697-d1c5-45c2-a91c-66769b548f28")
+		(property "Netclass" "GPIO"
+			(at 147.32 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:timeScale_wiper"
 		(at 86.36 46.99 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2050,9 +2243,21 @@
 			(justify right bottom)
 		)
 		(uuid "3e7e0910-eb64-4c98-82e3-71e725578a37")
+		(property "Netclass" "GPIO"
+			(at 86.36 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "SCK"
 		(at 58.42 127 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2060,9 +2265,21 @@
 			(justify left bottom)
 		)
 		(uuid "411d0f61-758c-4127-a23a-f1928a9197e9")
+		(property "Netclass" "SPI"
+			(at 58.42 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:ADC1_EOC{slash}INT"
 		(at 99.06 139.7 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2070,9 +2287,21 @@
 			(justify right bottom)
 		)
 		(uuid "43150a90-2171-4344-ac18-cee37a3835bb")
+		(property "Netclass" "GPIO"
+			(at 99.06 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:touch_CS"
 		(at 58.42 140.97 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2080,9 +2309,21 @@
 			(justify left bottom)
 		)
 		(uuid "481c5eec-d0a4-42a1-85a7-f439b1688f13")
+		(property "Netclass" "GPIO"
+			(at 58.42 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:ADC1_CS"
 		(at 86.36 59.69 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2090,9 +2331,21 @@
 			(justify right bottom)
 		)
 		(uuid "4eef7e0a-3c86-4e4a-a979-0811c32cae90")
+		(property "Netclass" "SPI"
+			(at 86.36 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "SDO"
 		(at 99.06 124.46 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2100,9 +2353,21 @@
 			(justify right bottom)
 		)
 		(uuid "5550dd41-7bd5-4ea6-8319-f730e22e298b")
+		(property "Netclass" "SPI"
+			(at 99.06 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:signal2_ampShiftWiper"
 		(at 86.36 36.83 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2110,9 +2375,21 @@
 			(justify right bottom)
 		)
 		(uuid "561d24db-5abe-4c42-9b48-a0fbab68df52")
+		(property "Netclass" "GPIO"
+			(at 86.36 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:touch_CS"
 		(at 142.24 69.85 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2120,9 +2397,21 @@
 			(justify left bottom)
 		)
 		(uuid "5c5ac245-6b2f-4032-8edc-e21bd9f680a8")
+		(property "Netclass" "SPI"
+			(at 142.24 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "SDO"
 		(at 58.42 148.59 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2130,9 +2419,21 @@
 			(justify left bottom)
 		)
 		(uuid "5eb01610-a0eb-460c-8c59-901e870fdeee")
+		(property "Netclass" "SPI"
+			(at 58.42 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:signal2_timeShiftWiper"
 		(at 147.32 152.4 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2140,9 +2441,21 @@
 			(justify left bottom)
 		)
 		(uuid "648c0962-5fc1-4dd8-b7ed-88b663806ef9")
+		(property "Netclass" "GPIO"
+			(at 147.32 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "SDO"
 		(at 58.42 130.81 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2150,9 +2463,21 @@
 			(justify left bottom)
 		)
 		(uuid "67ecaec3-63ee-4cdb-9615-9e68ddbe0e73")
+		(property "Netclass" "SPI"
+			(at 58.42 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:triggerBttn"
 		(at 147.32 121.92 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2160,9 +2485,21 @@
 			(justify left bottom)
 		)
 		(uuid "70409b54-90b3-4d5d-8d5c-cb537661376a")
+		(property "Netclass" "GPIO"
+			(at 147.32 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:touch_IRQ"
 		(at 58.42 152.4 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2170,9 +2507,21 @@
 			(justify left bottom)
 		)
 		(uuid "735f6cfd-aa07-44b2-832e-586a21d6c2e0")
+		(property "Netclass" "GPIO"
+			(at 58.42 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:signal1_ampShiftWiper"
 		(at 86.36 41.91 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2180,9 +2529,21 @@
 			(justify right bottom)
 		)
 		(uuid "77932087-9fcf-4261-a7c4-3700bad08d27")
+		(property "Netclass" "GPIO"
+			(at 86.36 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:timeScale_wiper"
 		(at 147.32 127 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2190,9 +2551,21 @@
 			(justify left bottom)
 		)
 		(uuid "81bae75f-8c2f-4fff-b25a-a9a1bed53312")
+		(property "Netclass" "GPIO"
+			(at 147.32 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:signal2_timeShiftWiper"
 		(at 86.36 39.37 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2200,9 +2573,21 @@
 			(justify right bottom)
 		)
 		(uuid "84784860-9502-4f17-a7c7-651673ebc96d")
+		(property "Netclass" "GPIO"
+			(at 86.36 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:signal1_timeShiftWiper"
 		(at 147.32 139.7 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2210,9 +2595,21 @@
 			(justify left bottom)
 		)
 		(uuid "87e4f8e8-7fd8-4a69-b6e0-19936f5e7fe0")
+		(property "Netclass" "GPIO"
+			(at 147.32 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:ADC2_CS"
 		(at 142.24 44.45 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2220,9 +2617,21 @@
 			(justify left bottom)
 		)
 		(uuid "8b9a1326-deaf-42ca-bbb4-24c982786644")
+		(property "Netclass" "SPI"
+			(at 142.24 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "reg.3.3V"
 		(at 38.1 166.37 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2230,9 +2639,21 @@
 			(justify left bottom)
 		)
 		(uuid "8ba24e39-c5f6-45c2-82ef-f5a4ca467aa5")
+		(property "Netclass" "PWR_3V3"
+			(at 38.1 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "reg.3.3V"
 		(at 86.36 31.75 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2240,9 +2661,21 @@
 			(justify right bottom)
 		)
 		(uuid "90445603-9f9b-4d6e-9ddd-b25e7a9ffa06")
+		(property "Netclass" "PWR_3V3"
+			(at 86.36 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:triggerBttn"
 		(at 86.36 67.31 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2250,9 +2683,21 @@
 			(justify right bottom)
 		)
 		(uuid "934ebaad-a596-467a-8750-6318d6cc38ab")
+		(property "Netclass" "GPIO"
+			(at 86.36 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:touch_IRQ"
 		(at 86.36 52.07 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2260,9 +2705,21 @@
 			(justify right bottom)
 		)
 		(uuid "94c6da7a-ddbe-47df-b1f0-87e7a17100b1")
+		(property "Netclass" "GPIO"
+			(at 86.36 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:ADC1_EOC{slash}INT"
 		(at 86.36 54.61 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2270,9 +2727,21 @@
 			(justify right bottom)
 		)
 		(uuid "9973d937-9cbd-41ba-b2d3-549dbb8600ed")
+		(property "Netclass" "GPIO"
+			(at 86.36 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:ADC2_CONVST"
 		(at 142.24 36.83 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2280,9 +2749,21 @@
 			(justify left bottom)
 		)
 		(uuid "9af8a242-fb4e-49c0-9a91-afbd0618ec0d")
+		(property "Netclass" "GPIO"
+			(at 142.24 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "reg.5V"
 		(at 99.06 113.03 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2290,9 +2771,21 @@
 			(justify right bottom)
 		)
 		(uuid "9d1429d8-6bde-4567-bf34-f721486f8f86")
+		(property "Netclass" "PWR_5V"
+			(at 99.06 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:signal1_toggleBttn"
 		(at 142.24 59.69 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2300,9 +2793,21 @@
 			(justify left bottom)
 		)
 		(uuid "9d40fe2f-4760-4e09-bf71-c090c64ab4dc")
+		(property "Netclass" "GPIO"
+			(at 142.24 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "SCK"
 		(at 142.24 52.07 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2310,9 +2815,21 @@
 			(justify left bottom)
 		)
 		(uuid "9f08fd0b-2f07-4690-995e-1c689cd0b261")
+		(property "Netclass" "SPI"
+			(at 142.24 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:signal2_toggleBttn"
 		(at 142.24 57.15 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2320,9 +2837,21 @@
 			(justify left bottom)
 		)
 		(uuid "a060a79a-f93f-43fd-afb1-4a3147a7c773")
+		(property "Netclass" "GPIO"
+			(at 142.24 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "SDI"
 		(at 58.42 123.19 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2330,9 +2859,21 @@
 			(justify left bottom)
 		)
 		(uuid "a29fdacc-fec4-4dfe-b39d-5672479429b1")
+		(property "Netclass" "SPI"
+			(at 58.42 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:screen_CS"
 		(at 58.42 115.57 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2340,6 +2881,17 @@
 			(justify left bottom)
 		)
 		(uuid "a836952c-2168-499a-b448-ca2a9751833a")
+		(property "Netclass" "GPIO"
+			(at 58.42 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "reg.5V"
 		(at 40.64 48.26 0)
@@ -2353,6 +2905,7 @@
 	)
 	(label "GPIO:signal2_ampShiftWiper"
 		(at 147.32 149.86 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2360,9 +2913,21 @@
 			(justify left bottom)
 		)
 		(uuid "ab845ee6-e78b-4d64-bb56-68f17f6a5a14")
+		(property "Netclass" "GPIO"
+			(at 147.32 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:ADC2_EOC{slash}INT"
 		(at 86.36 62.23 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2370,9 +2935,21 @@
 			(justify right bottom)
 		)
 		(uuid "bef69752-184d-4d48-a439-3625b5619231")
+		(property "Netclass" "GPIO"
+			(at 86.36 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:screen_D{slash}C"
 		(at 58.42 119.38 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2380,9 +2957,21 @@
 			(justify left bottom)
 		)
 		(uuid "c1e6582e-787d-4d42-85a1-da8d8bb3dd7b")
+		(property "Netclass" "GPIO"
+			(at 58.42 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "SDI"
 		(at 142.24 34.29 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2390,9 +2979,21 @@
 			(justify left bottom)
 		)
 		(uuid "c6699211-f63e-456b-ba42-ed760b6f08e4")
+		(property "Netclass" "SPI"
+			(at 142.24 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:screen_D{slash}C"
 		(at 142.24 62.23 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2400,9 +3001,21 @@
 			(justify left bottom)
 		)
 		(uuid "c7c74139-659c-4eca-9646-72c56cd00105")
+		(property "Netclass" "GPIO"
+			(at 142.24 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:ADC2_CS"
 		(at 99.06 147.32 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2410,9 +3023,21 @@
 			(justify right bottom)
 		)
 		(uuid "c7db66b0-6b2a-44fe-825e-e484ca9513f1")
+		(property "Netclass" "SPI"
+			(at 99.06 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "reg.5V"
 		(at 35.56 166.37 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2420,9 +3045,21 @@
 			(justify right bottom)
 		)
 		(uuid "ddd70b60-57c7-44a7-8e64-ba7f5d58cbbf")
+		(property "Netclass" "PWR_5V"
+			(at 35.56 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:ADC1_CONVST"
 		(at 86.36 57.15 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2430,9 +3067,21 @@
 			(justify right bottom)
 		)
 		(uuid "e5d921d2-627f-4061-8f7b-f50ac0bd0971")
+		(property "Netclass" "GPIO"
+			(at 86.36 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "SDI"
 		(at 58.42 144.78 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2440,9 +3089,21 @@
 			(justify left bottom)
 		)
 		(uuid "faf7ee19-0c71-42c4-84e5-5f52a32a4b17")
+		(property "Netclass" "SPI"
+			(at 58.42 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "GPIO:ADC2_EOC{slash}INT"
 		(at 99.06 152.4 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2450,6 +3111,17 @@
 			(justify right bottom)
 		)
 		(uuid "fc1fbddd-1660-4a2a-8375-655bdbec3b60")
+		(property "Netclass" "GPIO"
+			(at 99.06 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(symbol
 		(lib_id "power:GND")

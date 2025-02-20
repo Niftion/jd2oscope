@@ -577,7 +577,32 @@
       "version": 3
     },
     "net_colors": null,
-    "netclass_assignments": null,
+    "netclass_assignments": {
+      "/GPIO:ADC1_CONVST": "GPIO",
+      "/GPIO:ADC1_CS": "SPI",
+      "/GPIO:ADC1_EOC{slash}INT": "GPIO",
+      "/GPIO:ADC2_CONVST": "GPIO",
+      "/GPIO:ADC2_CS": "SPI",
+      "/GPIO:ADC2_EOC{slash}INT": "GPIO",
+      "/GPIO:ampScale_wiper": "GPIO",
+      "/GPIO:screen_CS": "SPI",
+      "/GPIO:screen_D{slash}C": "GPIO",
+      "/GPIO:signal1_ampShiftWiper": "GPIO",
+      "/GPIO:signal1_timeShiftWiper": "GPIO",
+      "/GPIO:signal1_toggleBttn": "GPIO",
+      "/GPIO:signal2_ampShiftWiper": "GPIO",
+      "/GPIO:signal2_timeShiftWiper": "GPIO",
+      "/GPIO:signal2_toggleBttn": "GPIO",
+      "/GPIO:timeScale_wiper": "GPIO",
+      "/GPIO:touch_CS": "GPIO",
+      "/GPIO:touch_IRQ": "GPIO",
+      "/GPIO:triggerBttn": "GPIO",
+      "/SCK": "SPI",
+      "/SDI": "SPI",
+      "/SDO": "SPI",
+      "/reg.3.3V": "PWR_3V3",
+      "/reg.5V": "PWR_5V"
+    },
     "netclass_patterns": []
   },
   "pcbnew": {
