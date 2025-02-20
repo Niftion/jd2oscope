@@ -5,7 +5,7 @@
 	(uuid "d83586b6-510e-44b4-9d4c-245e7426ac86")
 	(paper "A4")
 	(lib_symbols
-		(symbol "bttn:KMR731NGLFS"
+		(symbol "KMR731NGLFS:KMR731NGLFS"
 			(pin_names
 				(offset 1.016)
 			)
@@ -311,7 +311,7 @@
 		(uuid "c85eed39-6aa6-45a9-a0c1-8348b7e9c442")
 	)
 	(symbol
-		(lib_id "bttn:KMR731NGLFS")
+		(lib_id "KMR731NGLFS:KMR731NGLFS")
 		(at 152.4 97.79 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -319,8 +319,8 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "a0ec65b7-b941-4ff0-ba2f-4f9a0ce4fc30")
-		(property "Reference" "S4"
+		(uuid "79dea66b-33bf-4657-ab17-34952b986b29")
+		(property "Reference" "S1"
 			(at 152.4 90.17 0)
 			(effects
 				(font
@@ -484,79 +484,16 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Device" ""
-			(at 152.4 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Params" ""
-			(at 152.4 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 152.4 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" ""
-			(at 152.4 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Comment" ""
-			(at 152.4 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "EU_RoHS_Compliance" ""
-			(at 152.4 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Number_of_Positions" ""
-			(at 152.4 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
+		(pin "1"
+			(uuid "a9c49a51-6904-4573-b6e4-63d601cec1f4")
 		)
 		(pin "3"
-			(uuid "14e33df8-2def-45c5-aa2c-2837a777ea35")
-		)
-		(pin "1"
-			(uuid "af9d206e-377a-401b-8a1c-e66c25e8b675")
+			(uuid "59384814-e700-4fd6-a85f-839f14a6d290")
 		)
 		(instances
 			(project "jd2oscope"
 				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/946e3097-58f0-4375-84c2-921a93494f1e"
-					(reference "S4")
+					(reference "S2")
 					(unit 1)
 				)
 				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/4f25ad0e-659b-4d0d-998d-272f66fe29fb/59e5b20f-a405-48c1-b2c2-d334523c9ae1"
@@ -564,7 +501,7 @@
 					(unit 1)
 				)
 				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/9cf642e2-7276-4116-93a5-7485645ddebf/59e5b20f-a405-48c1-b2c2-d334523c9ae1"
-					(reference "S2")
+					(reference "S3")
 					(unit 1)
 				)
 			)

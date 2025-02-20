@@ -5,12 +5,12 @@
 	(uuid "39cb2e55-3952-46f9-94e3-d30ed363dce9")
 	(paper "A4")
 	(lib_symbols
-		(symbol "ADS7279:ADS7279IPW"
+		(symbol "ADS7279IPW:ADS7279IPW"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "U"
-				(at 0 8.636 0)
+			(property "Reference" "U9"
+				(at -0.635 12.7 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -18,7 +18,7 @@
 				)
 			)
 			(property "Value" "ADS7279IPW"
-				(at 0.254 -14.224 0)
+				(at -0.635 10.16 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -44,6 +44,69 @@
 				)
 			)
 			(property "Description" "14 Bit Analog to Digital Converter 1 Input 1 SAR"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Device" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Params" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Pins" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Type" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Comment" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "EU_RoHS_Compliance" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Number_of_Positions" ""
 				(at 0 0 0)
 				(effects
 					(font
@@ -944,15 +1007,15 @@
 				)
 			)
 		)
-		(symbol "Op-amp:OPA192IDBVR"
+		(symbol "OPA192IDBVR:OPA192IDBVR"
 			(pin_names
 				(offset 0.254)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "U"
-				(at 0 2.54 0)
+			(property "Reference" "U8"
+				(at 15.24 1.016 0)
 				(effects
 					(font
 						(size 1.524 1.524)
@@ -960,14 +1023,14 @@
 				)
 			)
 			(property "Value" "OPA192IDBVR"
-				(at 0 0 0)
+				(at 14.986 -1.778 0)
 				(effects
 					(font
 						(size 1.524 1.524)
 					)
 				)
 			)
-			(property "Footprint" "DBV0005A_N"
+			(property "Footprint" "jd2Oscope_Footprints:SOT95P280X145-5N"
 				(at 0 0 0)
 				(effects
 					(font
@@ -988,6 +1051,69 @@
 				)
 			)
 			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Device" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Params" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Pins" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Type" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Comment" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "EU_RoHS_Compliance" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Number_of_Positions" ""
 				(at 0 0 0)
 				(effects
 					(font
@@ -2183,6 +2309,152 @@
 		(uuid "f6084d0c-f8c2-4643-b1b2-0f0b52cd2266")
 	)
 	(symbol
+		(lib_id "OPA192IDBVR:OPA192IDBVR")
+		(at 71.12 60.96 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0816807c-22bd-40e5-be01-6be15d7defb4")
+		(property "Reference" "U9"
+			(at 90.17 59.7214 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Value" "OPA192IDBVR"
+			(at 90.17 62.2614 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Footprint" "jd2Oscope_Footprints:SOT95P280X145-5N"
+			(at 71.12 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "OPA192IDBVR"
+			(at 71.12 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 71.12 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Device" ""
+			(at 71.12 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Params" ""
+			(at 71.12 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" ""
+			(at 71.12 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Type" ""
+			(at 71.12 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Comment" ""
+			(at 71.12 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "EU_RoHS_Compliance" ""
+			(at 71.12 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Number_of_Positions" ""
+			(at 71.12 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "5"
+			(uuid "d6d2757e-e656-4c46-a422-e637883019e3")
+		)
+		(pin "1"
+			(uuid "fe1f5085-fa3b-4be2-9888-fa32e0ad0c51")
+		)
+		(pin "2"
+			(uuid "c6c153c7-ff8d-447e-ab08-509563ff06fa")
+		)
+		(pin "4"
+			(uuid "208a6f69-a8cb-41a3-b604-3f96dda550af")
+		)
+		(pin "3"
+			(uuid "192b0c45-7d42-45ab-9070-fee014bd5b22")
+		)
+		(instances
+			(project ""
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/4f25ad0e-659b-4d0d-998d-272f66fe29fb/52258d0c-831e-400e-9ea9-cb0e0952ee2a"
+					(reference "U7")
+					(unit 1)
+				)
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/9cf642e2-7276-4116-93a5-7485645ddebf/52258d0c-831e-400e-9ea9-cb0e0952ee2a"
+					(reference "U9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 62.23 88.9 0)
 		(unit 1)
@@ -2586,6 +2858,183 @@
 				)
 				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/9cf642e2-7276-4116-93a5-7485645ddebf/52258d0c-831e-400e-9ea9-cb0e0952ee2a"
 					(reference "R20")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ADS7279IPW:ADS7279IPW")
+		(at 160.02 48.26 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "24ed89e4-b142-4439-92d1-8046f4bb41ae")
+		(property "Reference" "U5"
+			(at 159.385 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "ADS7279IPW"
+			(at 159.385 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_CSP:LFCSP-16-1EP_4x4mm_P0.65mm_EP2.6x2.6mm"
+			(at 160.02 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/ads7279.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1738018601921&ref_url=https%253A%252F%252Fwww.ti.com%252Fgeneral%252Fdocs%252Fsuppproductinfo.tsp%253FdistId%253D10%2526gotoUrl%253Dhttps%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Fads7279"
+			(at 160.02 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "14 Bit Analog to Digital Converter 1 Input 1 SAR"
+			(at 160.02 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Device" ""
+			(at 160.02 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Params" ""
+			(at 160.02 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" ""
+			(at 160.02 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Type" ""
+			(at 160.02 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Comment" ""
+			(at 160.02 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "EU_RoHS_Compliance" ""
+			(at 160.02 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Number_of_Positions" ""
+			(at 160.02 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "11"
+			(uuid "d0d31c3b-37b7-4a86-b3f1-45bd45a8f938")
+		)
+		(pin "5"
+			(uuid "1c5318ec-e51b-484f-aa30-c4d40c9ae53f")
+		)
+		(pin "15"
+			(uuid "37c42ebc-d218-4fda-942c-530f87759a07")
+		)
+		(pin "12"
+			(uuid "3e1fcc54-369f-4c62-bf7a-fe7c68c0dd1e")
+		)
+		(pin "14"
+			(uuid "1141f05a-1a42-48d3-bec3-eec6a610bea9")
+		)
+		(pin "8"
+			(uuid "bfc3c9dd-f891-407c-8857-4d7df1d07014")
+		)
+		(pin "3"
+			(uuid "1a135e03-6f95-4a57-9674-0c5128c89015")
+		)
+		(pin "9"
+			(uuid "16919e88-b5ef-4e67-8b53-59c5e631a629")
+		)
+		(pin "16"
+			(uuid "82a586d5-75aa-4701-92ed-cfb0932b9fe5")
+		)
+		(pin "10"
+			(uuid "280cc2c7-5634-4e39-a3f6-ea18ebe1d7a0")
+		)
+		(pin "4"
+			(uuid "d063b5c5-9dd5-49a1-98e8-0caaeb247b12")
+		)
+		(pin "7"
+			(uuid "6fa999d1-b433-41b1-825f-cd44aa95749f")
+		)
+		(pin "1"
+			(uuid "a1e18160-194a-4d43-a5a5-66a0dc51851d")
+		)
+		(pin "6"
+			(uuid "432044a8-a272-4386-9f2a-43645c75e187")
+		)
+		(pin "2"
+			(uuid "d440d82b-a3a2-4a38-a66d-613081e69175")
+		)
+		(pin "13"
+			(uuid "925ed865-1cba-409b-a929-5613f216e203")
+		)
+		(instances
+			(project ""
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/4f25ad0e-659b-4d0d-998d-272f66fe29fb/52258d0c-831e-400e-9ea9-cb0e0952ee2a"
+					(reference "U4")
+					(unit 1)
+				)
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/9cf642e2-7276-4116-93a5-7485645ddebf/52258d0c-831e-400e-9ea9-cb0e0952ee2a"
+					(reference "U5")
 					(unit 1)
 				)
 			)
@@ -3491,183 +3940,6 @@
 		)
 	)
 	(symbol
-		(lib_id "ADS7279:ADS7279IPW")
-		(at 160.02 48.26 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7a1ee15d-5e6e-4ba1-85e8-65d8e04ab571")
-		(property "Reference" "U7"
-			(at 159.385 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ADS7279IPW"
-			(at 159.385 38.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_CSP:LFCSP-16-1EP_4x4mm_P0.65mm_EP2.6x2.6mm"
-			(at 160.02 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/ads7279.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1738018601921&ref_url=https%253A%252F%252Fwww.ti.com%252Fgeneral%252Fdocs%252Fsuppproductinfo.tsp%253FdistId%253D10%2526gotoUrl%253Dhttps%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Fads7279"
-			(at 160.02 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "14 Bit Analog to Digital Converter 1 Input 1 SAR"
-			(at 160.02 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 160.02 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Params" ""
-			(at 160.02 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 160.02 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" ""
-			(at 160.02 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Comment" ""
-			(at 160.02 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "EU_RoHS_Compliance" ""
-			(at 160.02 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Number_of_Positions" ""
-			(at 160.02 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "8"
-			(uuid "22c5ec5a-8d25-4f56-9790-808d166fbfbd")
-		)
-		(pin "3"
-			(uuid "2ef3d447-1c6e-4e9d-848e-84e6444b23ea")
-		)
-		(pin "11"
-			(uuid "b86859cc-2446-4979-848b-5d5058865679")
-		)
-		(pin "13"
-			(uuid "312f5643-0627-4baa-94b5-521f616e90cb")
-		)
-		(pin "1"
-			(uuid "41fe94ec-f048-4e3e-98d9-b3e831899e25")
-		)
-		(pin "16"
-			(uuid "6a5745d2-1c37-479e-875f-a165918b6cbd")
-		)
-		(pin "4"
-			(uuid "d809ba7f-7747-4d2f-b020-e6598314d6f1")
-		)
-		(pin "12"
-			(uuid "2d4c1c4b-769e-4fee-9643-6c6f9e2dad01")
-		)
-		(pin "10"
-			(uuid "c0c84be0-2482-45a5-a05c-79fc41f225c1")
-		)
-		(pin "14"
-			(uuid "6bf689c1-5744-4f6d-9c19-0944e8d7b5bd")
-		)
-		(pin "7"
-			(uuid "c20fc13f-1f10-4856-a724-eb1a82532dcf")
-		)
-		(pin "2"
-			(uuid "8479e41c-cad8-4f08-813a-bfa8cde87fcb")
-		)
-		(pin "5"
-			(uuid "653bab9f-d21c-4881-9d49-5b5122524f1b")
-		)
-		(pin "6"
-			(uuid "a45ae0b1-c44c-43be-b6b6-522a48a94999")
-		)
-		(pin "15"
-			(uuid "6b5f3ac6-f293-4c00-aafd-f3f81646593a")
-		)
-		(pin "9"
-			(uuid "bd243ef3-3072-4f80-a7b4-39868c9abc93")
-		)
-		(instances
-			(project "jd2oscope"
-				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/4f25ad0e-659b-4d0d-998d-272f66fe29fb/52258d0c-831e-400e-9ea9-cb0e0952ee2a"
-					(reference "U7")
-					(unit 1)
-				)
-				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/9cf642e2-7276-4116-93a5-7485645ddebf/52258d0c-831e-400e-9ea9-cb0e0952ee2a"
-					(reference "U9")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 106.68 66.04 90)
 		(unit 1)
@@ -4035,152 +4307,6 @@
 				)
 				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/9cf642e2-7276-4116-93a5-7485645ddebf/52258d0c-831e-400e-9ea9-cb0e0952ee2a"
 					(reference "R19")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Op-amp:OPA192IDBVR")
-		(at 71.12 71.12 0)
-		(mirror x)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "a2c8636f-d7ad-43ac-896b-936a01d262db")
-		(property "Reference" "U6"
-			(at 86.36 72.136 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Value" "OPA192IDBVR"
-			(at 86.106 69.342 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Footprint" "pot:SOT95P280X145-5N"
-			(at 71.12 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "OPA192IDBVR"
-			(at 71.12 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 71.12 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" ""
-			(at 71.12 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Params" ""
-			(at 71.12 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 71.12 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" ""
-			(at 71.12 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Comment" ""
-			(at 71.12 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "EU_RoHS_Compliance" ""
-			(at 71.12 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Number_of_Positions" ""
-			(at 71.12 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "beceac99-7d19-4226-9be7-e8139cf65212")
-		)
-		(pin "5"
-			(uuid "b60bfba3-82ec-419f-862c-399afeed7480")
-		)
-		(pin "1"
-			(uuid "06cbe410-0d57-44e8-bfb8-bffc47ce2371")
-		)
-		(pin "4"
-			(uuid "03e94674-e780-4648-b651-60c9382cf004")
-		)
-		(pin "3"
-			(uuid "c42f2688-ca95-411f-b137-17db83daa1fe")
-		)
-		(instances
-			(project "jd2oscope"
-				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/4f25ad0e-659b-4d0d-998d-272f66fe29fb/52258d0c-831e-400e-9ea9-cb0e0952ee2a"
-					(reference "U6")
-					(unit 1)
-				)
-				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/9cf642e2-7276-4116-93a5-7485645ddebf/52258d0c-831e-400e-9ea9-cb0e0952ee2a"
-					(reference "U8")
 					(unit 1)
 				)
 			)

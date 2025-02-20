@@ -5,7 +5,7 @@
 	(uuid "b39b7ab5-0312-4c50-ac47-cbd5dd07edf8")
 	(paper "A4")
 	(lib_symbols
-		(symbol "pot:3362P-1-103LF"
+		(symbol "3362P-1-103LF:3362P-1-103LF"
 			(pin_names
 				(offset 1.016)
 			)
@@ -830,7 +830,7 @@
 		(uuid "ce87e04b-0127-4112-a38e-7300fffdb9c2")
 	)
 	(symbol
-		(lib_id "pot:3362P-1-103LF")
+		(lib_id "3362P-1-103LF:3362P-1-103LF")
 		(at 142.24 92.71 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -838,8 +838,8 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "018a654c-3d63-4b46-9da0-54571c280327")
-		(property "Reference" "VR3"
+		(uuid "6342f357-9287-4561-9ad0-39802b37515b")
+		(property "Reference" "VR1"
 			(at 142.24 86.36 0)
 			(effects
 				(font
@@ -983,90 +983,27 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Device" ""
-			(at 142.24 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Params" ""
-			(at 142.24 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" ""
-			(at 142.24 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" ""
-			(at 142.24 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Comment" ""
-			(at 142.24 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "EU_RoHS_Compliance" ""
-			(at 142.24 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Number_of_Positions" ""
-			(at 142.24 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
+		(pin "2"
+			(uuid "ec773cb2-5a16-468c-8e8b-ddd9a4df95b3")
 		)
 		(pin "1"
-			(uuid "c3dfe4f0-1965-426f-a68a-e9dadc7d52a0")
+			(uuid "25a617c1-f1a1-4133-87f8-a6e330e95a71")
 		)
 		(pin "3"
-			(uuid "b001ebd5-dd86-4523-a564-5cf03ee9c545")
-		)
-		(pin "2"
-			(uuid "09f3f25d-2d7d-44f1-9e99-25790927a9df")
+			(uuid "8d485b03-d129-4de7-8cdd-370adafa34db")
 		)
 		(instances
 			(project "jd2oscope"
 				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/0b10fb84-a9af-450b-b4ba-7677bde7a4aa"
-					(reference "VR3")
+					(reference "VR4")
 					(unit 1)
 				)
 				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/34809825-0d94-4631-a2d1-f31cc7a3b6ba"
-					(reference "VR2")
+					(reference "VR3")
 					(unit 1)
 				)
 				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/4f25ad0e-659b-4d0d-998d-272f66fe29fb/a129be14-5636-4b2f-ac25-6f79cead8126"
-					(reference "VR4")
+					(reference "VR2")
 					(unit 1)
 				)
 				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/4f25ad0e-659b-4d0d-998d-272f66fe29fb/d0d3e5b7-5e05-4d56-af40-3a75a71576b8"

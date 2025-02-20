@@ -1,4 +1,4 @@
 (fp_lib_table
   (version 7)
-  (lib (name "pot")(type "KiCad")(uri "${KIPRJMOD}/../footprints")(options "")(descr ""))
+  (lib (name "jd2Oscope_Footprints")(type "KiCad")(uri "${KIPRJMOD}/../footprints")(options "")(descr ""))
 )

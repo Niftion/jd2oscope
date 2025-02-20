@@ -126,32 +126,30 @@
 				)
 			)
 		)
-		(symbol "lockBuster:ILI9341-320x240-TFT-Touch"
+		(symbol "ILI9341_Touchscreen:ILI9341-320x240-TFT-Touch"
 			(pin_names
 				(offset 0.762)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "U"
-				(at 7.366 17.272 0)
+			(property "Reference" "U2"
+				(at 8.89 17.78 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left)
 				)
 			)
 			(property "Value" "ILI9341-320x240-TFT-Touch"
-				(at -4.826 14.732 0)
+				(at 8.89 15.24 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "jd2Oscope_Footprints:CR2013-MI2120"
 				(at -0.254 19.304 0)
 				(effects
 					(font
@@ -171,6 +169,69 @@
 			)
 			(property "Description" "ILI9341 controller, SPI color touchscreen LCD (320x240), 9-pin breakout PCB for Teensy boards, 4-pin SD card interface (optional modification required), compatible with 5V and 3.3V power supplies."
 				(at 3.302 -38.862 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Device" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Params" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Pins" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Type" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Comment" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "EU_RoHS_Compliance" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Number_of_Positions" ""
+				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -229,8 +290,8 @@
 			)
 			(symbol "ILI9341-320x240-TFT-Touch_0_1"
 				(rectangle
-					(start -16.51 -25.4)
-					(end 34.29 12.7)
+					(start -16.51 12.7)
+					(end 34.29 -25.4)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -336,7 +397,7 @@
 						)
 					)
 				)
-				(pin input line
+				(pin power_in line
 					(at 36.83 2.54 180)
 					(length 2.54)
 					(name "RESET"
@@ -996,7 +1057,8 @@
 		)
 	)
 	(symbol
-		(lib_id "lockBuster:ILI9341-320x240-TFT-Touch")
+		(lib_name "ILI9341_Touchscreen:ILI9341-320x240-TFT-Touch")
+		(lib_id "ILI9341_Touchscreen:ILI9341-320x240-TFT-Touch")
 		(at 127 90.17 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -1004,8 +1066,8 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "63dc2954-11cc-432f-b7b0-b94432f3bee4")
-		(property "Reference" "U4"
+		(uuid "b4c69f7c-c9bc-44bc-91f7-c14b97a5a300")
+		(property "Reference" "U6"
 			(at 135.89 72.39 0)
 			(effects
 				(font
@@ -1021,7 +1083,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Display:CR2013-MI2120"
+		(property "Footprint" "jd2Oscope_Footprints:CR2013-MI2120"
 			(at 126.746 70.866 0)
 			(effects
 				(font
@@ -1112,63 +1174,63 @@
 			)
 		)
 		(pin ""
-			(uuid "b25fb9b6-2921-4aaf-ae9c-82037d77d89c")
+			(uuid "962294be-a547-4060-90c9-293c8f1a6ddc")
 		)
 		(pin ""
-			(uuid "290851ba-4924-44a4-8973-dca5747936de")
+			(uuid "897c3411-d840-44d5-8923-63810abe7b4e")
 		)
 		(pin ""
-			(uuid "a84b04bb-ea9c-4dbc-aa57-d7f8aa315a9a")
+			(uuid "ef5bff85-08c7-4fc8-be18-add3844788cb")
 		)
 		(pin ""
-			(uuid "87ca8236-6423-4f76-8ae1-588732570787")
+			(uuid "aa3fb707-d326-4778-be23-4ba0ee795ac2")
 		)
 		(pin ""
-			(uuid "996dd662-a1ed-4c66-a08d-587cf4a0753e")
+			(uuid "3ea33ed4-2b2c-4b2a-b414-a83d0bcea7b5")
 		)
 		(pin ""
-			(uuid "85b10493-6cef-4551-b9c1-a48debfd4d2f")
+			(uuid "a81df89d-8e3b-41bd-af08-f0387b02c38d")
 		)
 		(pin ""
-			(uuid "04b153ae-08ee-41a9-83a0-88f6b2a0e162")
+			(uuid "fdd0e471-0e87-4c04-a94e-eeb93c5e773b")
 		)
 		(pin ""
-			(uuid "4ffa9dcc-db87-4963-be5c-2564c0b386c3")
+			(uuid "885a6a86-8df4-41d2-90bd-c9e980c093ab")
 		)
 		(pin ""
-			(uuid "58d0950c-a4a0-4d9b-89b5-4f5cc7d6dcda")
+			(uuid "b3eeeab9-4a8f-4c4b-b8a5-96dcbedcebe6")
 		)
 		(pin ""
-			(uuid "1e454425-2bea-4e8e-b85d-8c70bae5704a")
+			(uuid "f8731110-83e3-441b-995c-befa2ba9cb84")
 		)
 		(pin ""
-			(uuid "ea819f52-54d6-4f18-bfa2-4db9f73fbf38")
+			(uuid "8adc5d17-96e7-425a-b32f-672e0a137e1f")
 		)
 		(pin ""
-			(uuid "c4a04c80-772e-4987-b38b-93cf4bf2513b")
+			(uuid "fcf7f41e-05b3-4cb8-b6f0-f1ad7e11e1d6")
 		)
 		(pin ""
-			(uuid "cf555565-4487-4ea8-9bc2-2e455f1da0ae")
+			(uuid "4ca26c74-3f72-4208-925a-860724f27d95")
 		)
 		(pin ""
-			(uuid "abc00391-f8db-4b4f-8a6b-c9055a6e3d2e")
+			(uuid "69344464-fde9-43b6-8103-43010db8222a")
 		)
 		(pin ""
-			(uuid "4e04481e-c90f-42ac-9b2f-bc0e55f1b482")
+			(uuid "a92f0498-67e3-4be4-aedf-2fdd4cd468ab")
 		)
 		(pin ""
-			(uuid "09d92ad6-035c-4965-8895-d0b9afbe2299")
+			(uuid "8e69b119-dd36-40dc-8790-ae94428a7817")
 		)
 		(pin ""
-			(uuid "2fea1f82-c88c-4a7f-982e-9f9a2f9b4a27")
+			(uuid "fa821e45-436a-417c-b4a2-ffc2b7ff84a9")
 		)
 		(pin ""
-			(uuid "6a1e8a4b-9f84-4204-bdfe-b5a0e71daf4b")
+			(uuid "236dfe58-6736-4525-a6f7-6ec83d072e1c")
 		)
 		(instances
 			(project ""
 				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/90e44cf6-9696-4eec-a87b-3c33baa89c99"
-					(reference "U4")
+					(reference "U6")
 					(unit 1)
 				)
 			)
