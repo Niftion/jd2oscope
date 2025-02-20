@@ -22,7 +22,7 @@
 				)
 			)
 			(property "Value" "KMR731NGLFS"
-				(at -2.54 -2.54 0)
+				(at -7.62 -5.08 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -30,8 +30,8 @@
 					(justify left top)
 				)
 			)
-			(property "Footprint" "KMR731NGLFS:SW_KMR731NGLFS"
-				(at 0 0 0)
+			(property "Footprint" "jd2Oscope_Footprints:SW_KMR731NGLFS"
+				(at 0 8.89 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -59,7 +59,7 @@
 				)
 			)
 			(property "MF" "C&K"
-				(at 0 0 0)
+				(at -1.016 9.144 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -69,7 +69,7 @@
 				)
 			)
 			(property "MAXIMUM_PACKAGE_HEIGHT" "2.5 mm"
-				(at 0 0 0)
+				(at -0.762 8.89 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -79,7 +79,7 @@
 				)
 			)
 			(property "Package" "None"
-				(at 0 0 0)
+				(at 0.254 9.398 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -89,7 +89,7 @@
 				)
 			)
 			(property "Price" "None"
-				(at 0 0 0)
+				(at -0.254 8.89 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -99,7 +99,7 @@
 				)
 			)
 			(property "Check_prices" "https://www.snapeda.com/parts/KMR731NGLFS/C%2526K/view-part/?ref=eda"
-				(at 0 0 0)
+				(at -0.254 8.89 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -109,7 +109,7 @@
 				)
 			)
 			(property "STANDARD" "Manufacturer Recommendations"
-				(at 0 0 0)
+				(at -0.254 8.89 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -119,7 +119,7 @@
 				)
 			)
 			(property "PARTREV" "N/A"
-				(at 0 0 0)
+				(at -0.254 9.144 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -129,7 +129,7 @@
 				)
 			)
 			(property "SnapEDA_Link" "https://www.snapeda.com/parts/KMR731NGLFS/C%2526K/view-part/?ref=snap"
-				(at 0 0 0)
+				(at -0.254 8.89 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -139,7 +139,7 @@
 				)
 			)
 			(property "MP" "KMR731NGLFS"
-				(at 0 0 0)
+				(at -0.254 8.89 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -149,7 +149,7 @@
 				)
 			)
 			(property "Description_1" "\n                        \n                            Tactile Switch SPST-NO Top Actuated Surface Mount\n                        \n"
-				(at 0 0 0)
+				(at -0.508 7.366 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -159,7 +159,7 @@
 				)
 			)
 			(property "Availability" "In Stock"
-				(at 0 0 0)
+				(at -0.508 8.89 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -169,7 +169,7 @@
 				)
 			)
 			(property "MANUFACTURER" "C&K"
-				(at 0 0 0)
+				(at -0.762 9.144 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -179,6 +179,30 @@
 				)
 			)
 			(symbol "KMR731NGLFS_0_0"
+				(polyline
+					(pts
+						(xy -2.54 -3.81) (xy -5.08 -3.81)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 -3.81) (xy 2.794 -1.6764)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
 				(polyline
 					(pts
 						(xy -2.54 0) (xy -5.08 0)
@@ -205,8 +229,31 @@
 				)
 				(polyline
 					(pts
+						(xy 5.08 -3.81) (xy 2.921 -3.81)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
 						(xy 5.08 0) (xy 2.921 0)
 					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.54 -3.81)
+					(radius 0.3302)
 					(stroke
 						(width 0.1524)
 						(type default)
@@ -263,7 +310,53 @@
 					)
 				)
 			)
+			(symbol "KMR731NGLFS_1_0"
+				(pin passive line
+					(at -7.62 -3.81 0)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 -3.81 180)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+			)
 		)
+	)
+	(no_connect
+		(at 144.78 101.6)
+		(uuid "4603f6e0-bee3-457b-b468-f744585da0c6")
+	)
+	(no_connect
+		(at 160.02 101.6)
+		(uuid "635a996e-5efd-4030-929e-dd6c754ad895")
 	)
 	(rectangle
 		(start 119.38 75.692)
@@ -320,7 +413,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "79dea66b-33bf-4657-ab17-34952b986b29")
-		(property "Reference" "S2"
+		(property "Reference" "S3"
 			(at 152.4 90.17 0)
 			(effects
 				(font
@@ -336,7 +429,7 @@
 				)
 			)
 		)
-		(property "Footprint" "KMR731NGLFS:SW_KMR731NGLFS"
+		(property "Footprint" "jd2Oscope_Footprints:SW_KMR731NGLFS"
 			(at 152.4 97.79 0)
 			(effects
 				(font
@@ -490,18 +583,24 @@
 		(pin "3"
 			(uuid "59384814-e700-4fd6-a85f-839f14a6d290")
 		)
+		(pin "2"
+			(uuid "dde2fcfb-abf1-4f1e-b15d-e4b0389231d9")
+		)
+		(pin "4"
+			(uuid "084858a0-203c-442a-8281-f6f0ea4b0242")
+		)
 		(instances
 			(project "jd2oscope"
 				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/946e3097-58f0-4375-84c2-921a93494f1e"
-					(reference "S2")
+					(reference "S3")
 					(unit 1)
 				)
 				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/4f25ad0e-659b-4d0d-998d-272f66fe29fb/59e5b20f-a405-48c1-b2c2-d334523c9ae1"
-					(reference "S1")
+					(reference "S2")
 					(unit 1)
 				)
 				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2/9cf642e2-7276-4116-93a5-7485645ddebf/59e5b20f-a405-48c1-b2c2-d334523c9ae1"
-					(reference "S3")
+					(reference "S4")
 					(unit 1)
 				)
 			)

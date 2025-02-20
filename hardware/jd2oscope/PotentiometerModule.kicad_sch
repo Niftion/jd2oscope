@@ -855,7 +855,7 @@
 				)
 			)
 		)
-		(property "Footprint" "3362P-1-103LF:TRIM_3362P-1-103LF"
+		(property "Footprint" "jd2Oscope_Footprints:TRIM_3362P-1-103LF"
 			(at 142.24 92.71 0)
 			(effects
 				(font

@@ -325,78 +325,6 @@
 				)
 			)
 			(symbol "ILI9341-320x240-TFT-Touch_1_1"
-				(pin input line
-					(at -19.05 -2.54 0)
-					(length 2.54)
-					(name "SD_CS"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at -19.05 -7.62 0)
-					(length 2.54)
-					(name "SD_MISO"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -19.05 -5.08 0)
-					(length 2.54)
-					(name "SD_MOSI"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -19.05 -10.16 0)
-					(length 2.54)
-					(name "SD_SCK"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
 				(pin power_in line
 					(at 36.83 10.16 180)
 					(length 2.54)
@@ -652,32 +580,6 @@
 			)
 		)
 	)
-	(no_connect
-		(at 86.36 54.61)
-		(uuid "31faa5b4-0961-4a35-9aad-330394a8c41d")
-	)
-	(no_connect
-		(at 86.36 62.23)
-		(uuid "39dd740e-89a2-47ea-8e69-763274c3638f")
-	)
-	(no_connect
-		(at 86.36 57.15)
-		(uuid "4ed1d702-c767-4922-beb1-3531d4317464")
-	)
-	(no_connect
-		(at 86.36 59.69)
-		(uuid "5e66e714-51bd-4f4c-9807-2d306d0a96a6")
-	)
-	(polyline
-		(pts
-			(xy 82.55 58.42) (xy 83.82 58.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "073456e8-0b4f-48a4-98b9-5115b8343e5f")
-	)
 	(wire
 		(pts
 			(xy 142.24 59.69) (xy 162.56 59.69)
@@ -690,16 +592,6 @@
 	)
 	(polyline
 		(pts
-			(xy 82.55 57.15) (xy 82.55 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3db55464-5776-4054-9f48-83446a4786a9")
-	)
-	(polyline
-		(pts
 			(xy 177.8 57.785) (xy 177.8 59.69)
 		)
 		(stroke
@@ -707,36 +599,6 @@
 			(type default)
 		)
 		(uuid "48eb36f0-5b4a-49ee-8f85-ddd700cc3f7e")
-	)
-	(polyline
-		(pts
-			(xy 82.55 59.69) (xy 83.82 58.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "549f818c-67de-4a92-810f-dd46c432f56e")
-	)
-	(polyline
-		(pts
-			(xy 83.82 58.42) (xy 82.55 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a54b1a12-0553-4b64-bce0-fb3e84365e81")
-	)
-	(polyline
-		(pts
-			(xy 78.74 58.42) (xy 83.82 58.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b06a2deb-08e7-4933-9414-14603a037dbf")
 	)
 	(polyline
 		(pts
@@ -769,17 +631,6 @@
 			)
 		)
 		(uuid "30f5e47c-f773-4de8-95e8-576d7685e2af")
-	)
-	(text "Note:\nthese pins are for the SD card reader; since\nwe will not be using the SD card reader for \nthis project, there is no need to concern\nourselves with enabling its SPI comm."
-		(exclude_from_sim no)
-		(at 35.052 56.896 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "a90542ea-0905-456d-b23f-9b06f9dd2e29")
 	)
 	(hierarchical_label "5V"
 		(shape input)
@@ -1161,9 +1012,6 @@
 				(hide yes)
 			)
 		)
-		(pin ""
-			(uuid "0a1c3245-5dd4-4b1d-8a3c-7c175d569277")
-		)
 		(pin "11"
 			(uuid "a07ed091-b144-4247-b6f1-914e2432bacf")
 		)
@@ -1205,15 +1053,6 @@
 		)
 		(pin "13"
 			(uuid "824d9649-96d2-4149-b022-48c2e163ccfc")
-		)
-		(pin ""
-			(uuid "1a057f8f-8cf2-4a21-a3cd-a90202de72d9")
-		)
-		(pin ""
-			(uuid "6b926b12-34eb-4aeb-a708-465dffb9a6c8")
-		)
-		(pin ""
-			(uuid "eefca99b-c2be-4ab0-9227-26220698c49a")
 		)
 		(instances
 			(project ""
