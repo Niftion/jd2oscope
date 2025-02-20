@@ -2161,6 +2161,46 @@
 		)
 		(uuid "c1cf1e84-bb54-4272-b700-20de2409c4e1")
 	)
+	(label "PwrSwitch_Schottky"
+		(at 97.79 87.63 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3721e2bf-457e-4dbc-afba-388cfb6fbcb1")
+	)
+	(label "9V_PwrSwitch"
+		(at 82.55 100.33 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "3bc061a4-4040-476c-92c3-53bfcd0ec793")
+	)
+	(label "Schottky_LEDres-caps-5Vreg.In"
+		(at 111.76 85.09 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "57ce1bcd-3089-453d-be31-f845465db420")
+	)
+	(label "LEDres_LED"
+		(at 113.03 104.14 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b983ad3c-2ba2-47e5-971b-86b7f7a817ca")
+	)
 	(hierarchical_label "GND"
 		(shape passive)
 		(at 177.8 119.38 0)

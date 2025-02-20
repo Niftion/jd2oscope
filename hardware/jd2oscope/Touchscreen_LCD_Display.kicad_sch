@@ -632,6 +632,16 @@
 		)
 		(uuid "30f5e47c-f773-4de8-95e8-576d7685e2af")
 	)
+	(label "ScreenLED_ScreenLEDres"
+		(at 158.75 59.69 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3db8d70f-7867-41f0-8711-93f356547fbe")
+	)
 	(hierarchical_label "5V"
 		(shape input)
 		(at 170.18 59.69 0)

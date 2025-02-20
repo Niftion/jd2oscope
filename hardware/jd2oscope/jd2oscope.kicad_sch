@@ -1870,17 +1870,6 @@
 		)
 		(uuid "b07d2c54-2c93-4eba-b622-14071d703c61")
 	)
-	(text "ESP32 ToDo:\n- [*] implement touchscreen wiring\n\n- [*] implement 5V_Regulator\n  - [*] PowerSwitch module between regulator output & reg.5V\n        (for toggling reg.5V to all dependent perip.s (i.e. turning device on/off)\n\n- [*] modules completed for:\n  - [*] pot.s\n  - [*] buttons\n    - [*] created \"signalInterfaceModule\"; has all req. buttons/pot.s to fully\n          control 1x signal (like a \"package\" that has everything we need for e/a\n          signal BNC connection)\n\n- [*] implement SignalInterpreterModule\n  - [*] figure out what the CONVST & EOC/INT pins are for\n  - [*] wire SPI comms. (for comm. w/ the ADC to recieve signal data in digital format)\n  - [*] update BNC footprint to new version (ref. text chat for link to it)\n  - [*] wire it all up relative to the rest of the circuit (sans finalized \"unique GPIO pins\"; still add e/a to the table though)\n\nmisc:\n- [ ] at end: GPIO pins arbitrarily assigned to GPIO locations on STM32 board\n  - [ ] Label connections on the GPIO \"Coding QOL\" table as well\n- [ ] check all sheets to make sure all pins labels are imported b4 moving on\n- [*] ensure that 0.1uF caps are added to e/a supply (& 10uF where needed too (47uF as well??))"
-		(exclude_from_sim no)
-		(at -1.016 -27.686 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "c2de720d-9bd6-4b69-9bea-8eea97d39d28")
-	)
 	(text "Note:\nwroom32 already has onboard\ndecopling cap for reg.3.3V\n(no need to add!)"
 		(exclude_from_sim no)
 		(at 66.04 24.384 0)
