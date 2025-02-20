@@ -320,7 +320,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "79dea66b-33bf-4657-ab17-34952b986b29")
-		(property "Reference" "S1"
+		(property "Reference" "S2"
 			(at 152.4 90.17 0)
 			(effects
 				(font

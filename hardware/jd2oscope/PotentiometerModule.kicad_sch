@@ -839,7 +839,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6342f357-9287-4561-9ad0-39802b37515b")
-		(property "Reference" "VR1"
+		(property "Reference" "VR4"
 			(at 142.24 86.36 0)
 			(effects
 				(font
