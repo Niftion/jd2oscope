@@ -8,4 +8,5 @@
   (lib (name "9v_batt")(type "KiCad")(uri "${KIPRJMOD}/../symbols/9v_batt.kicad_sym")(options "")(descr ""))
   (lib (name "conn_pp3_1")(type "KiCad")(uri "${KIPRJMOD}/../symbols/conn_pp3_1.kicad_sym")(options "")(descr ""))
   (lib (name "CONBNC001")(type "KiCad")(uri "${KIPRJMOD}/../symbols/CONBNC001.kicad_sym")(options "")(descr ""))
+  (lib (name "ESP32-DEVKITC-32D")(type "KiCad")(uri "${KIPRJMOD}/../symbols/ESP32-DEVKITC-32D.kicad_sym")(options "")(descr ""))
 )
