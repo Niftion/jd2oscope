@@ -1859,46 +1859,6 @@
 		)
 		(uuid "ff58c1c0-1b2d-40da-b1c0-942d886e149b")
 	)
-	(text "(any; GPIO 27)"
-		(exclude_from_sim no)
-		(at 42.164 152.654 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "38a84a75-9566-43cf-9420-9d78ee69d8d0")
-	)
-	(text "(GPIO 23)"
-		(exclude_from_sim no)
-		(at 38.354 123.19 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "4dad5525-6e48-4f3a-bd82-57fa73f641be")
-	)
-	(text "(any; GPIO 5)"
-		(exclude_from_sim no)
-		(at 45.212 115.824 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "7723f226-b65e-40e2-9b1c-54d734b6d4bd")
-	)
-	(text "(GPIO 18)"
-		(exclude_from_sim no)
-		(at 43.688 137.414 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "9bdc79ec-939a-4cef-8ba4-24fdc35a791e")
-	)
 	(text "- GPIO Labels for Code Implementation -\n\nESP32:\n    1. SPI\n        MOSI = GPIO 23 (IO23)    // General I/O, Hardware VSPI MOSI\n        MISO = GPIO 19 (IO19)    // General I/O, Hardware VSPI MISO\n        SCK  = GPIO 18 (IO18)    // General I/O, Hardware VSPI SCK\n\nPeripherals:\n    1. Screen(Display)\n        screen_CS    = GPIO 5  (IO5)  // General I/O\n        screen_D/C   = GPIO 4  (IO4)  // General I/O\n\n    2. Screen(Touchscreen Function)\n        touch_CS     = GPIO 15 (IO15) // Strapping pin (must not be driven low at reset), General I/O\n        touch_IRQ    = GPIO 25 (IO25) // General I/O, used as input for interrupt\n\n3. Signal Controls\n    3.0. Global Controls (influences all signals)\n        Button(s):\n            triggerBttn: GPIO 13 (IO13)   // General I/O\n\n        Pot.(s):\n            ampScale_wiper: GPIO 33 (IO33)   // ADC-capable pin (not input-only)\n            timeScale_wiper: GPIO 32 (IO32)  // ADC-capable pin (not input-only)\n\n    3.1. Signal 1:\n        Button(s):\n            signal1_toggleBttn: GPIO 16 (IO16)   // General I/O\n\n        Pot.(s):\n            signal1_ampShiftWiper = GPIO 34 (IO34)   // Input-only, ADC-capable pin\n            signal1_timeShiftWiper = GPIO 35 (IO35)  // Input-only, ADC-capable pin\n\n        ADC1:\n            ADC1_CS       = GPIO 14 (IO14)  // General I/O\n            ADC1_CONVST   = GPIO 27 (IO27)  // General I/O\n            ADC1_EOC/INT  = GPIO 26 (IO26)  // General I/O\n\n    3.2. Signal 2:\n        Button(s):\n            signal2_toggleBttn: GPIO 17 (IO17)   // General I/O\n\n        Pot.(s):\n            signal2_ampShiftWiper = GPIO 36 (SENSOR_VP)  // Input-only, ADC-capable pin\n            signal2_timeShiftWiper = GPIO 39 (SENSOR_VN) // Input-only, ADC-capable pin\n\n        ADC2:\n            ADC2_CS       = GPIO 21 (IO21)  // General I/O\n            ADC2_CONVST   = GPIO 22 (IO22)  // General I/O\n            ADC2_EOC/INT  = GPIO 12 (IO12)  // Strapping pin, General I/O (avoid driving low at reset)\n"
 		(exclude_from_sim no)
 		(at 177.292 66.802 0)
@@ -1909,36 +1869,6 @@
 			(justify left)
 		)
 		(uuid "b07d2c54-2c93-4eba-b622-14071d703c61")
-	)
-	(text "(any; GPIO 15)"
-		(exclude_from_sim no)
-		(at 42.672 141.224 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "b303d6f2-15a7-4403-9556-c235062e4132")
-	)
-	(text "(GPIO 23)"
-		(exclude_from_sim no)
-		(at 44.196 145.034 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "b995a1cc-3c7f-43e6-ae68-1aee081f0e73")
-	)
-	(text "(GPIO 18)"
-		(exclude_from_sim no)
-		(at 45.212 127.254 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "bb855a78-80b8-46ed-ac7c-1e95ac8c8348")
 	)
 	(text "ESP32 ToDo:\n- [*] implement touchscreen wiring\n\n- [*] implement 5V_Regulator\n  - [*] PowerSwitch module between regulator output & reg.5V\n        (for toggling reg.5V to all dependent perip.s (i.e. turning device on/off)\n\n- [*] modules completed for:\n  - [*] pot.s\n  - [*] buttons\n    - [*] created \"signalInterfaceModule\"; has all req. buttons/pot.s to fully\n          control 1x signal (like a \"package\" that has everything we need for e/a\n          signal BNC connection)\n\n- [*] implement SignalInterpreterModule\n  - [*] figure out what the CONVST & EOC/INT pins are for\n  - [*] wire SPI comms. (for comm. w/ the ADC to recieve signal data in digital format)\n  - [*] update BNC footprint to new version (ref. text chat for link to it)\n  - [*] wire it all up relative to the rest of the circuit (sans finalized \"unique GPIO pins\"; still add e/a to the table though)\n\nmisc:\n- [ ] at end: GPIO pins arbitrarily assigned to GPIO locations on STM32 board\n  - [ ] Label connections on the GPIO \"Coding QOL\" table as well\n- [ ] check all sheets to make sure all pins labels are imported b4 moving on\n- [*] ensure that 0.1uF caps are added to e/a supply (& 10uF where needed too (47uF as well??))"
 		(exclude_from_sim no)
@@ -1951,26 +1881,6 @@
 		)
 		(uuid "c2de720d-9bd6-4b69-9bea-8eea97d39d28")
 	)
-	(text "(any; GPIO 2)"
-		(exclude_from_sim no)
-		(at 43.688 119.634 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "c8d4558f-2692-425d-a2ee-bcd6638989d2")
-	)
-	(text "(GPIO 19)"
-		(exclude_from_sim no)
-		(at 37.846 131.064 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "d27ccb80-d9e4-4bb3-b33a-b6283e2495da")
-	)
 	(text "Note:\nwroom32 already has onboard\ndecopling cap for reg.3.3V\n(no need to add!)"
 		(exclude_from_sim no)
 		(at 66.04 24.384 0)
@@ -1981,16 +1891,6 @@
 			(justify left)
 		)
 		(uuid "d362ab5d-90e2-4e43-855f-6097b2262839")
-	)
-	(text "(GPIO 19)"
-		(exclude_from_sim no)
-		(at 44.704 148.844 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "e810f45e-21c8-46a0-8533-c6efb9428f47")
 	)
 	(label "GPIO:signal1_timeShiftWiper"
 		(at 86.36 44.45 180)
@@ -4072,16 +3972,6 @@
 			)
 			(uuid "81640332-7712-477a-a239-591f2bc213cb")
 		)
-		(pin "3.3V" input
-			(at 38.1 158.75 270)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-			(uuid "d94919af-c73d-43cf-9a0f-6574768d6184")
-		)
 		(pin "SDI<MOSI>" input
 			(at 55.88 123.19 0)
 			(effects
@@ -4171,6 +4061,16 @@
 				(justify right)
 			)
 			(uuid "43b04e07-0248-4a91-9737-99f17a8b6a6c")
+		)
+		(pin "3.3V" input
+			(at 38.1 158.75 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "92d48ca8-7b63-466b-b1f7-ef7b8bf89725")
 		)
 		(instances
 			(project "jd2oscope"

@@ -133,7 +133,7 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "U"
+			(property "Reference" "U2"
 				(at 8.89 17.78 0)
 				(effects
 					(font
@@ -469,7 +469,7 @@
 						)
 					)
 				)
-				(pin output line
+				(pin tri_state line
 					(at 36.83 -20.32 180)
 					(length 2.54)
 					(name "T_DO"
@@ -631,7 +631,7 @@
 						)
 					)
 				)
-				(pin output line
+				(pin tri_state line
 					(at 36.83 -10.16 180)
 					(length 2.54)
 					(name "SDO<MISO>"
@@ -815,7 +815,7 @@
 		)
 	)
 	(hierarchical_label "SDO<MISO>"
-		(shape output)
+		(shape tri_state)
 		(at 142.24 62.23 0)
 		(effects
 			(font
@@ -936,7 +936,7 @@
 		)
 	)
 	(hierarchical_label "T_DO"
-		(shape output)
+		(shape tri_state)
 		(at 142.24 72.39 0)
 		(effects
 			(font
@@ -960,7 +960,6 @@
 	(hierarchical_label "3.3V"
 		(shape input)
 		(at 142.24 49.53 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -968,16 +967,6 @@
 			(justify left)
 		)
 		(uuid "bf44964f-5c36-4a01-b801-498e6f7df6aa")
-		(property "Netclass" ""
-			(at 142.24 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-			)
-		)
 	)
 	(hierarchical_label "SDI<MOSI>"
 		(shape input)

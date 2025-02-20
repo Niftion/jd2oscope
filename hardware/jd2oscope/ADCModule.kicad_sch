@@ -9,7 +9,7 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "U9"
+			(property "Reference" "U4"
 				(at -0.635 12.7 0)
 				(effects
 					(font
@@ -370,7 +370,7 @@
 						)
 					)
 				)
-				(pin output line
+				(pin tri_state line
 					(at -17.78 -8.89 0)
 					(length 2.54)
 					(name "SDO"
@@ -2111,7 +2111,7 @@
 		(uuid "41955334-11b0-430c-9466-844bdb109727")
 	)
 	(hierarchical_label "ADC_SDO"
-		(shape output)
+		(shape tri_state)
 		(at 142.24 57.15 180)
 		(effects
 			(font
