@@ -673,7 +673,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "../../3dmodels/jd2oscope_PCB-noTracks.step",
+      "step": "../../3dmodels/jd2oscope_PCB_onlySMDs-withTracks.step",
       "svg": "",
       "vrml": ""
     },
