@@ -8,6 +8,7 @@
 		(title "2CH 1MS/s 12b 50kHz 5V Oscope w/320x240 TFT & ESP32")
 		(date "2025-02-26")
 		(rev "1")
+		(company "Group 15")
 	)
 	(lib_symbols
 		(symbol "3362P-1-103LF:3362P-1-103LF"
