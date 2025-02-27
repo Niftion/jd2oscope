@@ -4,6 +4,11 @@
 	(generator_version "8.0")
 	(uuid "ceee20ef-063a-445e-adcf-067698566060")
 	(paper "A4")
+	(title_block
+		(title "2CH 1MS/s 12b 50kHz 5V Oscope w/320x240 TFT & ESP32")
+		(date "2025-02-26")
+		(rev "1")
+	)
 	(lib_symbols
 		(symbol "9VBatteryComponents:Conn_PP3_1"
 			(pin_names
