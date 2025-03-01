@@ -5,7 +5,7 @@
 	(uuid "56fd94dc-b350-4b51-b103-6740721397e1")
 	(paper "A4")
 	(title_block
-		(title "2CH 1MS/s 14b 50kHz 5V Oscope w/320x240 TFT & ESP32")
+		(title "2CH 1MS/s 12b 50kHz 5V Oscope w/320x240 TFT & ESP32")
 		(date "2025-02-26")
 		(rev "1")
 		(company "Group 15")
