@@ -4,6 +4,12 @@
 	(generator_version "8.0")
 	(uuid "39cb2e55-3952-46f9-94e3-d30ed363dce9")
 	(paper "A4")
+	(title_block
+		(title "2CH 1MS/s 12b 50kHz 5V Oscope w/320x240 TFT & ESP32")
+		(date "2025-02-26")
+		(rev "1")
+		(company "Group 15")
+	)
 	(lib_symbols
 		(symbol "ADS7279IPW:ADS7279IPW"
 			(exclude_from_sim no)
@@ -2036,6 +2042,7 @@
 	)
 	(label "Vsig"
 		(at 176.53 88.9 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2043,9 +2050,21 @@
 			(justify left bottom)
 		)
 		(uuid "0c59825a-6006-4af3-9a74-9f397baa9ae8")
+		(property "Netclass" "ANALOG"
+			(at 176.53 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "Vsig"
 		(at 22.86 63.5 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2053,9 +2072,21 @@
 			(justify right bottom)
 		)
 		(uuid "27f1e8b8-e65c-4b60-9b2d-dfd3732175ab")
+		(property "Netclass" "ANALOG"
+			(at 22.86 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(label "conditioned-OpAmpOut_ADCIn"
 		(at 120.65 66.04 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2063,9 +2094,21 @@
 			(justify left bottom)
 		)
 		(uuid "826d7aba-71ee-4c2e-a6e8-00d03179e337")
+		(property "Netclass" "ANALOG"
+			(at 120.65 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "opAmpOut"
 		(at 96.52 80.01 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2073,6 +2116,17 @@
 			(justify left bottom)
 		)
 		(uuid "980548e7-0b04-4ee9-9b9f-409cca038713")
+		(property "Netclass" "ANALOG"
+			(at 96.52 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "conditioned-OpAmpOut_ADCIn"
 		(at 176.53 52.07 0)
@@ -2086,6 +2140,7 @@
 	)
 	(label "reg.5V-Vsig_conditioned-opAmp-"
 		(at 54.61 39.37 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2093,9 +2148,21 @@
 			(justify left bottom)
 		)
 		(uuid "f9f66ed6-bb86-46f7-835e-e7ffc603e7e7")
+		(property "Netclass" "ANALOG"
+			(at 54.61 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(label "conditioned-opAmp+"
 		(at 62.23 81.28 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2103,6 +2170,17 @@
 			(justify right bottom)
 		)
 		(uuid "fa54ef6d-6ed0-4e1e-ad4f-cff519e525da")
+		(property "Netclass" "ANALOG"
+			(at 62.23 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(hierarchical_label "GND"
 		(shape passive)
@@ -2261,6 +2339,7 @@
 	(hierarchical_label "reg.5V"
 		(shape input)
 		(at 76.2 49.53 90)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2268,6 +2347,17 @@
 			(justify left)
 		)
 		(uuid "6099ff70-e008-4002-a14a-e7d50c9d4ce1")
+		(property "Netclass" "PWR_5V"
+			(at 77.47 49.53 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(hierarchical_label "GND"
 		(shape passive)
@@ -2305,6 +2395,7 @@
 	(hierarchical_label "reg.5V"
 		(shape input)
 		(at 22.86 38.1 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2312,6 +2403,17 @@
 			(justify right)
 		)
 		(uuid "8b48b96e-f331-4d9d-af1e-8bd5366469a5")
+		(property "Netclass" "PWR_5V"
+			(at 22.86 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(hierarchical_label "GND"
 		(shape passive)

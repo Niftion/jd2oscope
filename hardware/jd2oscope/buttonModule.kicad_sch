@@ -4,6 +4,12 @@
 	(generator_version "8.0")
 	(uuid "d83586b6-510e-44b4-9d4c-245e7426ac86")
 	(paper "A4")
+	(title_block
+		(title "2CH 1MS/s 12b 50kHz 5V Oscope w/320x240 TFT & ESP32")
+		(date "2025-02-26")
+		(rev "1")
+		(company "Group 15")
+	)
 	(lib_symbols
 		(symbol "KMR731NGLFS:KMR731NGLFS"
 			(pin_names
@@ -370,7 +376,7 @@
 		)
 		(uuid c290bc52-03fd-44ae-8ec1-fd997aa3f7b4)
 	)
-	(text "How the button works w/ any given GPIO pin:\n(GPIO pin's initial state should be set as \"HIGH\" in the code)\nan interrupt should be set to trigger if GPIO drops below a certain V\n(i.e., 0V to represent GND; thus: whenever the button is pressed down,\nthe interrupt is triggered & allows us to execute code from it"
+	(text "How the button works w/ any given GPIO pin:\n(GPIO pin's initial state should be set as \"HIGH\" in the code)\nan interrupt should be set to trigger if GPIO drops below a certain V\n(i.e., 0V to represent GND; thus: whenever the button is pressed down,\nthe interrupt is triggered & allows us to execute code from it)"
 		(exclude_from_sim no)
 		(at 120.015 81.28 0)
 		(effects

@@ -4,6 +4,12 @@
 	(generator_version "8.0")
 	(uuid "eb18a3da-9fbf-4329-a814-1afab785c817")
 	(paper "A4")
+	(title_block
+		(title "2CH 1MS/s 12b 50kHz 5V Oscope w/320x240 TFT & ESP32")
+		(date "2025-02-26")
+		(rev "1")
+		(company "Group 15")
+	)
 	(lib_symbols
 		(symbol "Device:C"
 			(pin_numbers hide)
@@ -1859,6 +1865,16 @@
 		)
 		(uuid "ff58c1c0-1b2d-40da-b1c0-942d886e149b")
 	)
+	(text "Note to fix/update:\nRoot should use NET CLASS DIRECTIVES,\nwhile sub-hierarchical sheets should use LABELS\n\ni.e., define net classes @ top level w/ net class directives &\ndefine all \"connections leading up to the meta-net connections\"\nwith standard labels/hierarchical labels if you need to propogate\nthose changes up to the higher layers in the schematic too\n\nAND: use the pin symbols to represent the pin headers for e/a of the components that use them!\nthese combined with the net class directives should make it all really clean too, heh"
+		(exclude_from_sim no)
+		(at 50.8 -13.716 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "9349b8f7-d57e-463d-996b-90e05459a132")
+	)
 	(text "- GPIO Labels for Code Implementation -\n\nESP32:\n    1. SPI\n        MOSI = GPIO 23 (IO23)    // General I/O, Hardware VSPI MOSI\n        MISO = GPIO 19 (IO19)    // General I/O, Hardware VSPI MISO\n        SCK  = GPIO 18 (IO18)    // General I/O, Hardware VSPI SCK\n\nPeripherals:\n    1. Screen(Display)\n        screen_CS    = GPIO 5  (IO5)  // General I/O\n        screen_D/C   = GPIO 4  (IO4)  // General I/O\n\n    2. Screen(Touchscreen Function)\n        touch_CS     = GPIO 15 (IO15) // Strapping pin (must not be driven low at reset), General I/O\n        touch_IRQ    = GPIO 25 (IO25) // General I/O, used as input for interrupt\n\n3. Signal Controls\n    3.0. Global Controls (influences all signals)\n        Button(s):\n            triggerBttn: GPIO 13 (IO13)   // General I/O\n\n        Pot.(s):\n            ampScale_wiper: GPIO 33 (IO33)   // ADC-capable pin (not input-only)\n            timeScale_wiper: GPIO 32 (IO32)  // ADC-capable pin (not input-only)\n\n    3.1. Signal 1:\n        Button(s):\n            signal1_toggleBttn: GPIO 16 (IO16)   // General I/O\n\n        Pot.(s):\n            signal1_ampShiftWiper = GPIO 34 (IO34)   // Input-only, ADC-capable pin\n            signal1_timeShiftWiper = GPIO 35 (IO35)  // Input-only, ADC-capable pin\n\n        ADC1:\n            ADC1_CS       = GPIO 14 (IO14)  // General I/O\n            ADC1_CONVST   = GPIO 27 (IO27)  // General I/O\n            ADC1_EOC/INT  = GPIO 26 (IO26)  // General I/O\n\n    3.2. Signal 2:\n        Button(s):\n            signal2_toggleBttn: GPIO 17 (IO17)   // General I/O\n\n        Pot.(s):\n            signal2_ampShiftWiper = GPIO 36 (SENSOR_VP)  // Input-only, ADC-capable pin\n            signal2_timeShiftWiper = GPIO 39 (SENSOR_VN) // Input-only, ADC-capable pin\n\n        ADC2:\n            ADC2_CS       = GPIO 21 (IO21)  // General I/O\n            ADC2_CONVST   = GPIO 22 (IO22)  // General I/O\n            ADC2_EOC/INT  = GPIO 12 (IO12)  // Strapping pin, General I/O (avoid driving low at reset)\n"
 		(exclude_from_sim no)
 		(at 177.292 66.802 0)
@@ -2309,7 +2325,7 @@
 			(justify left bottom)
 		)
 		(uuid "481c5eec-d0a4-42a1-85a7-f439b1688f13")
-		(property "Netclass" "GPIO"
+		(property "Netclass" "SPI"
 			(at 58.42 142.24 0)
 			(effects
 				(font
@@ -2881,7 +2897,7 @@
 			(justify left bottom)
 		)
 		(uuid "a836952c-2168-499a-b448-ca2a9751833a")
-		(property "Netclass" "GPIO"
+		(property "Netclass" "SPI"
 			(at 58.42 116.84 0)
 			(effects
 				(font
