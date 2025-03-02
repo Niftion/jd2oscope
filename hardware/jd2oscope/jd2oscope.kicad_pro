@@ -585,7 +585,7 @@
       "/GPIO:ADC2_CS": "SPI",
       "/GPIO:ADC2_EOC{slash}INT": "GPIO",
       "/GPIO:ampScale_wiper": "GPIO",
-      "/GPIO:screen_CS": "SPI",
+      "/GPIO:screen_CS": "GPIO",
       "/GPIO:screen_D{slash}C": "GPIO",
       "/GPIO:signal1_ampShiftWiper": "GPIO",
       "/GPIO:signal1_timeShiftWiper": "GPIO",

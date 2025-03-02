@@ -1,0 +1,946 @@
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "56fd94dc-b350-4b51-b103-6740721397e1")
+	(paper "A4")
+	(lib_symbols)
+	(polyline
+		(pts
+			(xy 52.705 27.94) (xy 104.14 27.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "775a1bf6-4f82-4788-9095-684bd2406dcc")
+	)
+	(rectangle
+		(start 52.705 22.86)
+		(end 104.14 99.695)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 39dccf7b-7576-4763-836d-2859f240f475)
+	)
+	(text "Globals"
+		(exclude_from_sim no)
+		(at 53.34 25.654 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "0830c8d0-f5a2-4a60-8319-ffa376ab2d62")
+	)
+	(text "Global (to be used by all modules):\nButton(s):\n- Trigger toggle button (toggles the \"trigger\" functionality of our oscope)\n\nPot.(s):\n- amplitude scaling (y-axis scale of all signals)\n- time scaling (x-axis scale of all signals)\n\n---\n\nPer-Module:\nButton(s):\n- \"Signal input toggle button\"; toggles whether or not we're reading it\n\nPot.(s):\n- amplitude shift (how much the signal is shifted in relation to the y-axis)\n- time shift (how much the signal is shifted in relation to the x-axis)"
+		(exclude_from_sim no)
+		(at 37.338 124.206 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "59735d25-18c9-4cb3-8eb9-ce4a06ab7fe2")
+	)
+	(hierarchical_label "GND"
+		(shape passive)
+		(at 83.82 92.71 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "01817c4c-2ee2-4780-ac2c-3146296ec2ec")
+	)
+	(hierarchical_label "reg.5V"
+		(shape input)
+		(at 137.16 69.85 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "0c1f0100-adcb-437c-ac93-14de90dc1e26")
+	)
+	(hierarchical_label "ADC2_EOC{slash}INT"
+		(shape output)
+		(at 137.16 95.25 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "11fe4de6-25e8-4034-8579-fde73db5f8c3")
+	)
+	(hierarchical_label "ADCx_SDI"
+		(shape input)
+		(at 138.43 39.37 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "1289a47a-1d21-4caa-8b88-efbd4d6d2e09")
+	)
+	(hierarchical_label "reg.3.3V"
+		(shape input)
+		(at 67.31 57.785 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "19924b05-f65c-4099-a4b4-8103201b37c2")
+	)
+	(hierarchical_label "ampScale_wiper"
+		(shape passive)
+		(at 83.82 63.5 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "1f21d27a-72b9-4cfb-8e8f-db0b382d7273")
+	)
+	(hierarchical_label "GND"
+		(shape passive)
+		(at 83.82 45.72 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "3930da5b-75f6-4976-a94a-b2faa270d96c")
+	)
+	(hierarchical_label "GND"
+		(shape passive)
+		(at 168.91 53.34 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "496a3a80-2287-480e-8aab-dbcda5e315ed")
+	)
+	(hierarchical_label "ADC1_EOC{slash}INT"
+		(shape output)
+		(at 138.43 53.34 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "4ce22b36-40ca-40c2-b56b-464709237582")
+	)
+	(hierarchical_label "reg.3.3V"
+		(shape input)
+		(at 137.16 72.39 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "5d04dac5-df6c-440c-a04f-4607698f590b")
+	)
+	(hierarchical_label "signal1_ampShiftWiper"
+		(shape passive)
+		(at 168.91 40.64 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "657d25af-06de-474f-9157-cf3f04d3fcf0")
+	)
+	(hierarchical_label "signal1_timeShiftWiper"
+		(shape passive)
+		(at 168.91 44.45 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "710750a0-9130-4b99-843b-8532ad879518")
+	)
+	(hierarchical_label "signal2_ampShiftWiper"
+		(shape passive)
+		(at 168.91 82.55 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "745136af-8292-4ea2-b5ad-c60a14576650")
+	)
+	(hierarchical_label "reg.3.3V"
+		(shape input)
+		(at 67.31 80.645 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "7bff1c0f-d984-458c-9a60-88eb9cf79dc6")
+	)
+	(hierarchical_label "ADCx_SCK"
+		(shape input)
+		(at 138.43 44.45 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "822993b6-9213-4aa6-bc10-f8cb9296541c")
+	)
+	(hierarchical_label "triggerBttn"
+		(shape passive)
+		(at 67.31 39.37 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "82dbeca8-611e-490f-90b0-5a863d357eae")
+	)
+	(hierarchical_label "ADCx_SCK"
+		(shape input)
+		(at 137.16 86.36 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "83aa4829-7e3b-4d6c-8b7b-d48175fc97bb")
+	)
+	(hierarchical_label "timeScale_wiper"
+		(shape passive)
+		(at 83.82 86.36 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "8551b485-3e49-4f14-8c9f-86824a63bf14")
+	)
+	(hierarchical_label "GND"
+		(shape passive)
+		(at 168.91 95.25 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "8b35498f-7aea-437f-a539-5f0f9adc9b1c")
+	)
+	(hierarchical_label "GND"
+		(shape passive)
+		(at 83.82 69.85 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "8e0ea2dc-7b19-49ef-ae94-c2f5bb7b5c94")
+	)
+	(hierarchical_label "signal1_toggleBttn"
+		(shape passive)
+		(at 168.91 36.83 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "8f08859b-e461-478a-88be-9ae0d5bff1f6")
+	)
+	(hierarchical_label "ADC2_CONVST"
+		(shape input)
+		(at 137.16 92.71 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "96b5a36d-cedd-4e83-aa7b-c008ac63beb7")
+	)
+	(hierarchical_label "signal2_toggleBttn"
+		(shape passive)
+		(at 168.91 78.74 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "ad7e2063-6429-4813-a0a5-816c2cc87b19")
+	)
+	(hierarchical_label "ADCx_SDO"
+		(shape output)
+		(at 138.43 41.91 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "b8329fb9-c287-4480-87bb-0d6a296abb51")
+	)
+	(hierarchical_label "ADCx_SDI"
+		(shape input)
+		(at 137.16 81.28 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "b8474852-48e8-4b42-9fd9-f6527f0d5c9c")
+	)
+	(hierarchical_label "reg.5V"
+		(shape input)
+		(at 138.43 27.94 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "b8cba7fa-a78d-42b7-bf53-76e8e8e90215")
+	)
+	(hierarchical_label "reg.3.3V"
+		(shape input)
+		(at 138.43 30.48 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "c38e1142-78d6-493f-b30c-5bca36c47b3a")
+	)
+	(hierarchical_label "ADC1_CS"
+		(shape input)
+		(at 138.43 36.83 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "c6508077-f419-4d6c-9368-41ba76335bc6")
+	)
+	(hierarchical_label "ADC2_CS"
+		(shape input)
+		(at 137.16 78.74 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "d5f2565d-d675-4267-ac99-7aa5b97a3b42")
+	)
+	(hierarchical_label "signal2_timeShiftWiper"
+		(shape passive)
+		(at 168.91 86.36 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "df04b1bf-9b84-4ad1-bb72-3d10ae56f62e")
+	)
+	(hierarchical_label "ADC1_CONVST"
+		(shape input)
+		(at 138.43 50.8 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "e0c50688-ffa0-49cb-adc3-ab44398224c7")
+	)
+	(hierarchical_label "ADCx_SDO"
+		(shape output)
+		(at 137.16 83.82 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "f7b14774-1413-4587-91d9-13d2711fc8bf")
+	)
+	(sheet
+		(at 67.31 78.105)
+		(size 16.51 16.51)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "0b10fb84-a9af-450b-b4ba-7677bde7a4aa")
+		(property "Sheetname" "timeScalingPot"
+			(at 67.31 77.3934 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "PotentiometerModule.kicad_sch"
+			(at 67.31 95.1996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "POT_WIPER" passive
+			(at 83.82 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "2b342d44-0d90-4715-8c2e-1cfeace7453c")
+		)
+		(pin "GND" passive
+			(at 83.82 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "b6a8dbc5-d50b-481e-b228-c9b72148fcea")
+		)
+		(pin "reg.3.3V" input
+			(at 67.31 80.645 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "9c8a353a-7bcc-4b79-b2db-d16a55c9f032")
+		)
+		(instances
+			(project "jd2oscope"
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2"
+					(page "12")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 67.31 55.245)
+		(size 16.51 16.51)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "34809825-0d94-4631-a2d1-f31cc7a3b6ba")
+		(property "Sheetname" "amplitudeScalingPot"
+			(at 67.31 54.5334 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "PotentiometerModule.kicad_sch"
+			(at 67.31 72.3396 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "POT_WIPER" passive
+			(at 83.82 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "61b3d4cb-459c-4ed6-a61d-34390496c93a")
+		)
+		(pin "GND" passive
+			(at 83.82 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "bc7b13a4-a511-4dc6-8d93-b345bee7f41f")
+		)
+		(pin "reg.3.3V" input
+			(at 67.31 57.785 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "fa56b78b-24f8-499e-849b-d9c920a876da")
+		)
+		(instances
+			(project "jd2oscope"
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2"
+					(page "11")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 138.43 26.67)
+		(size 30.48 27.94)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "4f25ad0e-659b-4d0d-998d-272f66fe29fb")
+		(property "Sheetname" "SignalInterfaceModule1"
+			(at 138.43 25.9584 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "signalInterfaceModule.kicad_sch"
+			(at 138.43 55.1946 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "GND" passive
+			(at 168.91 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "cf6df491-d6e7-4728-8574-29e175a85f09")
+		)
+		(pin "reg.3.3V" input
+			(at 138.43 30.48 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "b92353fe-1635-4648-a97b-9aba235dc333")
+		)
+		(pin "ADC_SDO" output
+			(at 138.43 41.91 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "ea906453-87df-4cdb-85bc-e245e463cc81")
+		)
+		(pin "ADC_CONVST" input
+			(at 138.43 50.8 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "c82df6c1-78f0-4ed3-8a6f-b294a6b3ce2a")
+		)
+		(pin "ADC_CS" input
+			(at 138.43 36.83 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "73b386ce-e6df-4b14-bfa9-29c2e92ba2e0")
+		)
+		(pin "ADC_SDI" input
+			(at 138.43 39.37 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "71f516d6-2e86-4881-b062-c09d202a3e06")
+		)
+		(pin "ADC_EOC{slash}INT" output
+			(at 138.43 53.34 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "4d7e080c-add5-4e61-af0f-7bfc17955f46")
+		)
+		(pin "ADC_SCK" input
+			(at 138.43 44.45 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "15090d4d-459e-4901-b35c-e7f7e3560a87")
+		)
+		(pin "reg.5V" input
+			(at 138.43 27.94 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "72c712c0-ecbe-48b8-a9e4-4d1fbe962da9")
+		)
+		(pin "timeShift_wiper" passive
+			(at 168.91 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "a1135f61-adc9-45c1-9d84-7af7c396e0c1")
+		)
+		(pin "ampShift_wiper" passive
+			(at 168.91 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "00916abc-dc15-404a-9db2-f67260bf6cc9")
+		)
+		(pin "signalToggleBttn" passive
+			(at 168.91 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "a351fc1e-29d9-4d17-b308-21e6d099383a")
+		)
+		(instances
+			(project "jd2oscope"
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 67.31 31.75)
+		(size 16.51 16.51)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "946e3097-58f0-4375-84c2-921a93494f1e")
+		(property "Sheetname" "triggerToggleButton"
+			(at 67.31 31.0384 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "buttonModule.kicad_sch"
+			(at 67.31 48.8446 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "GND" passive
+			(at 83.82 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "2c06403b-3a6b-4266-9c0a-0bddd5ae1732")
+		)
+		(pin "GPIOpin" passive
+			(at 67.31 39.37 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "1388b824-ab1a-41c9-bceb-66566fb23827")
+		)
+		(instances
+			(project "jd2oscope"
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2"
+					(page "10")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 137.16 68.58)
+		(size 31.75 27.94)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "9cf642e2-7276-4116-93a5-7485645ddebf")
+		(property "Sheetname" "SignalInterfaceModule2"
+			(at 137.16 67.8684 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "signalInterfaceModule.kicad_sch"
+			(at 137.16 97.1046 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "GND" passive
+			(at 168.91 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "857f2e35-b7ed-4bcd-a421-c81ad3fe857a")
+		)
+		(pin "reg.3.3V" input
+			(at 137.16 72.39 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "05888cb9-89a7-45a8-bbca-a2c27eb6a017")
+		)
+		(pin "ADC_SDO" output
+			(at 137.16 83.82 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "316f3430-0c7c-4572-98ce-4e560d5e62ff")
+		)
+		(pin "ADC_CONVST" input
+			(at 137.16 92.71 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "11620c38-742c-43ce-a1c1-02d9e1eaea8c")
+		)
+		(pin "ADC_CS" input
+			(at 137.16 78.74 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "9badd0c4-c851-4cf8-b933-caeed4683f23")
+		)
+		(pin "ADC_SDI" input
+			(at 137.16 81.28 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "99f685f5-12fb-4ecc-b42d-65b87cf0b46f")
+		)
+		(pin "ADC_EOC{slash}INT" output
+			(at 137.16 95.25 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "c49a6a8c-1636-4b33-898a-3691fa7ce06d")
+		)
+		(pin "ADC_SCK" input
+			(at 137.16 86.36 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "36ce06bd-5ce2-4395-9b18-fec12e7fc301")
+		)
+		(pin "reg.5V" input
+			(at 137.16 69.85 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "a97fd3c9-ecb1-439d-8a60-4fbc90eb4e02")
+		)
+		(pin "timeShift_wiper" passive
+			(at 168.91 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "84cc75b5-e827-455c-99b8-1b2b46578873")
+		)
+		(pin "ampShift_wiper" passive
+			(at 168.91 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "9e8d6a15-8857-4fca-a11f-1ea3ef875cc5")
+		)
+		(pin "signalToggleBttn" passive
+			(at 168.91 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "42b81b0d-728c-4ba4-b739-50085cd8e4ed")
+		)
+		(instances
+			(project "jd2oscope"
+				(path "/eb18a3da-9fbf-4329-a814-1afab785c817/415ed027-7cd2-4459-ae99-e85a85aec1e2"
+					(page "13")
+				)
+			)
+		)
+	)
+)
