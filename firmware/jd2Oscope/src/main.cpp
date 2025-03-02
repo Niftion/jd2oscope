@@ -7,14 +7,13 @@
 #include "esp_log.h"
 #include "esp_sleep.h"
 #include "sdkconfig.h"
-#include <Adafruit_BusIO_Register.h>
-#include <Adafruit_GFX.h>       // include Adafruit graphics library
-#include <Adafruit_ILI9341.h>   // include Adafruit ILI9341 TFT library
 
-//#include "SPI.h"
-//#include "ILI9341_t3.h"
-//#include "font_Arial.h"
-//#include "XPT2046_Touchscreen.h"
+#include <TFT_eSPI.h>  // Bodmer's TFT_eSPI library
+#include "User_Setup.h"
+// #include <Adafruit_ILI9341.h>   // include Adafruit ILI9341 TFT library
+// #include <Adafruit_GFX.h>       // include Adafruit graphics library
+// #include <Adafruit_BusIO_Register.h>
+
 
 /*
 #include <implot.h>
@@ -24,14 +23,11 @@
 #include "imgui.h"
 #include "imgui_impl_win32.h"
 #include "imgui_impl_dx11.h"
-//nclude <math.h>
-//nclude <time.h>
-//#include <driver/gpio.h>
+#include <math.h>
+#include <time.h>
+#include <driver/gpio.h>
 */
 
-#define TFT_CS    16      // TFT CS  pin is connected to GPIO 16
-#define TFT_RST   23      // TFT RST pin is connected to GPIO 23
-#define TFT_DC    11     // TFT DC  pin is connected to GPIO 11
 //char receivedChar;
 //char receivedChars[32];
 //char endMarker = '.';
@@ -66,8 +62,8 @@ unsigned long testFilledRoundRects();
 //Setup for Display screen
 
 // initialize ILI9341 TFT library
-Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_RST);
-//ILI9341_t3 tft = ILI9341_t3(TFT_CS, TFT_DC);
+TFT_eSPI tft = TFT_eSPI();
+
 // put function declarations here:
 
 void setup() {
