@@ -10,6 +10,19 @@
 
 #include <TFT_eSPI.h>  // Bodmer's TFT_eSPI library
 #include "User_Setup.h"
+#include <TFT_eWidget.h>               // Widget library
+
+TFT_eSPI tft = TFT_eSPI();
+
+
+GraphWidget gr = GraphWidget(&tft);    // Graph widget gr instance with pointer to tft
+TraceWidget tr1 = TraceWidget(&gr);    // Graph trace 1
+TraceWidget tr2 = TraceWidget(&gr);    // Graph trace 2
+
+const float gxLow  = 0.0;
+const float gxHigh = 100.0;
+const float gyLow  = -512.0;
+const float gyHigh = 512.0;
 //#include "font_Arial.h"
 //#include <Adafruit_ILI9341.h>   // include Adafruit ILI9341 TFT library
 // #include <Adafruit_GFX.h>       // include Adafruit graphics library
@@ -63,7 +76,7 @@ unsigned long testFilledRoundRects();
 //Setup for Display screen
 
 // initialize ILI9341 TFT library
-TFT_eSPI tft = TFT_eSPI();
+//TFT_eSPI tft = TFT_eSPI();
 
 // put function declarations here:
 
@@ -75,7 +88,7 @@ void setup() {
 
   //Serial.println("ILI9341 Test!"); 
  
-  tft.begin();
+  //tft.begin();
   // Note: you can now set the SPI speed to any value
   // the default value is 30Mhz, but most ILI9341 displays
   // can handle at least 60Mhz and as much as 100Mhz
@@ -85,12 +98,78 @@ void setup() {
     //tft.setTextSize(2);
     //tft.println("Waiting for Arduino Serial Monitor...");
 
-    Serial.begin(115200);
-   // Serial.begin(9600);
-    while (!Serial) ; // wait for Arduino Serial Monitor
-    Serial.println("ILI9341 Test!"); 
-  
-    
+     Serial.begin(115200);
+  delay(5000);
+  tft.begin();
+  tft.setRotation(3);
+  tft.fillScreen(TFT_BLACK);
+
+  // Graph area is 200 pixels wide, 150 high, dark grey background
+  gr.createGraph(290, 190, tft.color565(5, 5, 5));
+
+  // x scale units is from 0 to 100, y scale units is -50 to 50
+  gr.setGraphScale(0.0, 100.0, -50.0, 50.0);
+
+  // X grid starts at 0 with lines every 10 x-scale units
+  // Y grid starts at -50 with lines every 25 y-scale units
+  // blue grid
+  gr.setGraphGrid(0.0, 10.0, -50.0, 10.0, TFT_BLUE);
+
+  // Draw empty graph, top left corner at 40,10 on TFT
+  gr.drawGraph(20, 20);
+
+  // Start a trace with using red and another with green
+  tr1.startTrace(TFT_RED);
+  tr2.startTrace(TFT_GREEN);
+
+  // Add points on graph to trace 1 using graph scale factors
+  tr1.addPoint(0.0, 0.0);
+  tr1.addPoint(50.0, 0.0);
+
+  // Add points on graph to trace 2 using graph scale factors
+  // Points are off graph so the plotted line is clipped to graph area
+  tr2.addPoint(0.0, -50.0);
+  tr2.addPoint(50.0, 50.0);
+
+  // Get x,y pixel coordinates of any scaled point on graph
+  // and ring that point.
+  tft.drawCircle(gr.getPointX(50.0), gr.getPointY(0.0), 5, TFT_MAGENTA);
+
+  // Draw the x axis scale
+  tft.setTextDatum(TC_DATUM); // Top centre text datum
+  tft.drawNumber(0, gr.getPointX(0.0), gr.getPointY(-50.0) + 3);
+  tft.drawNumber(50, gr.getPointX(50.0), gr.getPointY(-50.0) + 3);
+  tft.drawNumber(100, gr.getPointX(100.0), gr.getPointY(-50.0) + 3);
+
+  // Draw the y axis scale
+  tft.setTextDatum(MR_DATUM); // Middle right text datum
+  tft.drawNumber(-50, gr.getPointX(0.0), gr.getPointY(-50.0));
+  tft.drawNumber(0, gr.getPointX(0.0), gr.getPointY(0.0));
+  tft.drawNumber(50, gr.getPointX(0.0), gr.getPointY(50.0));
+
+  //attempt to get labels right
+  tft.setRotation(2);
+  tft.setCursor(100, 5);
+  tft.setTextColor(ILI9341_WHITE);  tft.setTextSize(1);
+  tft.println("Voltage");
+  tft.setRotation(3);
+  tft.setCursor(150, 225);
+  tft.setTextColor(ILI9341_WHITE);  tft.setTextSize(1);
+  tft.println("Time");
+  tft.setCursor(150, 5);
+  tft.setTextColor(ILI9341_WHITE);  tft.setTextSize(1);
+  tft.println("Trigger: Falling");
+  tft.setCursor(275, 5);
+  tft.setTextColor(ILI9341_YELLOW);  tft.setTextSize(1);
+  tft.println("CH1");
+  tft.setCursor(300, 5);
+  tft.setTextColor(ILI9341_GREEN);  tft.setTextSize(1);
+  tft.println("CH2");
+ 
+
+  // Restart traces with new colours
+  tr1.startTrace(TFT_WHITE);
+  tr2.startTrace(TFT_YELLOW);
   
  
   //Serial.println("Enter t to test timer, c to test ADC conversions, or g to test graph");
@@ -100,16 +179,48 @@ void setup() {
 }
 
 void loop() {
+  static uint32_t plotTime = millis();
+  static float gx = 0.0, gy = 0.0;
+  static float delta = 7.0;
+
+  // Sample periodically
+  if (millis() - plotTime >= 100) {
+    plotTime = millis();
+
+    // Add a new point on each trace
+    tr1.addPoint(gx, gy);
+    tr2.addPoint(gx, gy/2.0); // half y amplitude
+
+    // Create next plot point
+    gx += 1.0;
+    gy += delta;
+    if (gy >  70.0) { delta = -7.0; gy =  70.0; }
+    if (gy < -70.0) { delta =  7.0; gy = -70.0; }
+
+    // If the end of the graph is reached start 2 new traces
+    if (gx > 100.0) {
+      gx = 0.0;
+      gy = 0.0;
+
+      // Draw empty graph at 40,10 on display
+      gr.drawGraph(20, 20);
+      // Start new trace
+      tr1.startTrace(TFT_GREEN);
+      tr2.startTrace(TFT_YELLOW);
+    }
+  }
+  
   // put your main code here, to run repeatedly:
   //Display code:
-
-  for(uint8_t rotation=0; rotation<4; rotation++) {
-    tft.setRotation(rotation);
+  //-------Display demo code-------
+  //for(uint8_t rotation=0; rotation<4; rotation++) {
+    //tft.setRotation(rotation);
     //testText();
     //testFillScreen();
-    testLines(ILI9341_GREEN);
-    delay(500); // 1000 is 1 sec
-  }
+    //testLines(ILI9341_GREEN);
+    //delay(500); // 1000 is 1 sec
+  //}
+  //--------------------------------
 
   // +++++++++++  This Code below was for Block 1 and 2 Verification. Contents include:
   // +++++++++++  Push button and Potentiometer response
