@@ -151,14 +151,17 @@ void setup() {
   tft.setRotation(2);
   tft.setCursor(100, 5);
   tft.setTextColor(ILI9341_WHITE);  tft.setTextSize(1);
-  tft.println("Voltage");
+  tft.println("Voltage (V)");
   tft.setRotation(3);
   tft.setCursor(150, 225);
   tft.setTextColor(ILI9341_WHITE);  tft.setTextSize(1);
-  tft.println("Time");
+  tft.println("Time (sec)");
   tft.setCursor(150, 5);
   tft.setTextColor(ILI9341_WHITE);  tft.setTextSize(1);
   tft.println("Trigger: Falling");
+  tft.setCursor(50, 5);
+  tft.setTextColor(ILI9341_WHITE);  tft.setTextSize(1);
+  tft.println("Amplitude: ");
   tft.setCursor(275, 5);
   tft.setTextColor(ILI9341_YELLOW);  tft.setTextSize(1);
   tft.println("CH1");
@@ -180,11 +183,33 @@ void setup() {
 
 void loop() {
   static uint32_t plotTime = millis();
+  int Zoom = analogRead(36) + 1; // GPIO 36
   static float gx = 0.0, gy = 0.0;
   static float delta = 7.0;
+  int SampleTime = 4095/(100*Zoom);
+  tft.fillRect(0, gr.getPointY(-50.0) + 3, 320, 10, TFT_BLACK);
+  tft.setTextColor(ILI9341_WHITE);
+  tft.setTextDatum(TC_DATUM); // Top centre text datum
+  tft.drawNumber(0, gr.getPointX(0.0), gr.getPointY(-50.0) + 3);
+  tft.drawNumber((409.5/(.2*Zoom)), gr.getPointX(50.0), gr.getPointY(-50.0) + 3);
+  tft.drawNumber((409.5/(.1*Zoom)), gr.getPointX(100.0), gr.getPointY(-50.0) + 3);
 
+  //int Zoom = analogRead(36); // GPIO 36
+  // x scale units is from 0 to 100, y scale units is -50 to 50
+  //gr.setGraphScale(0.0, (Zoom/40950), -50.0, 50.0);
+
+  // X grid starts at 0 with lines every 10 x-scale units
+  // Y grid starts at -50 with lines every 25 y-scale units
+  // blue grid
+  //gr.setGraphGrid(0.0, (Zoom/409500), -50.0, 10.0, TFT_BLUE);
+
+  //tft.setTextDatum(TC_DATUM); // Top centre text datum
+  //tft.drawNumber(0, gr.getPointX(0.0), gr.getPointY(-50.0) + 3);
+  //tft.drawNumber((Zoom/(2*40950)), gr.getPointX((Zoom/(2*40950))), gr.getPointY(-50.0) + 3);
+  //tft.drawNumber((Zoom/40950), gr.getPointX((Zoom/40950)), gr.getPointY(-50.0) + 3);
+  //gr.drawGraph(20, 20);
   // Sample periodically
-  if (millis() - plotTime >= 100) {
+  if (millis() - plotTime >= SampleTime) {
     plotTime = millis();
 
     // Add a new point on each trace
@@ -194,11 +219,12 @@ void loop() {
     // Create next plot point
     gx += 1.0;
     gy += delta;
+    //gy = (val/41)-50 ;//+= delta;
     if (gy >  70.0) { delta = -7.0; gy =  70.0; }
     if (gy < -70.0) { delta =  7.0; gy = -70.0; }
 
     // If the end of the graph is reached start 2 new traces
-    if (gx > 100.0) {
+    if (gx > 100) {
       gx = 0.0;
       gy = 0.0;
 
