@@ -10,7 +10,8 @@
 
 #include <TFT_eSPI.h>  // Bodmer's TFT_eSPI library
 #include "User_Setup.h"
-// #include <Adafruit_ILI9341.h>   // include Adafruit ILI9341 TFT library
+//#include "font_Arial.h"
+//#include <Adafruit_ILI9341.h>   // include Adafruit ILI9341 TFT library
 // #include <Adafruit_GFX.h>       // include Adafruit graphics library
 // #include <Adafruit_BusIO_Register.h>
 
@@ -104,8 +105,10 @@ void loop() {
 
   for(uint8_t rotation=0; rotation<4; rotation++) {
     tft.setRotation(rotation);
-    testText();
-    delay(1000);
+    //testText();
+    //testFillScreen();
+    testLines(ILI9341_GREEN);
+    delay(500); // 1000 is 1 sec
   }
 
   // +++++++++++  This Code below was for Block 1 and 2 Verification. Contents include:
