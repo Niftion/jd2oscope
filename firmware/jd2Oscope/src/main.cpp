@@ -193,13 +193,14 @@ void setup() {
 }
 
 void loop() {
-  while(pause_state){
-    gr.drawGraph(20, 20);
-    for (int i =0; i<100; i++){
-      tr2.addPoint(i, display_data[i]);
+  //while(pause_state){
+  //  gr.drawGraph(20, 20);
+    //for (int i =0; i<100; i++){
+      //tr2.addPoint(i, display_data[i]);
       //tr1.addPoint(i, display_data[i]);
-    }
-  }
+    //}
+  //}
+  while(!pause_state){
   static uint32_t plotTime = micros(); // used to be = millis(), now using micros
   //float display_data[100];
   //float real_data[100];
@@ -427,7 +428,7 @@ void loop() {
         //+++++++++ End of Block code, not including functions below
         */
 }
-    
+}    
 
 //Functions for Display Testing
 
