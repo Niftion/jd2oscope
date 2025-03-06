@@ -71,6 +71,8 @@ unsigned long testTriangles();
 unsigned long testFilledTriangles();
 unsigned long testRoundRects();
 unsigned long testFilledRoundRects();
+int findMax(float array[]);
+int findMax(float array[]);
 
 
 //Setup for Display screen
@@ -177,22 +179,49 @@ void setup() {
  
   //Serial.println("Enter t to test timer, c to test ADC conversions, or g to test graph");
 
+  //++++++++++++ESPTimer start code
   
+    
 
 }
 
 void loop() {
-  static uint32_t plotTime = millis();
-  int Zoom = analogRead(36) + 1; // GPIO 36
+  
+  static uint32_t plotTime = micros(); // used to be = millis(), now using micros
+  float display_data[100];
+  float real_data[100];
+  int Amplitude = (findMax(real_data) - findMin(real_data))/2;
+  tft.setCursor(110, 5);
+  tft.fillRect(110, 5, 10, 10, TFT_BLACK);
+  tft.setTextColor(ILI9341_WHITE);  tft.setTextSize(1);
+  tft.println(Amplitude);
+  int y_zoom = 4095;//analogRead(36) + 1; // GPIO 36
+  int x_zoom = analogRead(36) + 1;
+  int val = analogRead(35);
   static float gx = 0.0, gy = 0.0;
   static float delta = 7.0;
-  int SampleTime = 4095/(100*Zoom);
+  int SampleTime = 4095/(x_zoom);
+  
+  //Time (x) axis zoom
   tft.fillRect(0, gr.getPointY(-50.0) + 3, 320, 10, TFT_BLACK);
   tft.setTextColor(ILI9341_WHITE);
   tft.setTextDatum(TC_DATUM); // Top centre text datum
   tft.drawNumber(0, gr.getPointX(0.0), gr.getPointY(-50.0) + 3);
-  tft.drawNumber((409.5/(.2*Zoom)), gr.getPointX(50.0), gr.getPointY(-50.0) + 3);
-  tft.drawNumber((409.5/(.1*Zoom)), gr.getPointX(100.0), gr.getPointY(-50.0) + 3);
+  tft.drawNumber((409.5/(.2*x_zoom)), gr.getPointX(50.0), gr.getPointY(-50.0) + 3);
+  tft.drawNumber((409.5/(.1*x_zoom)), gr.getPointX(100.0), gr.getPointY(-50.0) + 3);
+
+  //voltage (y) axis zoom
+  tft.fillRect(0, 0, 19, 220, TFT_BLACK);
+  tft.setRotation(2);
+  tft.setCursor(100, 5);
+  tft.setTextColor(ILI9341_WHITE);  tft.setTextSize(1);
+  tft.println("Voltage (V)");
+  tft.setRotation(3);
+  tft.setTextColor(ILI9341_WHITE);
+  tft.setTextDatum(MR_DATUM); // Middle right text datum
+  tft.drawNumber((((-50)*y_zoom)/4095), gr.getPointX(0.0), gr.getPointY(-50.0));
+  tft.drawNumber(0, gr.getPointX(0.0), gr.getPointY(0.0));
+  tft.drawNumber((((50)*y_zoom)/4095), gr.getPointX(0.0), gr.getPointY(50.0));
 
   //int Zoom = analogRead(36); // GPIO 36
   // x scale units is from 0 to 100, y scale units is -50 to 50
@@ -209,31 +238,43 @@ void loop() {
   //tft.drawNumber((Zoom/40950), gr.getPointX((Zoom/40950)), gr.getPointY(-50.0) + 3);
   //gr.drawGraph(20, 20);
   // Sample periodically
-  if (millis() - plotTime >= SampleTime) {
-    plotTime = millis();
+  //rising edge trigger
+  
+  
+  if (micros() - plotTime >= SampleTime) { //edited from sampletime
+    plotTime = micros();
 
     // Add a new point on each trace
     tr1.addPoint(gx, gy);
-    tr2.addPoint(gx, gy/2.0); // half y amplitude
+    display_data[int(gx)] = gy;
+    real_data[int(gx)] = display_data[int(gx)]*(y_zoom/4095);
+    tr2.addPoint(gx, gy);
+    //tr2.addPoint(gx, gy/2.0); // half y amplitude
 
     // Create next plot point
     gx += 1.0;
-    gy += delta;
-    //gy = (val/41)-50 ;//+= delta;
-    if (gy >  70.0) { delta = -7.0; gy =  70.0; }
-    if (gy < -70.0) { delta =  7.0; gy = -70.0; }
+    //gy += delta;
+    gy = ((val/41)-50)*(4095/y_zoom) ;//+= delta;
+    //if (gy >  70.0) { delta = -7.0; gy =  70.0; }
+    //if (gy < -70.0) { delta =  7.0; gy = -70.0; }
 
     // If the end of the graph is reached start 2 new traces
     if (gx > 100) {
       gx = 0.0;
-      gy = 0.0;
+      gy = display_data[99];
 
       // Draw empty graph at 40,10 on display
       gr.drawGraph(20, 20);
+      //for (int i=1; i <100; i++){
+        //tft.drawLine(i-1, data_buffer[i-1], i, data_buffer[i], TFT_BLACK);
+      //}
+      
+      //tr2.startTrace(TFT_BLACK); Store values at each point and plot each point with a black spot to erase instead of drawing graph again
       // Start new trace
       tr1.startTrace(TFT_GREEN);
       tr2.startTrace(TFT_YELLOW);
     }
+    
   }
   
   // put your main code here, to run repeatedly:
@@ -376,6 +417,28 @@ void loop() {
     
 
 //Functions for Display Testing
+int findMax(float array[]){
+  int max = array[0];
+  for (int i=0; i < 100; i++){
+    if (array[i] > max){
+      max = array[i];
+    }
+
+  }
+  return max;
+}
+
+int findMin(float array[]){
+  int min = array[0];
+  for (int i=0; i < 100; i++){
+    if (array[i] < min){
+      min = array[i];
+    }
+
+  }
+  return min;
+}
+
 
 unsigned long testFillScreen() {
   unsigned long start = micros();
