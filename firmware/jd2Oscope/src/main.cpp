@@ -25,7 +25,9 @@ const float gyLow  = -512.0;
 const float gyHigh = 512.0;
 float display_data[100];
 float real_data[100];
+float trigger_data[200];
 volatile byte pause_state = LOW;
+volatile byte trigger_state = LOW;
 //#include "font_Arial.h"
 //#include <Adafruit_ILI9341.h>   // include Adafruit ILI9341 TFT library
 // #include <Adafruit_GFX.h>       // include Adafruit graphics library
@@ -77,6 +79,8 @@ unsigned long testFilledRoundRects();
 int findMax(float array[]);
 int findMax(float array[]);
 void pause_button();
+void trigger_set();
+void trigger_function();
 
 //Setup for Display screen
 
@@ -188,7 +192,7 @@ void setup() {
   
   pinMode(26, INPUT_PULLUP);// Using GPIO 6 for button testing
 
-  attachInterrupt(digitalPinToInterrupt(26), pause_button, FALLING);
+  attachInterrupt(digitalPinToInterrupt(26), trigger_set, FALLING); //was pause_button, now trigger_state
 
 }
 
@@ -201,6 +205,15 @@ void loop() {
     //}
   //}
   while(!pause_state){
+    tft.fillRect(150, 5, 100, 10, TFT_BLACK);
+    tft.setCursor(150, 5);
+    tft.setTextColor(ILI9341_WHITE);  tft.setTextSize(1);
+  if(!trigger_state){
+    tft.println("Trigger: Rising");
+  }else{
+    tft.println("Trigger: Falling");
+  }
+  trigger_function();
   static uint32_t plotTime = micros(); // used to be = millis(), now using micros
   //float display_data[100];
   //float real_data[100];
@@ -431,6 +444,63 @@ void loop() {
 }    
 
 //Functions for Display Testing
+void trigger_set(){
+  trigger_state = !trigger_state;
+  return;
+}
+
+void trigger_function(){
+  static uint32_t plotTime_tgr = micros(); // used to be = millis(), now using micros
+  for (int i = 0; i<200;i++){
+    if (micros() - plotTime_tgr >= 10) { //edited from sampletime
+      plotTime_tgr = micros();
+      int val_tgr = analogRead(35);
+      int y_zoom_tgr = 4095;//analogRead(36) + 1; // GPIO 36
+      static float gy_tgr = ((val_tgr/41)-50)*(4095/y_zoom_tgr);
+      trigger_data[i] = gy_tgr;
+    }  
+  }
+  if (trigger_state){                                         // rising edge trigger logic
+    for (int i = 0; i<200;i++){
+      if (trigger_data[i]<=trigger_data[i+1]){
+        if(trigger_data[i+1]<=trigger_data[i+2]){
+          if(trigger_data[i+2]<=trigger_data[i+3]){
+            if(trigger_data[i+3]<=trigger_data[i+4]){
+              for (int j = i; j < 100; j++){
+                display_data[i] = trigger_data[i];
+              }
+
+            }
+
+          }
+
+        }
+      }
+
+    }
+  } else {
+    for (int i = 0; i<200;i++){
+      if (trigger_data[i]>=trigger_data[i+1]){
+        if(trigger_data[i+1]>=trigger_data[i+2]){
+          if(trigger_data[i+2]>=trigger_data[i+3]){
+            if(trigger_data[i+3]>=trigger_data[i+4]){
+              for (int j = i; j < 100; j++){
+                display_data[i] = trigger_data[i];
+              }
+
+            }
+
+          }
+
+        }
+      }
+
+    }
+  }
+
+  
+  return;
+}
 
 void pause_button(){
   pause_state = !pause_state;
