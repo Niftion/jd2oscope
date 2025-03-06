@@ -23,6 +23,9 @@ const float gxLow  = 0.0;
 const float gxHigh = 100.0;
 const float gyLow  = -512.0;
 const float gyHigh = 512.0;
+float display_data[100];
+float real_data[100];
+volatile byte pause_state = LOW;
 //#include "font_Arial.h"
 //#include <Adafruit_ILI9341.h>   // include Adafruit ILI9341 TFT library
 // #include <Adafruit_GFX.h>       // include Adafruit graphics library
@@ -73,7 +76,7 @@ unsigned long testRoundRects();
 unsigned long testFilledRoundRects();
 int findMax(float array[]);
 int findMax(float array[]);
-
+void pause_button();
 
 //Setup for Display screen
 
@@ -180,16 +183,26 @@ void setup() {
   //Serial.println("Enter t to test timer, c to test ADC conversions, or g to test graph");
 
   //++++++++++++ESPTimer start code
+
+  //++++++++++++Interrupts for Pausing and Channel Select
   
-    
+  pinMode(26, INPUT_PULLUP);// Using GPIO 6 for button testing
+
+  attachInterrupt(digitalPinToInterrupt(26), pause_button, FALLING);
 
 }
 
 void loop() {
-  
+  while(pause_state){
+    gr.drawGraph(20, 20);
+    for (int i =0; i<100; i++){
+      tr2.addPoint(i, display_data[i]);
+      //tr1.addPoint(i, display_data[i]);
+    }
+  }
   static uint32_t plotTime = micros(); // used to be = millis(), now using micros
-  float display_data[100];
-  float real_data[100];
+  //float display_data[100];
+  //float real_data[100];
   int Amplitude = (findMax(real_data) - findMin(real_data))/2;
   tft.setCursor(110, 5);
   tft.fillRect(110, 5, 10, 10, TFT_BLACK);
@@ -245,7 +258,7 @@ void loop() {
     plotTime = micros();
 
     // Add a new point on each trace
-    tr1.addPoint(gx, gy);
+    //tr1.addPoint(gx, gy);
     display_data[int(gx)] = gy;
     real_data[int(gx)] = display_data[int(gx)]*(y_zoom/4095);
     tr2.addPoint(gx, gy);
@@ -271,7 +284,7 @@ void loop() {
       
       //tr2.startTrace(TFT_BLACK); Store values at each point and plot each point with a black spot to erase instead of drawing graph again
       // Start new trace
-      tr1.startTrace(TFT_GREEN);
+      //tr1.startTrace(TFT_GREEN);
       tr2.startTrace(TFT_YELLOW);
     }
     
@@ -417,6 +430,14 @@ void loop() {
     
 
 //Functions for Display Testing
+
+void pause_button(){
+  pause_state = !pause_state;
+  return;
+}
+
+
+
 int findMax(float array[]){
   int max = array[0];
   for (int i=0; i < 100; i++){
