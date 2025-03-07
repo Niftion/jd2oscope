@@ -7,22 +7,63 @@
 #include "esp_log.h"
 #include "esp_sleep.h"
 #include "sdkconfig.h"
+#include "SPI.h"
+
 
 #include <TFT_eSPI.h>  // Bodmer's TFT_eSPI library
 #include "User_Setup.h"
 #include <TFT_eWidget.h>               // Widget library
 
+
 TFT_eSPI tft = TFT_eSPI();
+
+
 
 
 GraphWidget gr = GraphWidget(&tft);    // Graph widget gr instance with pointer to tft
 TraceWidget tr1 = TraceWidget(&gr);    // Graph trace 1
 TraceWidget tr2 = TraceWidget(&gr);    // Graph trace 2
 
+
+//****************************************
+//Variable Declarations
+//****************************************
+
+
 const float gxLow  = 0.0;
 const float gxHigh = 100.0;
 const float gyLow  = -512.0;
 const float gyHigh = 512.0;
+const int graph_length = 290;
+const int graph_height = 190;
+float graph_scale_xmin = 0.0;
+float graph_scale_xmax = 100.0;
+float graph_scale_ymin = -50.0;
+float graph_scale_ymax = 50.0;
+float graph_scale_xgrid = 10.0;
+float graph_scale_ygrid = 10.0;
+int graph_top_corner_x = 20;
+int graph_top_corner_y = 20;
+int pause_pin = 16; //GPIO 16
+int trigger_pin = 13; //GPIO 13
+int Ch1_pin = -1;
+int Ch2_pin = -1;
+
+
+
+
+int ADC_out_pin = 26; // GPIO 26, ADC output
+int ADC_CS_pin = 14; // GPIO 14, Clock select for ADC
+int ADC_CONVST_pin = 27; //GPIO 27
+//int ADC_raw_val;
+
+
+
+
+
+
+int V_dial_pin = 33;
+int T_dial_pin = 32;
 float display_data[100];
 float real_data[100];
 float trigger_data[200];
@@ -30,10 +71,9 @@ volatile byte pause_state = LOW;
 volatile byte trigger_state = LOW;
 
 
+volatile int spi_max_clk = 50000000;// Max SPI clk frequency is 50MHz.
 
-/*
 
-*/
 
 
 //int ADC_val_converter(int example_input);
@@ -41,7 +81,12 @@ volatile byte trigger_state = LOW;
 //static double bits_to_volts(double bit_in);
 
 
-//Display Screen Functions
+
+
+//*************************************************
+//Function Declarations
+//*************************************************
+
 
 unsigned long testFillScreen();
 unsigned long testText();
@@ -61,10 +106,15 @@ int findMax(float array[]);
 void pause_button();
 void trigger_set();
 void trigger_function();
+void ADC_Set_Default();
+
+
+
 
 
 
 void setup() {
+
 
   //tft.begin();
   // Note: you can now set the SPI speed to any value
@@ -75,6 +125,20 @@ void setup() {
     //tft.setTextColor(ILI9341_YELLOW);
     //tft.setTextSize(2);
     //tft.println("Waiting for Arduino Serial Monitor...");
+
+
+  //********************************************************************
+  //SPI Interface Setup
+  //********************************************************************
+ 
+  pinMode(ADC_CS_pin, OUTPUT);
+  digitalWrite(ADC_CS_pin, HIGH);
+  SPI.begin();
+ 
+
+
+
+
   //********************************************************************
   // Graph Setup
   //********************************************************************
@@ -84,40 +148,43 @@ void setup() {
   tft.setRotation(3);
   tft.fillScreen(TFT_BLACK);
   // Graph area is 200 pixels wide, 150 high, dark grey background
-  gr.createGraph(290, 190, tft.color565(5, 5, 5));
+  gr.createGraph(graph_length, graph_height, tft.color565(5, 5, 5));
   // x scale units is from 0 to 100, y scale units is -50 to 50
-  gr.setGraphScale(0.0, 100.0, -50.0, 50.0);
+  gr.setGraphScale(graph_scale_xmin, graph_scale_xmax, graph_scale_ymin, graph_scale_ymax);
   // X grid starts at 0 with lines every 10 x-scale units
   // Y grid starts at -50 with lines every 25 y-scale units
   // blue grid
-  gr.setGraphGrid(0.0, 10.0, -50.0, 10.0, TFT_BLUE);
+  gr.setGraphGrid(graph_scale_xmin, graph_scale_xgrid, graph_scale_ymin, graph_scale_ygrid, TFT_BLUE);
   // Draw empty graph, top left corner at 40,10 on TFT
-  gr.drawGraph(20, 20);
+  gr.drawGraph(graph_top_corner_x, graph_top_corner_y);
   // Start a trace with using red and another with green
-  tr1.startTrace(TFT_RED);
-  tr2.startTrace(TFT_GREEN);
+  //tr1.startTrace(TFT_RED);
+  //tr2.startTrace(TFT_GREEN);
   // Add points on graph to trace 1 using graph scale factors
-  tr1.addPoint(0.0, 0.0);
-  tr1.addPoint(50.0, 0.0);
+  //tr1.addPoint(0.0, 0.0);
+  //tr1.addPoint(50.0, 0.0);
   // Add points on graph to trace 2 using graph scale factors
   // Points are off graph so the plotted line is clipped to graph area
-  tr2.addPoint(0.0, -50.0);
-  tr2.addPoint(50.0, 50.0);
+  //tr2.addPoint(0.0, -50.0);
+  //tr2.addPoint(50.0, 50.0);
   // Get x,y pixel coordinates of any scaled point on graph
   // and ring that point.
-  tft.drawCircle(gr.getPointX(50.0), gr.getPointY(0.0), 5, TFT_MAGENTA);
+  //tft.drawCircle(gr.getPointX(50.0), gr.getPointY(0.0), 5, TFT_MAGENTA);
+
 
   // Draw the x axis scale
   tft.setTextDatum(TC_DATUM); // Top centre text datum
-  tft.drawNumber(0, gr.getPointX(0.0), gr.getPointY(-50.0) + 3);
-  tft.drawNumber(50, gr.getPointX(50.0), gr.getPointY(-50.0) + 3);
-  tft.drawNumber(100, gr.getPointX(100.0), gr.getPointY(-50.0) + 3);
+  tft.drawNumber(int(graph_scale_xmin), gr.getPointX(graph_scale_xmin), gr.getPointY(graph_scale_ymin) + 3);
+  tft.drawNumber(int(graph_scale_xmax - graph_scale_xmin), gr.getPointX(graph_scale_xmax - graph_scale_xmin), gr.getPointY(graph_scale_ymin) + 3);
+  tft.drawNumber(int(graph_scale_xmax), gr.getPointX(graph_scale_xmax), gr.getPointY(graph_scale_ymin) + 3);
+
 
   // Draw the y axis scale
   tft.setTextDatum(MR_DATUM); // Middle right text datum
-  tft.drawNumber(-50, gr.getPointX(0.0), gr.getPointY(-50.0));
-  tft.drawNumber(0, gr.getPointX(0.0), gr.getPointY(0.0));
-  tft.drawNumber(50, gr.getPointX(0.0), gr.getPointY(50.0));
+  tft.drawNumber(int(graph_scale_ymin), gr.getPointX(graph_scale_xmin), gr.getPointY(graph_scale_ymin));
+  tft.drawNumber(int(graph_scale_ymax - graph_scale_ymin), gr.getPointX(graph_scale_xmin), gr.getPointY(graph_scale_ymax - graph_scale_ymin));
+  tft.drawNumber(int(graph_scale_ymax), gr.getPointX(graph_scale_xmin), gr.getPointY(graph_scale_ymax));
+
 
   //attempt to get labels right
   tft.setRotation(2);
@@ -142,29 +209,39 @@ void setup() {
   tft.println("CH2");
  
 
+
   // Restart traces with new colours
   tr1.startTrace(TFT_WHITE);
   tr2.startTrace(TFT_YELLOW);
-  
+
+
+  //Set ADC to default mode and start converting values
+
+
+  ADC_Set_Default();
+ 
+
 
   //++++++++++++Interrupts for Pausing, Trigger, and Channel Select
   //int pause_pin
   //int trigger_pin
   //int Ch1_pin
   //int Ch2_pin
-  pinMode(26, INPUT_PULLUP);// Using GPIO 6 for button testing
-
-  attachInterrupt(digitalPinToInterrupt(26), trigger_set, FALLING); //was pause_button, now trigger_state
-  //attachInterrupt(digitalPinToInterrupt(pause_pin), pause_button, FALLING);
-  //attachInterrupt(digitalPinToInterrupt(trigger_pin), trigger_set, FALLING);
+  pinMode(pause_pin, INPUT_PULLUP);// Using GPIO 6 for button testing
+  pinMode(trigger_pin, INPUT_PULLUP);
+  //attachInterrupt(digitalPinToInterrupt(26), trigger_set, FALLING); //was pause_button, now trigger_state
+  attachInterrupt(digitalPinToInterrupt(pause_pin), pause_button, FALLING);
+  attachInterrupt(digitalPinToInterrupt(trigger_pin), trigger_set, FALLING);
 }
 
+
 void loop() {
-  
+ 
   while(!pause_state){
     tft.fillRect(150, 5, 100, 10, TFT_BLACK);
     tft.setCursor(150, 5);
     tft.setTextColor(ILI9341_WHITE);  tft.setTextSize(1);
+
 
     if(!trigger_state){
       tft.println("Trigger: Rising");
@@ -178,77 +255,185 @@ void loop() {
   tft.fillRect(110, 5, 10, 10, TFT_BLACK);
   tft.setTextColor(ILI9341_WHITE);  tft.setTextSize(1);
   tft.println(Amplitude);
-  int y_zoom = analogRead(34) + 1; // GPIO 34
-  int x_zoom = analogRead(36) + 1;
-  int val = analogRead(35);
+  int y_zoom = analogRead(V_dial_pin) + 1; // GPIO 34
+  int x_zoom = analogRead(T_dial_pin) + 1;
+  int val = analogRead(ADC_out_pin);
   static float gx = 0.0, gy = 0.0;
-  static float delta = 7.0;
+  //static float delta = 7.0;
   int SampleTime = 4095/(x_zoom);
   
-  //Time (x) axis zoom
-  tft.fillRect(0, gr.getPointY(-50.0) + 3, 320, 10, TFT_BLACK);
-  tft.setTextColor(ILI9341_WHITE);
-  tft.setTextDatum(TC_DATUM); // Top centre text datum
-  tft.drawNumber(0, gr.getPointX(0.0), gr.getPointY(-50.0) + 3);
-  tft.drawNumber((409.5/(.2*x_zoom)), gr.getPointX(50.0), gr.getPointY(-50.0) + 3);
-  tft.drawNumber((409.5/(.1*x_zoom)), gr.getPointX(100.0), gr.getPointY(-50.0) + 3);
+  if ((y_zoom > analogRead(V_dial_pin)+40) | (y_zoom < analogRead(V_dial_pin)-40)){
+    //Time (x) axis zoom
+    tft.fillRect(0, gr.getPointY(graph_scale_ymin) + 3, 320, 10, TFT_BLACK);
+    tft.setTextColor(ILI9341_WHITE);
+    tft.setTextDatum(TC_DATUM); // Top centre text datum
+    tft.drawNumber(0, gr.getPointX(graph_scale_xmin), gr.getPointY(graph_scale_ymin) + 3);
+    tft.drawNumber((409.5/(.2*x_zoom)), gr.getPointX(graph_scale_xmax - graph_scale_xmin), gr.getPointY(graph_scale_ymin) + 3);
+    tft.drawNumber((409.5/(.1*x_zoom)), gr.getPointX(graph_scale_xmax), gr.getPointY(graph_scale_ymin) + 3);
+  }
 
-  //voltage (y) axis zoom
-  tft.fillRect(0, 0, 19, 220, TFT_BLACK);
-  tft.setRotation(2);
-  tft.setCursor(100, 5);
-  tft.setTextColor(ILI9341_WHITE);  tft.setTextSize(1);
-  tft.println("Voltage (V)");
-  tft.setRotation(3);
-  tft.setTextColor(ILI9341_WHITE);
-  tft.setTextDatum(MR_DATUM); // Middle right text datum
-  tft.drawNumber((((-50)*y_zoom)/4095), gr.getPointX(0.0), gr.getPointY(-50.0));
-  tft.drawNumber(0, gr.getPointX(0.0), gr.getPointY(0.0));
-  tft.drawNumber((((50)*y_zoom)/4095), gr.getPointX(0.0), gr.getPointY(50.0));
-  
-  if (micros() - plotTime >= SampleTime) { //edited from sampletime
+  if ((x_zoom > analogRead(T_dial_pin)+40) | (x_zoom < analogRead(T_dial_pin)-40)){
+    //voltage (y) axis zoom
+    tft.fillRect(0, 0, 19, 220, TFT_BLACK);
+    tft.setRotation(2);
+    tft.setCursor(100, 5);
+    tft.setTextColor(ILI9341_WHITE);  tft.setTextSize(1);
+    tft.println("Voltage (V)");
+    tft.setRotation(3);
+    tft.setTextColor(ILI9341_WHITE);
+    tft.setTextDatum(MR_DATUM); // Middle right text datum
+    tft.drawNumber((((graph_scale_ymin)*y_zoom)/4095), gr.getPointX(graph_scale_xmin), gr.getPointY(graph_scale_ymin));
+    tft.drawNumber(0, gr.getPointX(graph_scale_xmin), gr.getPointY(graph_scale_ymax - graph_scale_ymin));
+    tft.drawNumber((((graph_scale_ymax)*y_zoom)/4095), gr.getPointX(graph_scale_xmin), gr.getPointY(graph_scale_ymax));
+
+  }
+ 
+  if (micros() - plotTime >= 1) { //edited from sampletime
     plotTime = micros();
+
 
     // Add a new point on each trace
     //tr1.addPoint(gx, gy);
-    display_data[int(gx)] = gy;
-    real_data[int(gx)] = display_data[int(gx)]*(y_zoom/4095);
+    real_data[int(gx)] = gy;
+    display_data[int(gx)] = real_data[int(gx)]*(4095/y_zoom);
     tr2.addPoint(gx, gy);
     //tr2.addPoint(gx, gy/2.0); // half y amplitude
+
 
     // Create next plot point
     gx += 1.0;
     //gy += delta;
-    gy = ((val/41)-50)*(4095/y_zoom) ;//+= delta;
+    gy = ((((ADC_collect_data()*5)/16383)-2.5)*2) ;//+= delta;
     //if (gy >  70.0) { delta = -7.0; gy =  70.0; }
     //if (gy < -70.0) { delta =  7.0; gy = -70.0; }
+
 
     // If the end of the graph is reached start 2 new traces
     if (gx > 100) {
       gx = 0.0;
       gy = display_data[99];
 
+
       // Draw empty graph at 40,10 on display
-      gr.drawGraph(20, 20);
-    
+      gr.drawGraph(graph_top_corner_x, graph_top_corner_y);
+   
       // Start new trace
       //tr1.startTrace(TFT_GREEN);
       tr2.startTrace(TFT_YELLOW);
     }
-    
+   
   }
 }
 }    
 
-//Functions for Display Testing
+
+//*****************************************************
+// Functions
+//*****************************************************
+
+
+void ADC_Set_Default(){
+
+
+  SPI.beginTransaction(SPISettings(spi_max_clk, MSBFIRST, SPI_MODE3));// Mode 3 means clock is idle at HIGH and output edge is falling. Max SPI clk frequency is 50MHz.
+  digitalWrite(ADC_CS_pin, LOW);
+  SPI.transfer(0b1111); //sets converter to default mode
+  //delay(1); //delay 1ms
+  digitalWrite(ADC_CS_pin, HIGH);
+  SPI.endTransaction();
+  return;
+
+
+}
+
+
+int ADC_collect_data(){
+  SPI.beginTransaction(SPISettings(spi_max_clk, MSBFIRST, SPI_MODE3));// Mode 3 means clock is idle at HIGH and output edge is falling. Max SPI clk frequency is 50MHz.
+  digitalWrite(ADC_CS_pin, LOW);
+  //delay(1); //delay 1ms
+  int x = digitalRead(ADC_out_pin);
+  digitalWrite(ADC_CS_pin, HIGH);
+  SPI.endTransaction();
+  return x;
+
+
+}
+
+
+
+
+
+
 void trigger_set(){
   trigger_state = !trigger_state;
   return;
 }
 
+
 void trigger_function(){
+  bool trigger_met = 0;
+  while(!trigger_met){
+    static uint32_t plotTime_tgr = micros(); // used to be = millis(), now using micros
+    for (int i = 0; i<6;i++){
+      if (micros() - plotTime_tgr >= 1) { //edited from sampletime
+        plotTime_tgr = micros();
+        int val_tgr = ((((ADC_collect_data()*5)/16383)-2.5)*2) ;
+        int y_zoom_tgr = analogRead(V_dial_pin) + 1;//analogRead(36) + 1; // GPIO 36
+        trigger_data[i] = val_tgr;
+    }
+  
+  if (trigger_state){                                         // rising edge trigger logic
+      int i = 0;
+      if (trigger_data[i]<=trigger_data[i+1]){
+        if(trigger_data[i+1]<=trigger_data[i+2]){
+          if(trigger_data[i+2]<=trigger_data[i+3]){
+            if(trigger_data[i+3]<=trigger_data[i+4]){
+                trigger_met=1;
+
+
+            }
+
+
+          }
+
+
+        }
+      }
+
+
+    } else {
+      int j = 0;
+      if (trigger_data[j]>=trigger_data[j+1]){
+        if(trigger_data[j+1]>=trigger_data[j+2]){
+          if(trigger_data[j+2]>=trigger_data[j+3]){
+            if(trigger_data[j+3]>=trigger_data[j+4]){
+              trigger_met = 1;
+              }
+
+
+            }
+
+
+          }
+
+
+        }
+      }
+
+
+    }
+  
+  }
+  
+  return;
+
+}
+
+  
+
+/*
   static uint32_t plotTime_tgr = micros(); // used to be = millis(), now using micros
-  for (int i = 0; i<200;i++){
+  for (int i = 0; i<50;i++){
     if (micros() - plotTime_tgr >= 10) { //edited from sampletime
       plotTime_tgr = micros();
       int val_tgr = analogRead(35);
@@ -258,7 +443,7 @@ void trigger_function(){
     }  
   }
   if (trigger_state){                                         // rising edge trigger logic
-    for (int i = 0; i<200;i++){
+    for (int i = 0; i<50;i++){
       if (trigger_data[i]<=trigger_data[i+1]){
         if(trigger_data[i+1]<=trigger_data[i+2]){
           if(trigger_data[i+2]<=trigger_data[i+3]){
@@ -267,42 +452,55 @@ void trigger_function(){
                 display_data[i] = trigger_data[i];
               }
 
+
             }
 
+
           }
+
 
         }
       }
 
+
     }
   } else {
-    for (int i = 0; i<200;i++){
+    for (int i = 0; i<50;i++){
       if (trigger_data[i]>=trigger_data[i+1]){
         if(trigger_data[i+1]>=trigger_data[i+2]){
           if(trigger_data[i+2]>=trigger_data[i+3]){
             if(trigger_data[i+3]>=trigger_data[i+4]){
-              for (int j = i; j < 100; j++){
+              for (int j = i; j < 50; j++){
                 display_data[i] = trigger_data[i];
               }
 
+
             }
 
+
           }
+
 
         }
       }
 
+
     }
   }
 
-  
+
+ 
   return;
 }
+*/
 
 void pause_button(){
   pause_state = !pause_state;
   return;
 }
+
+
+
 
 
 
@@ -313,9 +511,11 @@ int findMax(float array[]){
       max = array[i];
     }
 
+
   }
   return max;
 }
+
 
 int findMin(float array[]){
   int min = array[0];
@@ -324,9 +524,12 @@ int findMin(float array[]){
       min = array[i];
     }
 
+
   }
   return min;
 }
+
+
 
 
 unsigned long testFillScreen() {
@@ -569,7 +772,8 @@ unsigned long testFilledRoundRects() {
  
   return micros() - start;
 }
-  
+ 
+
 
   /*
 int ADC_val_converter(int example_input){
@@ -580,9 +784,15 @@ int ADC_val_converter(int example_input){
   //int example_input = 0b00001110101011;
   int volt_scale_factor = ((max-min)/lcd_height)*v_zoom;
   int result = (example_input - (volts_to_bits(1.25)))*4;
-  return result; 
+  return result;
+
+
 
 
 }
 */
+
+
+
+
 
