@@ -50,20 +50,38 @@ float graph_scale_xgrid = 10.0;
 float graph_scale_ygrid = 10.0;
 int graph_top_corner_x = 20;
 int graph_top_corner_y = 20;
-int pause_pin = 16; //GPIO 16
-int trigger_pin = 13; //GPIO 13
-int Ch1_pin = -1;
-int Ch2_pin = -1;
 
 
-int ADC_out_pin = 26; // GPIO 26, ADC output
-int ADC_CS_pin = 14; // GPIO 14, Clock select for ADC
-int ADC_CONVST_pin = 27; //GPIO 27
-//int ADC_raw_val;
+
+// Globals
+int triggerBttn = 13; //GPIO 13
+
+int ampScale_wiper = 33;
+int timeScale_wiper = 32;
+
+// Signal 1
+int signal1_toggleBttn = 16; //GPIO 16
+
+int signal1_ampShiftWiper = 34;
+int signal1_timeShiftWiper = 35;
+
+int ADC1_CS_pin = 14; // GPIO 14, Chip select pin for ADC (Slave select pin for SPI)
+int ADC1_CONVST_pin = 27; //GPIO 27 (used to trigger a new conversion; best to drive it from a stable timer or a PWM output from the esp32 to achieve a desired sampling rate)
+int ADC1_EocInt = 26; // GPIO 26; intended for an interrupt (used to tell us when the ADC is done recording data)
 
 
-int V_dial_pin = 33;
-int T_dial_pin = 32;
+// Signal 2
+int signal2_toggleBttn = 17;
+
+int signal2_ampShiftWiper = 36;
+int signal2_timeShiftWiper = 39;
+
+int ADC2_CS_pin = 21; // GPIO 14, Chip select pin for ADC (Slave select pin for SPI)
+int ADC2_CONVST_pin = 22; //GPIO 27 (used to trigger a new conversion; best to drive it from a stable timer or a PWM output from the esp32 to achieve a desired sampling rate)
+int ADC2_EocInt = 12; // GPIO 26; intended for an interrupt (used to tell us when the ADC is done recording data)
+
+// -------------------------------------
+
 float display_data[100];
 float real_data[100];
 float trigger_data[200];
@@ -102,8 +120,8 @@ void setup() {
 
 
   //SPI Interface
-  pinMode(ADC_CS_pin, OUTPUT);
-  digitalWrite(ADC_CS_pin, HIGH);
+  pinMode(ADC1_CS_pin, OUTPUT);
+  digitalWrite(ADC1_CS_pin, HIGH);
   SPI.begin();
  
 
@@ -187,15 +205,15 @@ void setup() {
 
 
   //++++++++++++Interrupts for Pausing, Trigger, and Channel Select
-  //int pause_pin
-  //int trigger_pin
+  //int signal1_toggleBttn
+  //int triggerBttn
   //int Ch1_pin
   //int Ch2_pin
-  pinMode(pause_pin, INPUT_PULLUP);// Using GPIO 6 for button testing
-  pinMode(trigger_pin, INPUT_PULLUP);
+  pinMode(signal1_toggleBttn, INPUT_PULLUP);// Using GPIO 6 for button testing
+  pinMode(triggerBttn, INPUT_PULLUP);
   //attachInterrupt(digitalPinToInterrupt(26), trigger_set, FALLING); //was pause_button, now trigger_state
-  attachInterrupt(digitalPinToInterrupt(pause_pin), pause_button, FALLING);
-  attachInterrupt(digitalPinToInterrupt(trigger_pin), trigger_set, FALLING);
+  attachInterrupt(digitalPinToInterrupt(signal1_toggleBttn), pause_button, FALLING);
+  attachInterrupt(digitalPinToInterrupt(triggerBttn), trigger_set, FALLING);
 }
 
 
@@ -223,14 +241,14 @@ void loop() {
   tft.fillRect(110, 5, 10, 10, TFT_BLACK);
   tft.setTextColor(ILI9341_WHITE);  tft.setTextSize(1);
   tft.println(Amplitude);
-  int y_zoom = analogRead(V_dial_pin) + 1; // GPIO 34
-  int x_zoom = analogRead(T_dial_pin) + 1;
-  int val = analogRead(ADC_out_pin);
+  int y_zoom = analogRead(ampScale_wiper) + 1; // GPIO 34
+  int x_zoom = analogRead(timeScale_wiper) + 1;
+  int val = analogRead(ADC1_EocInt);
   static float gx = 0.0, gy = 0.0;
   //static float delta = 7.0;
   int SampleTime = 4095/(x_zoom);
   
-  if ((y_zoom > analogRead(V_dial_pin)+40) || (y_zoom < analogRead(V_dial_pin)-40)){
+  if ((y_zoom > analogRead(ampScale_wiper)+40) || (y_zoom < analogRead(timeScale_wiper)-40)){
     //Time (x) axis zoom
     tft.fillRect(0, gr.getPointY(graph_scale_ymin) + 3, 320, 10, TFT_BLACK);
     tft.setTextColor(ILI9341_WHITE);
@@ -240,7 +258,7 @@ void loop() {
     tft.drawNumber((409.5/(.1*x_zoom)), gr.getPointX(graph_scale_xmax), gr.getPointY(graph_scale_ymin) + 3);
   }
 
-  if ((x_zoom > analogRead(T_dial_pin)+40) || (x_zoom < analogRead(T_dial_pin)-40)){
+  if ((x_zoom > analogRead(timeScale_wiper)+40) || (x_zoom < analogRead(timeScale_wiper)-40)){
     //voltage (y) axis zoom
     tft.fillRect(0, 0, 19, 220, TFT_BLACK);
     tft.setRotation(2);
@@ -302,10 +320,10 @@ void loop() {
 
 void ADC_Set_Default(){
   SPI.beginTransaction(SPISettings(spi_max_clk, MSBFIRST, SPI_MODE3));// Mode 3 means clock is idle at HIGH and output edge is falling. Max SPI clk frequency is 50MHz.
-  digitalWrite(ADC_CS_pin, LOW);
+  digitalWrite(ADC1_CS_pin, LOW);
   SPI.transfer(0b1111); //sets converter to default mode
   //delay(1); //delay 1ms
-  digitalWrite(ADC_CS_pin, HIGH);
+  digitalWrite(ADC1_CS_pin, HIGH);
   SPI.endTransaction();
   return;
 }
@@ -313,10 +331,10 @@ void ADC_Set_Default(){
 
 int ADC_collect_data(){
   SPI.beginTransaction(SPISettings(spi_max_clk, MSBFIRST, SPI_MODE3));// Mode 3 means clock is idle at HIGH and output edge is falling. Max SPI clk frequency is 50MHz.
-  digitalWrite(ADC_CS_pin, LOW);
+  digitalWrite(ADC1_CS_pin, LOW);
   //delay(1); //delay 1ms
-  int x = analogRead(ADC_out_pin);
-  digitalWrite(ADC_CS_pin, HIGH);
+  int x = analogRead(ADC1_EocInt);
+  digitalWrite(ADC1_CS_pin, HIGH);
   SPI.endTransaction();
   return x;
 }
@@ -340,7 +358,7 @@ void trigger_function(){
       if (micros() - plotTime_tgr >= 1) { //edited from sampletime
         plotTime_tgr = micros();
         int val_tgr = ((((ADC_collect_data()*5)/16383)-2.5)*2) ;
-        int y_zoom_tgr = analogRead(V_dial_pin) + 1;//analogRead(36) + 1; // GPIO 36
+        int y_zoom_tgr = analogRead(ampScale_wiper) + 1;//analogRead(36) + 1; // GPIO 36
         trigger_data[i] = val_tgr;
     }
   
