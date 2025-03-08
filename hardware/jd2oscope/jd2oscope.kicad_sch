@@ -1865,7 +1865,7 @@
 		)
 		(uuid "ff58c1c0-1b2d-40da-b1c0-942d886e149b")
 	)
-	(text "Note to fix/update:\nRoot should use NET CLASS DIRECTIVES,\nwhile sub-hierarchical sheets should use LABELS\n\ni.e., define net classes @ top level w/ net class directives &\ndefine all \"connections leading up to the meta-net connections\"\nwith standard labels/hierarchical labels if you need to propogate\nthose changes up to the higher layers in the schematic too\n\nAND: use the pin symbols to represent the pin headers for e/a of the components that use them!\nthese combined with the net class directives should make it all really clean too, heh"
+	(text "Note to fix/update:\nRoot should use NET CLASS DIRECTIVES,\nwhile sub-hierarchical sheets should use LABELS\n\ni.e., define net classes @ top level w/ net class directives &\ndefine all \"connections leading up to the meta-net connections\"\nwith standard labels/hierarchical labels if you need to propogate\nthose changes up to the higher layers in the schematic too\n\nAND: use the pin symbols to represent the pin headers for e/a of the components that use them!\nthese combined with the net class directives should make it all really clean too, heh\n\n\nIMPORTANT NOTE: issues with ILI9341 TS connectivity; may need a pullup or something \n(main thing tho: seems to require a GPIO pin, i.e. such as GPIO 2 w/ an internal pullup \nfor bodmer library function)"
 		(exclude_from_sim no)
 		(at 50.8 -13.716 0)
 		(effects
