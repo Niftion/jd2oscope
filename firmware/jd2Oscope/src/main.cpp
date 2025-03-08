@@ -52,6 +52,7 @@ int SDO_pin = 19;
 int SDI_pin = 23;
 int ampScale_wiper = 33;
 int timeScale_wiper = 32;
+
 uint8_t ADC1_valH;
 uint8_t ADC1_valL;
 uint8_t ADC2_valH;
@@ -83,8 +84,6 @@ int ADC2_CS_pin = 21;
 int ADC2_CONVST_pin = 22;
 int ADC2_EocInt = 12;
 
-//int V_dial_pin = 33;
-//int T_dial_pin = 32;
 
 //-------------------------------
 float display_data[100];
@@ -94,7 +93,7 @@ volatile byte pause_state = LOW;
 volatile byte trigger_state = LOW;
 
 
-volatile int spi_max_clk = 50000000;// Max SPI clk frequency is 50MHz.
+volatile int spi_max_clk = 27000000;// Max SPI clk frequency is 27MHz.
 
 
 
