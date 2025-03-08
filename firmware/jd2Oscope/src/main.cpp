@@ -11,8 +11,14 @@
 
 
 #include <TFT_eSPI.h>  // Bodmer's TFT_eSPI library
-#include "User_Setup.h"
 #include <TFT_eWidget.h>               // Widget library
+
+
+
+// NEED TO INCLUDE THESE, OTHERWISE PLAT.IO IGNORES
+#include "myfunctions.h"
+#include "User_Setup.h"
+// ------------------------------------------------
 
 
 TFT_eSPI tft = TFT_eSPI();
@@ -50,16 +56,10 @@ int Ch1_pin = -1;
 int Ch2_pin = -1;
 
 
-
-
 int ADC_out_pin = 26; // GPIO 26, ADC output
 int ADC_CS_pin = 14; // GPIO 14, Clock select for ADC
 int ADC_CONVST_pin = 27; //GPIO 27
 //int ADC_raw_val;
-
-
-
-
 
 
 int V_dial_pin = 33;
@@ -74,8 +74,6 @@ volatile byte trigger_state = LOW;
 volatile int spi_max_clk = 50000000;// Max SPI clk frequency is 50MHz.
 
 
-
-
 //int ADC_val_converter(int example_input);
 //static double volts_to_bits(double volt_in);
 //static double bits_to_volts(double bit_in);
@@ -83,35 +81,11 @@ volatile int spi_max_clk = 50000000;// Max SPI clk frequency is 50MHz.
 
 
 
-//*************************************************
-//Function Declarations
-//*************************************************
 
 
-unsigned long testFillScreen();
-unsigned long testText();
-//unsigned long testProportionalText();
-unsigned long testLines(uint16_t color);
-unsigned long testFastLines(uint16_t color1, uint16_t color2);
-unsigned long testRects(uint16_t color);
-unsigned long testFilledRects(uint16_t color1, uint16_t color2);
-unsigned long testFilledCircles(uint8_t radius, uint16_t color);
-unsigned long testCircles(uint8_t radius, uint16_t color);
-unsigned long testTriangles();
-unsigned long testFilledTriangles();
-unsigned long testRoundRects();
-unsigned long testFilledRoundRects();
-int findMax(float array[]);
-int findMax(float array[]);
-void pause_button();
-void trigger_set();
-void trigger_function();
-void ADC_Set_Default();
-
-
-
-
-
+//****************************************
+// SETUP
+//****************************************
 
 void setup() {
 
@@ -127,21 +101,13 @@ void setup() {
     //tft.println("Waiting for Arduino Serial Monitor...");
 
 
-  //********************************************************************
-  //SPI Interface Setup
-  //********************************************************************
- 
+  //SPI Interface
   pinMode(ADC_CS_pin, OUTPUT);
   digitalWrite(ADC_CS_pin, HIGH);
   SPI.begin();
  
 
-
-
-
-  //********************************************************************
   // Graph Setup
-  //********************************************************************
   Serial.begin(115200);
   delay(5000);
   tft.begin();
@@ -216,8 +182,6 @@ void setup() {
 
 
   //Set ADC to default mode and start converting values
-
-
   ADC_Set_Default();
  
 
@@ -235,6 +199,10 @@ void setup() {
 }
 
 
+
+//****************************************
+// LOOP
+//****************************************
 void loop() {
  
   while(!pause_state){
@@ -262,7 +230,7 @@ void loop() {
   //static float delta = 7.0;
   int SampleTime = 4095/(x_zoom);
   
-  if ((y_zoom > analogRead(V_dial_pin)+40) | (y_zoom < analogRead(V_dial_pin)-40)){
+  if ((y_zoom > analogRead(V_dial_pin)+40) || (y_zoom < analogRead(V_dial_pin)-40)){
     //Time (x) axis zoom
     tft.fillRect(0, gr.getPointY(graph_scale_ymin) + 3, 320, 10, TFT_BLACK);
     tft.setTextColor(ILI9341_WHITE);
@@ -272,7 +240,7 @@ void loop() {
     tft.drawNumber((409.5/(.1*x_zoom)), gr.getPointX(graph_scale_xmax), gr.getPointY(graph_scale_ymin) + 3);
   }
 
-  if ((x_zoom > analogRead(T_dial_pin)+40) | (x_zoom < analogRead(T_dial_pin)-40)){
+  if ((x_zoom > analogRead(T_dial_pin)+40) || (x_zoom < analogRead(T_dial_pin)-40)){
     //voltage (y) axis zoom
     tft.fillRect(0, 0, 19, 220, TFT_BLACK);
     tft.setRotation(2);
@@ -333,8 +301,6 @@ void loop() {
 
 
 void ADC_Set_Default(){
-
-
   SPI.beginTransaction(SPISettings(spi_max_clk, MSBFIRST, SPI_MODE3));// Mode 3 means clock is idle at HIGH and output edge is falling. Max SPI clk frequency is 50MHz.
   digitalWrite(ADC_CS_pin, LOW);
   SPI.transfer(0b1111); //sets converter to default mode
@@ -342,8 +308,6 @@ void ADC_Set_Default(){
   digitalWrite(ADC_CS_pin, HIGH);
   SPI.endTransaction();
   return;
-
-
 }
 
 
@@ -351,22 +315,20 @@ int ADC_collect_data(){
   SPI.beginTransaction(SPISettings(spi_max_clk, MSBFIRST, SPI_MODE3));// Mode 3 means clock is idle at HIGH and output edge is falling. Max SPI clk frequency is 50MHz.
   digitalWrite(ADC_CS_pin, LOW);
   //delay(1); //delay 1ms
-  int x = digitalRead(ADC_out_pin);
+  int x = analogRead(ADC_out_pin);
   digitalWrite(ADC_CS_pin, HIGH);
   SPI.endTransaction();
   return x;
-
-
 }
 
 
-
-
-
-
 void trigger_set(){
-  trigger_state = !trigger_state;
-  return;
+  static unsigned long last_interrupt_time = 0;
+  unsigned long interrupt_time = millis();
+  if (interrupt_time - last_interrupt_time > 50) {
+    trigger_state = !trigger_state;
+  }
+  last_interrupt_time = interrupt_time;
 }
 
 
@@ -422,7 +384,7 @@ void trigger_function(){
 
 
     }
-  
+    delay(1); // Small delay to yield control and prevent lockup.
   }
   
   return;
@@ -495,10 +457,13 @@ void trigger_function(){
 */
 
 void pause_button(){
-  pause_state = !pause_state;
-  return;
+  static unsigned long last_interrupt_time = 0;
+  unsigned long interrupt_time = millis();
+  if (interrupt_time - last_interrupt_time > 50) { // 50 ms debounce window
+    pause_state = !pause_state;
+  }
+  last_interrupt_time = interrupt_time;
 }
-
 
 
 
@@ -506,28 +471,26 @@ void pause_button(){
 
 int findMax(float array[]){
   int max = array[0];
-  for (int i=0; i < 100; i++){
+  for (int i = 1; i < 100; i++){
     if (array[i] > max){
       max = array[i];
     }
-
-
   }
   return max;
 }
 
 
+
 int findMin(float array[]){
   int min = array[0];
-  for (int i=0; i < 100; i++){
+  for (int i = 1; i < 100; i++){
     if (array[i] < min){
       min = array[i];
     }
-
-
   }
   return min;
 }
+
 
 
 

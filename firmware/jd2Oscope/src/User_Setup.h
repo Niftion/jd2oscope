@@ -35,7 +35,7 @@
 
 // Define the SPI clock frequency for the display.
 // 40 MHz is typical for ILI9341 displays.
-#define SPI_FREQUENCY  40000000
+#define SPI_FREQUENCY  50000000
 
 //=============================================================================
 // 5. Touch Support & Touch Pins
