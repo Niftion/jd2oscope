@@ -27,7 +27,7 @@
 
 // For many modules the reset pin is controlled internally or tied to 3.3V.
 // If your module does not require an external reset control, set it to -1:
-#define TFT_RST   21   // Reset pin (-1 if not used)
+#define TFT_RST   -1   // Reset pin (-1 if not used)
 
 //=============================================================================
 // 4. SPI Frequency Setting

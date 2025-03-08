@@ -11,14 +11,8 @@
 
 
 #include <TFT_eSPI.h>  // Bodmer's TFT_eSPI library
-#include <TFT_eWidget.h>               // Widget library
-
-
-
-// NEED TO INCLUDE THESE, OTHERWISE PLAT.IO IGNORES
-#include "myfunctions.h"
 #include "User_Setup.h"
-// ------------------------------------------------
+#include <TFT_eWidget.h>               // Widget library
 
 
 TFT_eSPI tft = TFT_eSPI();
@@ -52,36 +46,47 @@ int graph_top_corner_x = 20;
 int graph_top_corner_y = 20;
 
 
-
-// Globals
+//Global Vars
 int triggerBttn = 13; //GPIO 13
-
+int SDO_pin = 19;
+int SDI_pin = 23;
 int ampScale_wiper = 33;
 int timeScale_wiper = 32;
+uint8_t ADC1_valH;
+uint8_t ADC1_valL;
+uint8_t ADC2_valH;
+uint8_t ADC2_valL;
+uint16_t ADC_14bit_val=0;
 
-// Signal 1
-int signal1_toggleBttn = 16; //GPIO 16
+//Screen
+int screen_CS = 5;
+int screen_DC = 4;
 
-int signal1_ampShiftWiper = 34;
+//Signal 1
+int signal1_toggleBttn = 16;
+
+int signal1_ampShift_Wiper = 34;
 int signal1_timeShiftWiper = 35;
 
-int ADC1_CS_pin = 14; // GPIO 14, Chip select pin for ADC (Slave select pin for SPI)
-int ADC1_CONVST_pin = 27; //GPIO 27 (used to trigger a new conversion; best to drive it from a stable timer or a PWM output from the esp32 to achieve a desired sampling rate)
 int ADC1_EocInt = 26; // GPIO 26; intended for an interrupt (used to tell us when the ADC is done recording data)
+int ADC1_CS_pin = 14; //  GPIO 14, Chip select pin for ADC (Slave select pin for SPI)
+int ADC1_CONVST_pin = 27; //GPIO 27 (used to trigger a new conversion; best to drive it from a stable timer or a PWM output from the esp32 to achieve a desired sampling rate)
+//int ADC_raw_val;
 
-
-// Signal 2
-int signal2_toggleBttn = 17;
+//Signal 2
+int signal2_toggleBttn =  17;
 
 int signal2_ampShiftWiper = 36;
 int signal2_timeShiftWiper = 39;
 
-int ADC2_CS_pin = 21; // GPIO 14, Chip select pin for ADC (Slave select pin for SPI)
-int ADC2_CONVST_pin = 22; //GPIO 27 (used to trigger a new conversion; best to drive it from a stable timer or a PWM output from the esp32 to achieve a desired sampling rate)
-int ADC2_EocInt = 12; // GPIO 26; intended for an interrupt (used to tell us when the ADC is done recording data)
+int ADC2_CS_pin = 21;
+int ADC2_CONVST_pin = 22;
+int ADC2_EocInt = 12;
 
-// -------------------------------------
+//int V_dial_pin = 33;
+//int T_dial_pin = 32;
 
+//-------------------------------
 float display_data[100];
 float real_data[100];
 float trigger_data[200];
@@ -92,6 +97,8 @@ volatile byte trigger_state = LOW;
 volatile int spi_max_clk = 50000000;// Max SPI clk frequency is 50MHz.
 
 
+
+
 //int ADC_val_converter(int example_input);
 //static double volts_to_bits(double volt_in);
 //static double bits_to_volts(double bit_in);
@@ -99,11 +106,37 @@ volatile int spi_max_clk = 50000000;// Max SPI clk frequency is 50MHz.
 
 
 
+//*************************************************
+//Function Declarations
+//*************************************************
 
 
-//****************************************
-// SETUP
-//****************************************
+unsigned long testFillScreen();
+unsigned long testText();
+//unsigned long testProportionalText();
+unsigned long testLines(uint16_t color);
+unsigned long testFastLines(uint16_t color1, uint16_t color2);
+unsigned long testRects(uint16_t color);
+unsigned long testFilledRects(uint16_t color1, uint16_t color2);
+unsigned long testFilledCircles(uint8_t radius, uint16_t color);
+unsigned long testCircles(uint8_t radius, uint16_t color);
+unsigned long testTriangles();
+unsigned long testFilledTriangles();
+unsigned long testRoundRects();
+unsigned long testFilledRoundRects();
+int findMax(float array[]);
+int findMax(float array[]);
+void pause_button();
+void trigger_set();
+void trigger_function();
+void ADC_collect_data();
+void ADC_Set_Default();
+void pauseTFTComms();
+void startTFTComms();
+
+
+
+
 
 void setup() {
 
@@ -119,16 +152,29 @@ void setup() {
     //tft.println("Waiting for Arduino Serial Monitor...");
 
 
-  //SPI Interface
-  pinMode(ADC1_CS_pin, OUTPUT);
-  digitalWrite(ADC1_CS_pin, HIGH);
-  SPI.begin();
+  //********************************************************************
+  //SPI Interface Setup
+  //********************************************************************
+  
+  //pinMode(ADC1_CS_pin, OUTPUT);
+  //digitalWrite(ADC1_CS_pin, HIGH);
+  //SPI.begin();
  
 
+
+
+
+  //********************************************************************
   // Graph Setup
+  //********************************************************************
   Serial.begin(115200);
+  SPI.begin();//SCK, MISO, MOSI, CS
   delay(5000);
+
+  pinMode(screen_CS, OUTPUT);
+  digitalWrite(screen_CS, HIGH);
   tft.begin();
+  
   tft.setRotation(3);
   tft.fillScreen(TFT_BLACK);
   // Graph area is 200 pixels wide, 150 high, dark grey background
@@ -199,40 +245,50 @@ void setup() {
   tr2.startTrace(TFT_YELLOW);
 
 
-  //Set ADC to default mode and start converting values
-  ADC_Set_Default();
+  
  
 
 
   //++++++++++++Interrupts for Pausing, Trigger, and Channel Select
-  //int signal1_toggleBttn
-  //int triggerBttn
+  //int pause_pin
+  //int trigger_pin
   //int Ch1_pin
   //int Ch2_pin
   pinMode(signal1_toggleBttn, INPUT_PULLUP);// Using GPIO 6 for button testing
   pinMode(triggerBttn, INPUT_PULLUP);
+  pinMode(ADC1_CS_pin, OUTPUT);
+  pinMode(ADC1_EocInt, INPUT_PULLUP);
+  pinMode(ADC1_CONVST_pin, OUTPUT);
   //attachInterrupt(digitalPinToInterrupt(26), trigger_set, FALLING); //was pause_button, now trigger_state
   attachInterrupt(digitalPinToInterrupt(signal1_toggleBttn), pause_button, FALLING);
   attachInterrupt(digitalPinToInterrupt(triggerBttn), trigger_set, FALLING);
+  attachInterrupt(digitalPinToInterrupt(ADC1_EocInt), ADC_collect_data, FALLING);
+
+  //Set ADC to default mode and start converting values
+
+
+  ADC_Set_Default();
 }
 
 
-
-//****************************************
-// LOOP
-//****************************************
 void loop() {
+  startTFTComms();
  
   while(!pause_state){
+    delayMicroseconds(10);
     tft.fillRect(150, 5, 100, 10, TFT_BLACK);
     tft.setCursor(150, 5);
     tft.setTextColor(ILI9341_WHITE);  tft.setTextSize(1);
 
 
     if(!trigger_state){
-      tft.println("Trigger: Rising");
+      delayMicroseconds(1);
+      tft.println(ADC_14bit_val);
+      //tft.println("Trigger: Rising");
     }else{
-      tft.println("Trigger: Falling");
+      delayMicroseconds(1);
+      //tft.println("Trigger: Falling");
+      tft.println(ADC_14bit_val);
     }
   trigger_function();
   static uint32_t plotTime = micros(); // used to be = millis(), now using micros
@@ -243,12 +299,12 @@ void loop() {
   tft.println(Amplitude);
   int y_zoom = analogRead(ampScale_wiper) + 1; // GPIO 34
   int x_zoom = analogRead(timeScale_wiper) + 1;
-  int val = analogRead(ADC1_EocInt);
+  //int val = -1;//analogRead(ADC_out_pin); //fix this when SPI gets updated
   static float gx = 0.0, gy = 0.0;
   //static float delta = 7.0;
   int SampleTime = 4095/(x_zoom);
   
-  if ((y_zoom > analogRead(ampScale_wiper)+40) || (y_zoom < analogRead(timeScale_wiper)-40)){
+  if ((x_zoom > analogRead(timeScale_wiper)+40) || (x_zoom < analogRead(timeScale_wiper)-40)){
     //Time (x) axis zoom
     tft.fillRect(0, gr.getPointY(graph_scale_ymin) + 3, 320, 10, TFT_BLACK);
     tft.setTextColor(ILI9341_WHITE);
@@ -258,7 +314,7 @@ void loop() {
     tft.drawNumber((409.5/(.1*x_zoom)), gr.getPointX(graph_scale_xmax), gr.getPointY(graph_scale_ymin) + 3);
   }
 
-  if ((x_zoom > analogRead(timeScale_wiper)+40) || (x_zoom < analogRead(timeScale_wiper)-40)){
+  if ((y_zoom > analogRead(ampScale_wiper)+40) || (y_zoom < analogRead(ampScale_wiper)-40)){
     //voltage (y) axis zoom
     tft.fillRect(0, 0, 19, 220, TFT_BLACK);
     tft.setRotation(2);
@@ -281,6 +337,7 @@ void loop() {
     // Add a new point on each trace
     //tr1.addPoint(gx, gy);
     real_data[int(gx)] = gy;
+    //Serial.println(real_data[int(gx)]);
     display_data[int(gx)] = real_data[int(gx)]*(4095/y_zoom);
     tr2.addPoint(gx, gy);
     //tr2.addPoint(gx, gy/2.0); // half y amplitude
@@ -289,7 +346,9 @@ void loop() {
     // Create next plot point
     gx += 1.0;
     //gy += delta;
-    gy = ((((ADC_collect_data()*5)/16383)-2.5)*2) ;//+= delta;
+    ADC_14bit_val = 0;
+    ADC_14bit_val = (ADC1_valH<<8 | ADC1_valL)>>4;
+    gy = ((((ADC_14bit_val*5)/16383)-2.5)*2) ;//+= delta;
     //if (gy >  70.0) { delta = -7.0; gy =  70.0; }
     //if (gy < -70.0) { delta =  7.0; gy = -70.0; }
 
@@ -318,35 +377,70 @@ void loop() {
 //*****************************************************
 
 
+void pauseTFTComms(){
+  digitalWrite(screen_CS, HIGH);
+  tft.endWrite();
+}
+
+
+void startTFTComms(){
+  tft.startWrite();
+  digitalWrite(screen_CS, LOW);
+}
+
 void ADC_Set_Default(){
+  pauseTFTComms();
+  delayMicroseconds(1);
+  //digitalWrite(screen_CS, HIGH);
   SPI.beginTransaction(SPISettings(spi_max_clk, MSBFIRST, SPI_MODE3));// Mode 3 means clock is idle at HIGH and output edge is falling. Max SPI clk frequency is 50MHz.
   digitalWrite(ADC1_CS_pin, LOW);
+  delayMicroseconds(1);
   SPI.transfer(0b1111); //sets converter to default mode
-  //delay(1); //delay 1ms
+  delayMicroseconds(1);
   digitalWrite(ADC1_CS_pin, HIGH);
+  digitalWrite(ADC1_CONVST_pin, HIGH);
   SPI.endTransaction();
+  //digitalWrite(screen_CS, LOW);
+  startTFTComms();
   return;
+
+
 }
 
 
-int ADC_collect_data(){
+void ADC_collect_data(){
+  pauseTFTComms();
+  delayMicroseconds(1);
+  //digitalWrite(screen_CS, HIGH);
   SPI.beginTransaction(SPISettings(spi_max_clk, MSBFIRST, SPI_MODE3));// Mode 3 means clock is idle at HIGH and output edge is falling. Max SPI clk frequency is 50MHz.
   digitalWrite(ADC1_CS_pin, LOW);
-  //delay(1); //delay 1ms
-  int x = analogRead(ADC1_EocInt);
+  delayMicroseconds(1); //delay 1ms
+  //do {
+    //int i = micros();
+  //}while(!ADC1_EocInt);
+  //int x = digitalRead(SDO_pin); //communicate with chip to get value
+  ADC1_valH = SPI.transfer(0);
+  delayMicroseconds(14);
+  ADC1_valL = SPI.transfer(0);
+  delayMicroseconds(14);
   digitalWrite(ADC1_CS_pin, HIGH);
+  digitalWrite(ADC1_CONVST_pin, HIGH);
   SPI.endTransaction();
-  return x;
+  //digitalWrite(screen_CS, LOW);
+  startTFTComms();
+  return ;
+
+
 }
+
+
+
+
 
 
 void trigger_set(){
-  static unsigned long last_interrupt_time = 0;
-  unsigned long interrupt_time = millis();
-  if (interrupt_time - last_interrupt_time > 50) {
-    trigger_state = !trigger_state;
-  }
-  last_interrupt_time = interrupt_time;
+  trigger_state = !trigger_state;
+  return;
 }
 
 
@@ -357,7 +451,8 @@ void trigger_function(){
     for (int i = 0; i<6;i++){
       if (micros() - plotTime_tgr >= 1) { //edited from sampletime
         plotTime_tgr = micros();
-        int val_tgr = ((((ADC_collect_data()*5)/16383)-2.5)*2) ;
+        ADC_14bit_val = (ADC1_valH<<8 | ADC1_valL)>>4;
+        int val_tgr = ((((ADC_14bit_val*5)/16383)-2.5)*2) ;
         int y_zoom_tgr = analogRead(ampScale_wiper) + 1;//analogRead(36) + 1; // GPIO 36
         trigger_data[i] = val_tgr;
     }
@@ -402,7 +497,7 @@ void trigger_function(){
 
 
     }
-    delay(1); // Small delay to yield control and prevent lockup.
+  
   }
   
   return;
@@ -475,13 +570,10 @@ void trigger_function(){
 */
 
 void pause_button(){
-  static unsigned long last_interrupt_time = 0;
-  unsigned long interrupt_time = millis();
-  if (interrupt_time - last_interrupt_time > 50) { // 50 ms debounce window
-    pause_state = !pause_state;
-  }
-  last_interrupt_time = interrupt_time;
+  pause_state = !pause_state;
+  return;
 }
+
 
 
 
@@ -489,26 +581,28 @@ void pause_button(){
 
 int findMax(float array[]){
   int max = array[0];
-  for (int i = 1; i < 100; i++){
+  for (int i=1; i < 100; i++){
     if (array[i] > max){
       max = array[i];
     }
+
+
   }
   return max;
 }
 
 
-
 int findMin(float array[]){
   int min = array[0];
-  for (int i = 1; i < 100; i++){
+  for (int i=1; i < 100; i++){
     if (array[i] < min){
       min = array[i];
     }
+
+
   }
   return min;
 }
-
 
 
 
