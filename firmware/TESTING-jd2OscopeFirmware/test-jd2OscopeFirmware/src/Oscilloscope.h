@@ -6,10 +6,11 @@
 #include <TFT_eSPI.h>
 
 // Hardware Constants
-const int BUFFER_SIZE = 1024;
-const int GRAPH_WIDTH = 290;
-const int GRAPH_HEIGHT = 190;
-const uint8_t DEBOUNCE_TIME = 50;
+const uint16_t BUFFER_SIZE = 1024;
+const int GRAPH_WIDTH = 290; //px
+const int GRAPH_HEIGHT = 190; //px
+const uint8_t DEBOUNCE_TIME = 50; // ms
+const uint32_t MAX_SAMPLE_RATE = 1000000; //Hz
 
 // Global Variables
 extern volatile uint16_t adc1_buffer[BUFFER_SIZE];

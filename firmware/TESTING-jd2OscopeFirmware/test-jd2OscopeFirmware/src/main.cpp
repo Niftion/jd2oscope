@@ -36,8 +36,6 @@ const int ADC2_CONVST = 22;
 const int ADC2_EOC = 12;
 
 // Oscilloscope Parameters
-const uint32_t MAX_SAMPLE_RATE = 1000000;
-const uint16_t BUFFER_SIZE = 1024;
 volatile uint16_t adc1_buffer[BUFFER_SIZE];
 volatile uint16_t adc2_buffer[BUFFER_SIZE];
 volatile uint16_t buffer_index = 0;
@@ -45,8 +43,6 @@ volatile bool buffer_ready = false;
 
 // Display Configuration
 TFT_eSPI tft = TFT_eSPI();
-const int GRAPH_WIDTH = 290;
-const int GRAPH_HEIGHT = 190;
 
 // Control States
 volatile bool ch1_enabled = true, ch2_enabled = true;
@@ -56,7 +52,6 @@ volatile uint8_t trigger_mode = 0; // 0=Rising, 1=Falling, 2=Pulse
 volatile unsigned long last_ch1_toggle = 0;
 volatile unsigned long last_ch2_toggle = 0;
 volatile unsigned long last_trigger_press = 0;
-const uint8_t DEBOUNCE_TIME = 50;  // ms
 
 // ================== Interrupt Handlers ==================
 void IRAM_ATTR ADC1_ISR() {
