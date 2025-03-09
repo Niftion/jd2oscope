@@ -1996,6 +1996,16 @@
 		)
 		(uuid "289432f2-d297-4a96-8110-85e64b70e87a")
 	)
+	(text "Note: fix opamp to have +IN and -IN swapped\n(with current setup it is inverted)"
+		(exclude_from_sim no)
+		(at 95.25 101.092 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "4be6df17-21a8-412b-949f-6a752219939b")
+	)
 	(text "EOC/INT:\n\"End of Conversion/Interrupt\"; signals when the\nADC is done converting a signal (intended for use\nwith an interrupt GPIO pin)\n\nCONVST:\n\"Convert Start\"; used to trigger a new conversion;\nbest to drive this pin from a stable timer OR a \nPWM output from the ESP32 to achieve desired sampling\nrate (e.g., a sampling rate of 1 MSPS)"
 		(exclude_from_sim no)
 		(at 221.742 24.892 0)
