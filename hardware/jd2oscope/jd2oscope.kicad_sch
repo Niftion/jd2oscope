@@ -1865,13 +1865,14 @@
 		)
 		(uuid "ff58c1c0-1b2d-40da-b1c0-942d886e149b")
 	)
-	(text "Note to fix/update:\nRoot should use NET CLASS DIRECTIVES,\nwhile sub-hierarchical sheets should use LABELS\n\ni.e., define net classes @ top level w/ net class directives &\ndefine all \"connections leading up to the meta-net connections\"\nwith standard labels/hierarchical labels if you need to propogate\nthose changes up to the higher layers in the schematic too\n\nAND: use the pin symbols to represent the pin headers for e/a of the components that use them!\nthese combined with the net class directives should make it all really clean too, heh\n\n\nIMPORTANT NOTE: issues with ILI9341 TS connectivity; may need a pullup or something \n(main thing tho: seems to require a GPIO pin, i.e. such as GPIO 2 w/ an internal pullup \nfor bodmer library function)"
+	(text "IMPORTANT NOTE: issues with ILI9341 TS connectivity; may need a pullup or something\n\nSOLUTION(I think):\nImplement a tri-state buffer for all SPI devices to eliminate crosstalk on data lines\nfor when CS pins are high/not supposed to be communicating (this should fix SPI issues?);\nalongside this, implement 10k pullups for e/a CS pin too"
 		(exclude_from_sim no)
-		(at 50.8 -13.716 0)
+		(at 8.89 -4.826 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
+			(justify left)
 		)
 		(uuid "9349b8f7-d57e-463d-996b-90e05459a132")
 	)
@@ -3224,7 +3225,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "100nF"
 			(at 45.974 168.148 90)
 			(effects
 				(font
@@ -3655,7 +3656,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "100nF"
 			(at 27.686 168.148 90)
 			(effects
 				(font
@@ -3744,7 +3745,7 @@
 		(dnp no)
 		(uuid "c388401f-ee11-40ed-a5b7-33e466068fd1")
 		(property "Reference" "C3"
-			(at 84.328 85.09 0)
+			(at 83.312 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3752,8 +3753,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
-			(at 84.328 82.55 0)
+		(property "Value" "100nF"
+			(at 83.312 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)

@@ -2156,7 +2156,7 @@
 		)
 		(uuid "720780d5-3c58-4d8e-801a-fe7d96aa2b99")
 	)
-	(text "Decoupling Capacitor Information:\n0.1u = Ceramic\n10u = Electrolytic"
+	(text "Decoupling Capacitor Information:\n100nF = Ceramic\n10uF = Electrolytic"
 		(exclude_from_sim no)
 		(at 76.962 65.532 0)
 		(effects
@@ -2308,7 +2308,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "100nF"
 			(at 163.83 102.8699 0)
 			(effects
 				(font
@@ -2501,7 +2501,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10u"
+		(property "Value" "10uF"
 			(at 177.8 102.8699 0)
 			(effects
 				(font
@@ -2598,7 +2598,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "100nF"
 			(at 133.35 102.8699 0)
 			(effects
 				(font
@@ -2695,7 +2695,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "560"
+		(property "Value" "560R"
 			(at 115.57 97.7899 0)
 			(effects
 				(font
@@ -2981,7 +2981,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10u"
+		(property "Value" "10uF"
 			(at 147.32 102.8699 0)
 			(effects
 				(font
