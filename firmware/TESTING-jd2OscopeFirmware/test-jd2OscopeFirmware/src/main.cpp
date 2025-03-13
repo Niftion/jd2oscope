@@ -2,11 +2,11 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
-#include <esp_timer.h>
-#include <esp_err.h>
-#include "esp_log.h"
-#include "esp_sleep.h"
-#include "sdkconfig.h"
+//#include <esp_timer.h>
+//#include <esp_err.h>
+//#include "esp_log.h"
+//#include "esp_sleep.h"
+//#include "sdkconfig.h"
 #include "SPI.h"
 
 
@@ -14,9 +14,11 @@
 #include "User_Setup.h"
 #include <TFT_eWidget.h>               // Widget library
 
+SPIClass *hspi = NULL;
+
+SPIClass *vspi = NULL;
 
 TFT_eSPI tft = TFT_eSPI();
-
 
 
 
@@ -47,9 +49,11 @@ int graph_top_corner_y = 20;
 
 
 //Global Vars
-int triggerBttn = 13; //GPIO 13
+int triggerBttn = 13; //GPIO 13, commented out due to SPI communication testing
 int SDO_pin = 19;
 int SDI_pin = 23;
+int ADC1_SDO_pin = 19;//to test comm issues: 12;
+int ADC1_SDI_pin = 23;//13;
 int ampScale_wiper = 33;
 int timeScale_wiper = 32;
 int SCK_pin = 18;
@@ -89,8 +93,20 @@ int ADC2_EocInt = 12;
 float display_data[100];
 float real_data[100];
 float trigger_data[200];
+float display_data2[100];
+float real_data2[100];
+float trigger_data2[200];
+
 volatile byte pause_state = LOW;
+
 volatile byte trigger_state = LOW;
+
+volatile int channel_state = 0;
+
+volatile byte ADC1_can_collect_data = LOW;
+
+volatile byte ADC2_can_collect_data = LOW;
+
 volatile uint16_t ADC_14bit_val=0;
 volatile uint8_t ADC1_valH;
 volatile uint8_t ADC1_valL;
@@ -131,19 +147,27 @@ int findMin(float array[]);
 void pause_button();
 void trigger_set();
 void trigger_function();
+void channel_function();
 void ADC1_collect_data();
 void ADC2_collect_data();
+void ADC1_collect_data_flag();
+void ADC2_collect_data_flag();
 void ADC1_Set_Default();
 void ADC2_Set_Default();
 void pauseTFTComms();
 void startTFTComms();
+//int y_zoom;
+//int x_zoom;
 
 
-
+//SPIClass *hspi = NULL;
 
 
 void setup() {
 
+  hspi = new SPIClass(HSPI);
+
+  vspi = new SPIClass(VSPI);
 
   //tft.begin();
   // Note: you can now set the SPI speed to any value
@@ -173,22 +197,26 @@ void setup() {
   // Graph Setup
   //********************************************************************
   Serial.begin(115200);
+  hspi->begin(SCK_pin, ADC1_SDO_pin, ADC1_SDI_pin, ADC1_CS_pin);
+  vspi->begin(SCK_pin, SDO_pin, SDI_pin, ADC2_CS_pin);
   //SPI Pins
   pinMode(SDO_pin, INPUT );//MISO
   pinMode(SDI_pin, OUTPUT);//MOSI
+  pinMode(ADC1_SDO_pin, INPUT );//MISO
+  pinMode(ADC1_SDI_pin, OUTPUT);//MOSI
   pinMode(SCK_pin, OUTPUT);
 
   //Signal 1 interrupt pins
   pinMode(signal1_toggleBttn, INPUT_PULLUP);// Using GPIO 6 for button testing
   
   pinMode(ADC1_CS_pin, OUTPUT);
-  pinMode(ADC1_EocInt, INPUT_PULLUP);
+  pinMode(ADC1_EocInt, INPUT_PULLDOWN);
   pinMode(ADC1_CONVST_pin, OUTPUT);
 
   //Signal 2 interrupt pins
   pinMode(signal2_toggleBttn, INPUT_PULLUP);
   pinMode(ADC2_CS_pin, OUTPUT);
-  //pinMode(ADC2_EocInt, INPUT_PULLUP);
+  pinMode(ADC2_EocInt, INPUT_PULLUP);
   pinMode(ADC2_CONVST_pin, OUTPUT);
 
   digitalWrite(ADC2_CS_pin, HIGH);
@@ -202,6 +230,7 @@ void setup() {
   pinMode(screen_CS, OUTPUT);
   digitalWrite(screen_CS, HIGH);
   delayMicroseconds(1);
+  
   //SPI.begin();//SCK, MISO, MOSI, CS
   delay(5000);
   tft.begin();
@@ -236,15 +265,15 @@ void setup() {
   // Draw the x axis scale
   tft.setTextDatum(TC_DATUM); // Top centre text datum
   tft.drawNumber(int(graph_scale_xmin), gr.getPointX(graph_scale_xmin), gr.getPointY(graph_scale_ymin) + 3);
-  tft.drawNumber(int(graph_scale_xmax - graph_scale_xmin), gr.getPointX(graph_scale_xmax - graph_scale_xmin), gr.getPointY(graph_scale_ymin) + 3);
+  tft.drawNumber(int(graph_scale_xmax/2), gr.getPointX(graph_scale_xmax - graph_scale_xmin), gr.getPointY(graph_scale_ymin) + 3);
   tft.drawNumber(int(graph_scale_xmax), gr.getPointX(graph_scale_xmax), gr.getPointY(graph_scale_ymin) + 3);
 
 
   // Draw the y axis scale
   tft.setTextDatum(MR_DATUM); // Middle right text datum
-  tft.drawNumber(int(graph_scale_ymin), gr.getPointX(graph_scale_xmin), gr.getPointY(graph_scale_ymin));
-  tft.drawNumber(int(graph_scale_ymax - graph_scale_ymin), gr.getPointX(graph_scale_xmin), gr.getPointY(graph_scale_ymax - graph_scale_ymin));
-  tft.drawNumber(int(graph_scale_ymax), gr.getPointX(graph_scale_xmin), gr.getPointY(graph_scale_ymax));
+  tft.drawNumber(int(graph_scale_ymin/10), gr.getPointX(graph_scale_xmin), gr.getPointY(graph_scale_ymin));
+  tft.drawNumber(int(graph_scale_ymax + graph_scale_ymin), gr.getPointX(graph_scale_xmin), gr.getPointY(graph_scale_ymax - graph_scale_ymin));
+  tft.drawNumber(int(graph_scale_ymax/10), gr.getPointX(graph_scale_xmin), gr.getPointY(graph_scale_ymax));
 
 
   //attempt to get labels right
@@ -259,7 +288,7 @@ void setup() {
   tft.setCursor(150, 5);
   tft.setTextColor(ILI9341_WHITE);  tft.setTextSize(1);
   tft.println("Trigger: ");
-  tft.setCursor(50, 5);
+  tft.setCursor(40, 5);
   tft.setTextColor(ILI9341_WHITE);  tft.setTextSize(1);
   tft.println("Amplitude: ");
   tft.setCursor(275, 5);
@@ -287,12 +316,18 @@ void setup() {
   //int Ch2_pin
  
   //attachInterrupt(digitalPinToInterrupt(26), trigger_set, FALLING); //was pause_button, now trigger_state
-  //attachInterrupt(digitalPinToInterrupt(signal1_toggleBttn), pause_button, FALLING);
-  //attachInterrupt(digitalPinToInterrupt(signal2_toggleBttn), pause_button, FALLING);
-  //attachInterrupt(digitalPinToInterrupt(triggerBttn), trigger_set, FALLING);
-  attachInterrupt(digitalPinToInterrupt(ADC1_EocInt), ADC1_collect_data, RISING);
-  //attachInterrupt(digitalPinToInterrupt(ADC2_EocInt), ADC2_collect_data, FALLING);
 
+
+
+
+  //attachInterrupt(digitalPinToInterrupt(signal1_toggleBttn), pause_button, FALLING);
+  //attachInterrupt(digitalPinToInterrupt(signal2_toggleBttn), channel_function, FALLING);
+  attachInterrupt(digitalPinToInterrupt(triggerBttn), trigger_set, FALLING);
+  attachInterrupt(digitalPinToInterrupt(ADC1_EocInt), ADC1_collect_data_flag, RISING);
+  //attachInterrupt(digitalPinToInterrupt(ADC2_EocInt), ADC2_collect_data_flag, RISING);
+
+  
+  
   //Set ADC to default mode and start converting values
   
 
@@ -313,18 +348,18 @@ void loop() {
 
     if(!trigger_state){
       delayMicroseconds(1);
-      tft.println(real_data[99]);
-      //tft.println("Trigger: Rising");
+      //tft.println(real_data[99]);
+      tft.println("Trigger: Rising");
     }else{
       delayMicroseconds(1);
-      //tft.println("Trigger: Falling");
-      tft.println(ADC_14bit_val);
+      tft.println("Trigger: Falling");
+      //tft.println(ADC_14bit_val);
     }
   trigger_function();
   static uint32_t plotTime = micros(); // used to be = millis(), now using micros
-  int Amplitude = (findMax(real_data) - findMin(real_data))/2;
-  tft.setCursor(110, 5);
-  tft.fillRect(110, 5, 10, 10, TFT_BLACK);
+  float Amplitude = (findMax(real_data) - findMin(real_data))/2;
+  tft.setCursor(100, 5);
+  tft.fillRect(100, 5, 50, 10, TFT_BLACK);
   tft.setTextColor(ILI9341_WHITE);  tft.setTextSize(1);
   tft.println(Amplitude);
   int y_zoom = analogRead(ampScale_wiper) + 1; // GPIO 34
@@ -332,20 +367,25 @@ void loop() {
   //int val = -1;//analogRead(ADC_out_pin); //fix this when SPI gets updated
   static float gx = 0.0, gy = 0.0;
   //static float delta = 7.0;
-  int SampleTime = 4095/(x_zoom);
+  int SampleTime = 100;//4095/(x_zoom);
+  Serial.println(analogRead(ampScale_wiper));
   
-  if ((x_zoom > analogRead(timeScale_wiper)+40) || (x_zoom < analogRead(timeScale_wiper)-40)){
+  if ((analogRead(timeScale_wiper)> (x_zoom+20)) || (analogRead(timeScale_wiper) < (x_zoom-20))){
+    delay(1);
     //Time (x) axis zoom
+    x_zoom = analogRead(timeScale_wiper) + 1;
     tft.fillRect(0, gr.getPointY(graph_scale_ymin) + 3, 320, 10, TFT_BLACK);
     tft.setTextColor(ILI9341_WHITE);
     tft.setTextDatum(TC_DATUM); // Top centre text datum
     tft.drawNumber(0, gr.getPointX(graph_scale_xmin), gr.getPointY(graph_scale_ymin) + 3);
-    tft.drawNumber((409.5/(.2*x_zoom)), gr.getPointX(graph_scale_xmax - graph_scale_xmin), gr.getPointY(graph_scale_ymin) + 3);
-    tft.drawNumber((409.5/(.1*x_zoom)), gr.getPointX(graph_scale_xmax), gr.getPointY(graph_scale_ymin) + 3);
+    tft.drawNumber(50*x_zoom/4095/*(409.5/(.2*x_zoom)*/, gr.getPointX(graph_scale_xmax - graph_scale_xmin), gr.getPointY(graph_scale_ymin) + 3);
+    tft.drawNumber(100*x_zoom/4095/*(409.5/(.1*x_zoom)*/, gr.getPointX(graph_scale_xmax), gr.getPointY(graph_scale_ymin) + 3);
   }
 
-  if ((y_zoom > analogRead(ampScale_wiper)+40) || (y_zoom < analogRead(ampScale_wiper)-40)){
+  if ((analogRead(ampScale_wiper)>( y_zoom+20)) || (analogRead(ampScale_wiper)<(y_zoom-20))){
+    delay(1);
     //voltage (y) axis zoom
+    y_zoom = analogRead(ampScale_wiper) + 1;
     tft.fillRect(0, 0, 19, 220, TFT_BLACK);
     tft.setRotation(2);
     tft.setCursor(100, 5);
@@ -354,58 +394,101 @@ void loop() {
     tft.setRotation(3);
     tft.setTextColor(ILI9341_WHITE);
     tft.setTextDatum(MR_DATUM); // Middle right text datum
-    tft.drawNumber((((graph_scale_ymin)*y_zoom)/4095), gr.getPointX(graph_scale_xmin), gr.getPointY(graph_scale_ymin));
-    tft.drawNumber(0, gr.getPointX(graph_scale_xmin), gr.getPointY(graph_scale_ymax - graph_scale_ymin));
-    tft.drawNumber((((graph_scale_ymax)*y_zoom)/4095), gr.getPointX(graph_scale_xmin), gr.getPointY(graph_scale_ymax));
+    tft.drawNumber((-5*y_zoom/4095), gr.getPointX(graph_scale_xmin), gr.getPointY(graph_scale_ymin));
+    tft.drawNumber(0, gr.getPointX(graph_scale_xmin), gr.getPointY(graph_scale_ymax + graph_scale_ymin));
+    tft.drawNumber((5*y_zoom/4095), gr.getPointX(graph_scale_xmin), gr.getPointY(graph_scale_ymax));
 
   }
  
-  if (micros() - plotTime >= 1) { //edited from sampletime
+  if (micros() - plotTime >= SampleTime) { //edited from sampletime
     plotTime = micros();
+    //if (channel_state ==0 || channel_state==2){
+      // Add a new point on each trace
+      //tr1.addPoint(gx, gy);
+      real_data[int(gx)] = gy;
+      //Serial.println(real_data[int(gx)]);
+      display_data[int(gx)] = real_data[int(gx)];//*(4095/y_zoom);
+      tr2.addPoint(gx, gy);
+      //tr2.addPoint(gx, gy/2.0); // half y amplitude
 
+      // Create next plot point
+      gx += 1.0;
+      //gy += delta;
+      digitalWrite(ADC1_CONVST_pin, LOW);
+      delayMicroseconds(1);
+      digitalWrite(ADC1_CONVST_pin, HIGH);
+      //ADC1_collect_data();
+      //do{
+        //nothing
+      //} while(!ADC1_EocInt);
+      Serial.println(ADC1_can_collect_data);
+      if(ADC1_can_collect_data){
+        ADC1_collect_data();
+        ADC1_can_collect_data = !ADC1_can_collect_data;
+      }
+      Serial.println(ADC1_can_collect_data);
+      //ADC1_collect_data();
+      Serial.println(ADC_14bit_val);
+      gy = ((((ADC_14bit_val*5)/4095)-2.5)*2) ;//+= delta;
+      //if (gy >  70.0) { delta = -7.0; gy =  70.0; }
+      //if (gy < -70.0) { delta =  7.0; gy = -70.0; }
 
-    // Add a new point on each trace
-    //tr1.addPoint(gx, gy);
-    real_data[int(gx)] = gy;
-    //Serial.println(real_data[int(gx)]);
-    display_data[int(gx)] = real_data[int(gx)]*(4095/y_zoom);
-    tr2.addPoint(gx, gy);
-    //tr2.addPoint(gx, gy/2.0); // half y amplitude
+      // If the end of the graph is reached start 2 new traces
+      if (gx > 100) {
+        gx = 0.0;
+        gy = display_data[99];
+        // Draw empty graph at 40,10 on display
+        gr.drawGraph(graph_top_corner_x, graph_top_corner_y);
+        // Start new trace
+        //tr1.startTrace(TFT_GREEN);
+        tr2.startTrace(TFT_YELLOW);
+      }
+    //}
+    /*if (channel_state==1||channel_state==2){
+      // Add a new point on each trace
+      //tr1.addPoint(gx, gy);
+      real_data2[int(gx)] = gy;
+      //Serial.println(real_data[int(gx)]);
+      display_data2[int(gx)] = real_data2[int(gx)]*(4095/y_zoom);
+      tr1.addPoint(gx, gy);
+      //tr2.addPoint(gx, gy/2.0); // half y amplitude
 
+      // Create next plot point
+      gx += 1.0;
+      //gy += delta;
+      digitalWrite(ADC2_CONVST_pin, LOW);
+      delayMicroseconds(1);
+      digitalWrite(ADC2_CONVST_pin, HIGH);
+      //ADC1_collect_data();
+      //do{
+        //nothing
+      //} while(!ADC1_EocInt);
+      Serial.println(ADC2_can_collect_data);
+      if(ADC2_can_collect_data){
+        ADC2_collect_data();
+        ADC2_can_collect_data = !ADC2_can_collect_data;
+      }
+      Serial.println(ADC2_can_collect_data);
+      //ADC1_collect_data();
+      Serial.println(ADC_14bit_val);
+      gy = ((((ADC_14bit_val*5)/4095)-2.5)*2) ;//+= delta;
+      //if (gy >  70.0) { delta = -7.0; gy =  70.0; }
+      //if (gy < -70.0) { delta =  7.0; gy = -70.0; }
 
-    // Create next plot point
-    gx += 1.0;
-    //gy += delta;
-    digitalWrite(ADC1_CONVST_pin, HIGH);
-    //ADC1_collect_data();
-    do{
-      //nothing
-    } while(!ADC1_EocInt);
-    
-    Serial.println(ADC_14bit_val);
-    gy = ((((ADC_14bit_val*5)/16383)-2.5)*2) ;//+= delta;
-    //if (gy >  70.0) { delta = -7.0; gy =  70.0; }
-    //if (gy < -70.0) { delta =  7.0; gy = -70.0; }
-
-
-    // If the end of the graph is reached start 2 new traces
-    if (gx > 100) {
-      gx = 0.0;
-      gy = display_data[99];
-
-
-      // Draw empty graph at 40,10 on display
-      gr.drawGraph(graph_top_corner_x, graph_top_corner_y);
-   
-      // Start new trace
-      //tr1.startTrace(TFT_GREEN);
-      tr2.startTrace(TFT_YELLOW);
-    }
-   
+      // If the end of the graph is reached start 2 new traces
+      if (gx > 100) {
+        gx = 0.0;
+        gy = display_data2[99];
+        // Draw empty graph at 40,10 on display
+        gr.drawGraph(graph_top_corner_x, graph_top_corner_y);
+        // Start new trace
+        tr1.startTrace(TFT_GREEN);
+        //tr2.startTrace(TFT_YELLOW);
+      }
+    }*/
   }
-}
 }    
-
+}
 
 //*****************************************************
 // Functions
@@ -429,19 +512,24 @@ void ADC1_Set_Default(){
   //digitalWrite(screen_CS, HIGH);
   //SPI.beginTransaction(SPISettings(spi_max_clk, MSBFIRST, SPI_MODE3));// Mode 3 means clock is idle at HIGH and output edge is falling. Max SPI clk frequency is 50MHz.
   //digitalWrite(ADC1_CS_pin, LOW);
+  hspi->beginTransaction(SPISettings(spi_max_clk, MSBFIRST, SPI_MODE1));
   digitalWrite(ADC1_CS_pin, LOW);
-  byte _recieve = 0;
-  for (int i = 0; i < 8; i++){ // Sending the DEFAULT command to the ADC
-    digitalWrite(SDI_pin, bitRead(15, i)); // set default opcode is 1111
-    digitalWrite(ADC1_CS_pin, HIGH);
-    bitWrite(_recieve, i, digitalRead(SDO_pin));
-    digitalWrite(ADC1_CS_pin, LOW);
-  }
+  hspi->transfer(0xF0); //send DEFAULT command
+  //byte _recieve = 0;
+  //for (int i = 0; i < 8; i++){ // Sending the DEFAULT command to the ADC
+    //digitalWrite(ADC1_SDI_pin, bitRead(15, i)); // set default opcode is 1111
+    //digitalWrite(ADC1_CS_pin, HIGH);
+    //bitWrite(_recieve, i, digitalRead(SDO_pin));
+    //digitalWrite(ADC1_CS_pin, LOW);
+  //}
+  //Serial.println("receive");
+  //Serial.println(_recieve);
   //delayMicroseconds(1);
   //SPI.transfer(15); //sets converter to default mode
   delayMicroseconds(1);
   digitalWrite(ADC1_CS_pin, HIGH);
-  digitalWrite(ADC1_CONVST_pin, HIGH);
+  hspi->endTransaction();
+  //digitalWrite(ADC1_CONVST_pin, HIGH);
   //SPI.endTransaction();
   //digitalWrite(screen_CS, LOW);
   startTFTComms();
@@ -454,14 +542,17 @@ void ADC2_Set_Default(){
   pauseTFTComms();
   delayMicroseconds(1);
   //digitalWrite(screen_CS, HIGH);
-  SPI.beginTransaction(SPISettings(spi_max_clk, MSBFIRST, SPI_MODE3));// Mode 3 means clock is idle at HIGH and output edge is falling. Max SPI clk frequency is 50MHz.
+  //SPI.beginTransaction(SPISettings(spi_max_clk, MSBFIRST, SPI_MODE3));// Mode 3 means clock is idle at HIGH and output edge is falling. Max SPI clk frequency is 50MHz.
+  vspi->beginTransaction(SPISettings(spi_max_clk, MSBFIRST, SPI_MODE1));
   digitalWrite(ADC2_CS_pin, LOW);
   delayMicroseconds(1);
-  SPI.transfer(0b1111); //sets converter to default mode
+  vspi->transfer(0xF0); //send DEFAULT command
+  //SPI.transfer(0b1111); //sets converter to default mode
   delayMicroseconds(1);
   digitalWrite(ADC2_CS_pin, HIGH);
-  digitalWrite(ADC2_CONVST_pin, HIGH);
+  //digitalWrite(ADC2_CONVST_pin, HIGH);
   //digitalWrite(screen_CS, LOW);
+  vspi->endTransaction();
   startTFTComms();
   ADC_14bit_val = ADC1_valH;
   //ADC_14bit_val = (ADC1_valH<<8 | ADC1_valL)>>4;
@@ -470,42 +561,61 @@ void ADC2_Set_Default(){
 
 }
 
+void ADC1_collect_data_flag(){
+    ADC1_can_collect_data = !ADC1_can_collect_data;
+    return;
+
+}
+
+void ADC2_collect_data_flag(){
+    ADC2_can_collect_data = !ADC2_can_collect_data;
+    return;
+
+}
+
 
 void ADC1_collect_data(){
+  Serial.println("ADC_comms");
   pauseTFTComms();
-  //SPI.begin(ADC1_CS_pin);
-  delayMicroseconds(1);
-  //SPI.beginTransaction(SPISettings(spi_max_clk, MSBFIRST, SPI_MODE3));
-  digitalWrite(ADC1_CONVST_pin, HIGH);
   delayMicroseconds(1);
   //digitalWrite(ADC1_CONVST_pin, HIGH);
-  digitalWrite(ADC1_CS_pin, LOW);
-  byte _recieve = 0;
-  for (int i = 0; i < 8; i++){
-    digitalWrite(SDI_pin, bitRead(13, i));
-    digitalWrite(ADC1_CS_pin, HIGH);
-    bitWrite(_recieve, i, digitalRead(SDO_pin));
-    digitalWrite(ADC1_CS_pin, LOW);
-  }
   delayMicroseconds(1);
-  _recieve = 0;
-  for (int i = 0; i < 8; i++){
+  hspi->beginTransaction(SPISettings(spi_max_clk, MSBFIRST, SPI_MODE1));
+  digitalWrite(ADC1_CS_pin, LOW);
+  hspi->transfer(0xD0); //send READ command
+  delayMicroseconds(1);
+  //byte _recieve = 0;
+  //for (int i = 0; i < 8; i++){
+    //digitalWrite(ADC1_SDI_pin, bitRead(13, i)); //13 is READ Opcode
+    //digitalWrite(ADC1_CS_pin, HIGH);
+    //bitWrite(_recieve, i, digitalRead(SDO_pin));
+    //digitalWrite(ADC1_CS_pin, LOW);
+ // }
+  //elayMicroseconds(1);
+  //_recieve = 0;
+  //for (int i = 0; i < 8; i++){
     //digitalWrite(SDI_pin, bitRead(13, i))
-    digitalWrite(ADC1_CS_pin, HIGH);
-    bitWrite(_recieve, i, digitalRead(SDO_pin));
-    digitalWrite(ADC1_CS_pin, LOW);
-  }
-  ADC1_valH = _recieve;
-  _recieve = 0;
-  for (int i = 0; i < 8; i++){
-    //digitalWrite(SDI_pin, bitRead(13, i))
-    digitalWrite(ADC1_CS_pin, HIGH);
-    bitWrite(_recieve, i, digitalRead(SDO_pin));
-    digitalWrite(ADC1_CS_pin, LOW);
-  }
+    //digitalWrite(ADC1_CS_pin, HIGH);
+    //bitWrite(_recieve, i, digitalRead(ADC1_SDO_pin));
+   // digitalWrite(ADC1_CS_pin, LOW);
+  //}
+  //ADC1_valH = _recieve;
   
-  ADC1_valL = _recieve;
-
+  ADC1_valH = hspi->transfer(0b10100000);
+  ADC1_valL = hspi->transfer(0b10100000);
+  Serial.println("ADCH");
+  Serial.println(ADC1_valH);
+  //_recieve = 0;
+  //for (int i = 0; i < 8; i++){
+    //digitalWrite(SDI_pin, bitRead(13, i))
+    //digitalWrite(ADC1_CS_pin, HIGH);
+    //bitWrite(_recieve, i, digitalRead(ADC1_SDO_pin));
+    //digitalWrite(ADC1_CS_pin, LOW);
+ // }
+  
+  //ADC1_valL = _recieve;
+  Serial.println("ADCL");
+  Serial.println(ADC1_valL);
   //delayMicroseconds(1);
   //digitalWrite(ADC1_CONVST_pin, LOW);
   //delayMicroseconds(1);
@@ -525,7 +635,7 @@ void ADC1_collect_data(){
   delayMicroseconds(1);
   ADC_14bit_val = 0;
   ADC_14bit_val = (ADC1_valH<<8 | ADC1_valL)>>4;
-  //SPI.endTransaction();
+  hspi->endTransaction();
   startTFTComms();
   /*//digitalWrite(screen_CS, HIGH);
   SPI.beginTransaction(SPISettings(spi_max_clk, MSBFIRST, SPI_MODE3));// Mode 3 means clock is idle at HIGH and output edge is falling. Max SPI clk frequency is 50MHz.
@@ -564,23 +674,32 @@ void ADC2_collect_data(){
   pauseTFTComms();
   delayMicroseconds(1);
   //digitalWrite(screen_CS, HIGH);
-  SPI.beginTransaction(SPISettings(spi_max_clk, MSBFIRST, SPI_MODE3));// Mode 3 means clock is idle at HIGH and output edge is falling. Max SPI clk frequency is 50MHz.
+  //SPI.beginTransaction(SPISettings(spi_max_clk, MSBFIRST, SPI_MODE3));// Mode 3 means clock is idle at HIGH and output edge is falling. Max SPI clk frequency is 50MHz.
+  vspi->beginTransaction(SPISettings(spi_max_clk, MSBFIRST, SPI_MODE1));
+  digitalWrite(ADC1_CS_pin, LOW);
+  hspi->transfer(0xD0); //send READ command
+  delayMicroseconds(1);
   digitalWrite(ADC2_CS_pin, LOW);
-  delayMicroseconds(1); //delay 1ms
+  delayMicroseconds(520); //delay 1ms
   //do {
     //int i = micros();
   //}while(!ADC1_EocInt);
   //int x = digitalRead(SDO_pin); //communicate with chip to get value
-  ADC2_valH = SPI.transfer(0);
-  delayMicroseconds(14);
-  ADC2_valL = SPI.transfer(0);
-  delayMicroseconds(14);
+  //ADC2_valH = SPI.transfer(0);
+  //delayMicroseconds(14);
+  //ADC2_valL = SPI.transfer(0);
+  //delayMicroseconds(14);
+  ADC2_valH = vspi->transfer(0);
+  ADC2_valL = vspi->transfer(0);
   digitalWrite(ADC2_CS_pin, HIGH);
-  digitalWrite(ADC2_CONVST_pin, HIGH);
-  SPI.endTransaction();
+  delayMicroseconds(1);
+  ADC_14bit_val = 0;
+  ADC_14bit_val = (ADC2_valH<<8 | ADC2_valL)>>4;
+  //digitalWrite(ADC2_CONVST_pin, HIGH);
+  vspi->endTransaction();
   //digitalWrite(screen_CS, LOW);
   startTFTComms();
-  Serial.println(ADC_14bit_val);
+  //Serial.println(ADC_14bit_val);
   return ;
 
 
@@ -595,10 +714,13 @@ if((millis() - last_trigger_press) > DEBOUNCE_TIME) {
 
 
 void trigger_set(){
-  if((millis() - last_trigger_press) > DEBOUNCE_TIME) {
+  //delayMicroseconds(1);
+  //if((millis() - last_trigger_press) > DEBOUNCE_TIME) {
     trigger_state = !trigger_state;
-    last_trigger_press = millis();
-  }
+    //last_trigger_press = millis();
+    //Serial.println("TriggerCheck1");
+  //}
+  //Serial.println("TriggerCheck2");
   return;
 }
 
@@ -734,7 +856,14 @@ void pause_button(){
 }
 
 
-
+void channel_function(){
+  if (channel_state == 2){
+  channel_state = 0;
+  } else {
+    channel_state += 1;
+  }
+  return;
+}
 
 
 
