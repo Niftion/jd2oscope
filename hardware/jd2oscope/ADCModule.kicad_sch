@@ -1985,16 +1985,15 @@
 		)
 		(uuid "12c7e7c2-5eb0-46a2-89e8-9fcdd117ff29")
 	)
-	(text "~59kHz lowpass\n(clarify that this is what we want(?))"
+	(text "~50kHz cutoff"
 		(exclude_from_sim no)
-		(at 119.634 80.01 0)
+		(at 130.556 79.502 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
 		)
-		(uuid "289432f2-d297-4a96-8110-85e64b70e87a")
+		(uuid "13ef13fe-8ab2-4420-98a5-7c296adb7e1a")
 	)
 	(text "Note: fix opamp to have +IN and -IN swapped\n(with current setup it is inverted)"
 		(exclude_from_sim no)
@@ -3270,21 +3269,21 @@
 		(fields_autoplaced yes)
 		(uuid "2df2f5a3-08cb-4b8e-acb4-59f78a1df646")
 		(property "Reference" "C10"
-			(at 135.89 39.3701 0)
+			(at 143.51 36.8299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
-		(property "Value" "0.1u"
-			(at 135.89 36.8301 0)
+		(property "Value" "100nF"
+			(at 143.51 39.3699 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
@@ -3379,7 +3378,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "2.7n"
+		(property "Value" "27nF"
 			(at 119.38 76.1999 0)
 			(effects
 				(font
@@ -3516,7 +3515,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "100nF"
 			(at 210.82 54.6099 0)
 			(effects
 				(font
@@ -3751,7 +3750,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "100nF"
 			(at 83.5025 46.0376 90)
 			(effects
 				(font
@@ -4185,7 +4184,7 @@
 				)
 			)
 		)
-		(property "Value" "117"
+		(property "Value" "120"
 			(at 106.68 62.23 90)
 			(effects
 				(font
@@ -4321,7 +4320,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "100nF"
 			(at 224.79 52.0699 0)
 			(effects
 				(font
@@ -4559,7 +4558,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "100nF"
 			(at 237.49 49.5299 0)
 			(effects
 				(font
