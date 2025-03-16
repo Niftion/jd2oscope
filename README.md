@@ -6,6 +6,7 @@
 - `hardware/`: Mostly complete
   - Adjustments needed to account for pullups/pulldowns & tri-state buffer
   - Considering swapping potentiometers for rotary encoders & using different buttons
+  - Potentially re-evaluate netclasses/copper trace thicknesses
 
 ## Project Leads
 
