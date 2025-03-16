@@ -1,9 +1,9 @@
 ## Project Status
 
-- `3dmodels/`: Mostly complete
+- `3dmodels/`: Iteration 1 complete; iteration 2 WIP
   - Considering different potentiometer & button models
-- `firmware/`: WIP
-- `hardware/`: Mostly complete
+- `firmware/`: Iteration 1 WIP
+- `hardware/`: Iteration 1 complete; iteration 2 WIP
   - Adjustments needed to account for pullups/pulldowns & tri-state buffer
   - Considering swapping potentiometers for rotary encoders & using different buttons
   - Potentially re-evaluate netclasses/copper trace thicknesses
