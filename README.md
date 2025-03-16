@@ -9,6 +9,6 @@
 
 ## Project Leads
 
-- `3dmodels/`: @kaylauyema
-- `firmware/`: @StPelican42
-- `hardware/`: @Niftion
+- `3dmodels/`: [@kaylauyema](https://github.com/kaylauyema)
+- `firmware/`: [@StPelican42](https://github.com/StPelican42)
+- `hardware/`: [@Niftion](https://github.com/Niftion)
