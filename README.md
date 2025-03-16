@@ -1,14 +1,18 @@
 ## Project Status
 
 - `3dmodels/`: Iteration 1 complete; iteration 2 WIP
-  - Considering different potentiometer & button models
+  - Considering different potentiometer & button models (pot.s too small for knobs)
+  - Looking into overhead enclosure for button/knob interface (i.e., transitioning from partially exposed to fully enclosed)
 - `firmware/`: Iteration 1 WIP
+  - Currently troubleshooting issues with SPI comm.; assumed resolution w/ the inclusion of tri-state buffer
+  - potentiometers laggy; assumed resolution w/ swap for rotary encoders
 - `hardware/`: Iteration 1 complete; iteration 2 WIP
   - Adjustments needed to account for pullups/pulldowns & tri-state buffer
   - Considering swapping potentiometers for rotary encoders & using different buttons
   - Potentially re-evaluate netclasses/copper trace thicknesses
   - flip around opAmp (for some reason was inverted in schematics)
   - ensure all passives' values *actually exist* (if not, modify circuit to use ones that do)
+  - Swap 5V LDO to buck converter (& generally re-evaluate power distribution method (currently not adequate for long-term usage))
 
 ## Project Leads
 
