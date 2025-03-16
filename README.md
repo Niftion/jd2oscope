@@ -7,6 +7,7 @@
   - Adjustments needed to account for pullups/pulldowns & tri-state buffer
   - Considering swapping potentiometers for rotary encoders & using different buttons
   - Potentially re-evaluate netclasses/copper trace thicknesses
+  - flip around opAmp (for some reason was inverted in schematics)
 
 ## Project Leads
 
