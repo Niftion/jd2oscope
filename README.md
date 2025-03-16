@@ -8,6 +8,7 @@
   - Considering swapping potentiometers for rotary encoders & using different buttons
   - Potentially re-evaluate netclasses/copper trace thicknesses
   - flip around opAmp (for some reason was inverted in schematics)
+  - ensure all passives' values *actually exist* (if not, modify circuit to use ones that do)
 
 ## Project Leads
 
